@@ -1,0 +1,8 @@
+src/*
+test/*
+*.sublime*
+*.map
+.editorconfig
+.travis.yml
+Gruntfile.coffee
+.npmignore
