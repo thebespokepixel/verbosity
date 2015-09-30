@@ -1,6 +1,6 @@
 'use strict'
 ###
-	verbosity (v0.0.3)
+	verbosity (v0.0.4)
 	Verbosity Controlling Console Writer
 
 	Copyright (c) 2015 CryptoComposite

@@ -1,6 +1,6 @@
 {
   "name": "@thebespokepixel/verbosity",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Automatically handle verbose logging to a tty.",
   "main": "index.js",
   "scripts": {
@@ -30,6 +30,7 @@
     "grunt": "^0.4.5",
     "grunt-bump": "^0.6.0",
     "grunt-force-task": "^1.0.0",
+    "grunt-shell": "^1.1.2",
     "grunt-standard": "^1.0.2",
     "grunt-text-replace": "^0.4.0",
     "grunt-version": "^1.0.0",
