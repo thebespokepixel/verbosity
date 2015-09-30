@@ -1,6 +1,6 @@
 'use strict'
 ###
-	verbosity (v0.0.5)
+	verbosity (v0.0.6)
 	Loggin Level Stream Tests
 ###
 

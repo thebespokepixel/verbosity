@@ -1,6 +1,6 @@
 {
   "name": "@thebespokepixel/verbosity",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Automatically handle verbose logging to a tty.",
   "main": "index.js",
   "scripts": {
@@ -38,7 +38,6 @@
     "vows": "^0.8.1"
   },
   "dependencies": {
-    "bluebird": "^2.10.1",
     "vows": "^0.8.1"
   }
 }
