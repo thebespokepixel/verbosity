@@ -1,6 +1,6 @@
 'use strict'
 ###
-	verbosity (v0.1.10-alpha.0)
+	verbosity (v0.0.2-alpha.356)
 	Verbosity Controlling Console Writer
 
 	Copyright (c) 2015 CryptoComposite
@@ -24,3 +24,15 @@
 	TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 	SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ###
+
+_package = require "./package.json"
+
+module.exports = verbosity =
+	console: require "./lib/verbosity_matrix"
+	getName: -> _package.name
+	getVersion: (long) ->
+		switch long
+			when 2 then "#{_package.name} v#{_package.version}"
+			else "#{_package.version}"
+
+

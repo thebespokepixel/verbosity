@@ -1,9 +1,7 @@
-# truwrap v0.1.10-alpha.0
+# verbosity v0.0.2-alpha.356
 
-![Project status](http://img.shields.io/badge/status-alpha-red.svg?style=flat) [![Build Status](http://img.shields.io/travis/MarkGriffiths/truwrap.svg?branch=master&style=flat)](https://travis-ci.org/MarkGriffiths/truwrap) [![Dependency Status](http://img.shields.io/david/MarkGriffiths/truwrap.svg?style=flat)](https://david-dm.org/MarkGriffiths/truwrap) [![devDependency Status](http://img.shields.io/david/dev/MarkGriffiths/truwrap.svg?style=flat)](https://david-dm.org/MarkGriffiths/truwrap#info=devDependencies)
+![Project status](http://img.shields.io/badge/status-alpha-red.svg?style=flat) [![Build Status](http://img.shields.io/travis/MarkGriffiths/verbosity.svg?branch=master&style=flat)](https://travis-ci.org/MarkGriffiths/verbosity) [![Dependency Status](http://img.shields.io/david/MarkGriffiths/verbosity.svg?style=flat)](https://david-dm.org/MarkGriffiths/verbosity) [![devDependency Status](http://img.shields.io/david/dev/MarkGriffiths/verbosity.svg?style=flat)](https://david-dm.org/MarkGriffiths/verbosity#info=devDependencies)
 
 __Work in progress.__
 
-Smarter text wrapping for modern terminals that support 24bit ansi color.
-
-Initially a port of https://github.com/substack/node-wordwrap to format yargs help output that contained (the very long) ansi 24bit color SGR codes.
+Control console verbosity when using -v or --verbose options.

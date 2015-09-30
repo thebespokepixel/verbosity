@@ -1,10 +1,10 @@
 {
   "name": "@thebespokepixel/verbosity",
-  "version": "0.0.1",
+  "version": "0.0.2-alpha.356",
   "description": "Automatically handle verbose logging to a tty.",
   "main": "index.js",
   "scripts": {
-    "test": "vows test/* --spec"
+    "test": "vows test/*.coffee --spec"
   },
   "keywords": [
     "console",
@@ -34,6 +34,10 @@
     "grunt-text-replace": "^0.4.0",
     "grunt-version": "^1.0.0",
     "load-grunt-tasks": "^3.3.0",
+    "vows": "^0.8.1"
+  },
+  "dependencies": {
+    "bluebird": "^2.10.1",
     "vows": "^0.8.1"
   }
 }

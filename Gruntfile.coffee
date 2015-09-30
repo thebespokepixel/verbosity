@@ -14,17 +14,21 @@ module.exports = (grunt) ->
 					src: ['*.coffee']
 					dest: ''
 					ext: '.js'
+				,
+					expand: yes
+					cwd: 'src/lib'
+					src: ['*.coffee']
+					dest: 'lib'
+					ext: '.js'
 				]
 		standard:
 			options:
 				format: yes
 				lint: yes
-			src: [
-				'{,lib}*.js'
-			]
+			src: ['{,lib/}*.js']
 		replace:
 			shims:
-				src: [ 'index.js', 'lib/**/*.js' ]
+				src: ['index.js', 'lib/**/*.js']
 				overwrite: true
 				replacements: [
 					from: /,\n\s*indexOf.*\n/
@@ -33,11 +37,11 @@ module.exports = (grunt) ->
 		version:
 			default:
 				options:
-					prefix: "#{grunt.config 'pkg.name'} [(]v"
-				src: ['src/*.coffee']
+					prefix: "verbosity [(]v"
+				src: ['src/**/*.coffee', 'test/**/*.coffee']
 			readme:
 				options:
-					prefix: "#{grunt.config 'pkg.name'} v"
+					prefix: "verbosity v"
 				src: ['README.md']
 		bump:
 			options:
