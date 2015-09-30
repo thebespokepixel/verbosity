@@ -1,6 +1,6 @@
 'use strict'
 ###
-	verbosity (v0.0.5-alpha.18)
+	verbosity (v0.0.5)
 	Message Logging Priority Matrix
 ###
 
