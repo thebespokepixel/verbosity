@@ -1,6 +1,6 @@
 'use strict'
 ###
-	verbosity (v0.0.7)
+	verbosity (v0.0.8)
 	Message Logging Priority Matrix
 ###
 util = require 'util'
