@@ -1,6 +1,6 @@
 'use strict'
 ###
-	verbosity (v0.0.6)
+	verbosity (v0.0.7)
 	Verbosity Controlling Console Writer
 
 	Copyright (c) 2015 CryptoComposite
@@ -26,13 +26,20 @@
 ###
 
 _package = require "./package.json"
+_verbosity = require "./lib/verbosity_matrix"
 
-module.exports = verbosity =
-	console: require "./lib/verbosity_matrix"
-	getName: -> _package.name
-	getVersion: (long) ->
-		switch long
-			when 2 then "#{_package.name} v#{_package.version}"
-			else "#{_package.version}"
+exports.console = (
+		sout_ = process.stdout,
+		serr_,
+		level_ = 5
+	) -> new _verbosity sout_, serr_, level_
+
+exports.getName = -> _package.name
+
+exports.getVersion = (level) ->
+	switch level
+		when 1
+			"#{_package.version}"
+		else "#{_package.name} v#{_package.version}"
 
 

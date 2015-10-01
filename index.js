@@ -1,7 +1,7 @@
 'use strict'
 
 /*
-	verbosity (v0.0.6)
+	verbosity (v0.0.7)
 	Verbosity Controlling Console Writer
 
 	Copyright (c) 2015 CryptoComposite
@@ -25,21 +25,31 @@
 	TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 	SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-var _package, verbosity
+var _package, _verbosity
 
 _package = require('./package.json')
 
-module.exports = verbosity = {
-  console: require('./lib/verbosity_matrix'),
-  getName: function () {
-    return _package.name
-  },
-  getVersion: function (long) {
-    switch (long) {
-      case 2:
-        return _package.name + ' v' + _package.version
-      default:
-        return '' + _package.version
-    }
+_verbosity = require('./lib/verbosity_matrix')
+
+exports.console = function (sout_, serr_, level_) {
+  if (sout_ == null) {
+    sout_ = process.stdout
+  }
+  if (level_ == null) {
+    level_ = 5
+  }
+  return new _verbosity(sout_, serr_, level_)
+}
+
+exports.getName = function () {
+  return _package.name
+}
+
+exports.getVersion = function (level) {
+  switch (level) {
+    case 1:
+      return '' + _package.version
+    default:
+      return _package.name + ' v' + _package.version
   }
 }

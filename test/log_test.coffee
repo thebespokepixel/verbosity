@@ -1,74 +1,65 @@
 'use strict'
 ###
-	verbosity (v0.0.6)
+	verbosity (v0.0.7)
 	Loggin Level Tests
 ###
 
+_package = require '../package.json'
+
 vows = require 'vows'
 assert = require 'assert'
+
 StreamProxy = new (require('stream').PassThrough)
 StreamProxy.setEncoding 'utf8'
+
 verbosity = require '..'
-cli = new verbosity.console StreamProxy
+cli = verbosity.console StreamProxy
 
 logmessage = (message, outcome) ->
 	context =
 		topic: ->
-			levels = @context.name.split /\s+/
-			level = levels[0]
-			cmd = levels[1]
+			levels = @context.title.split /\s+/
+			level = parseInt levels[1]
 			cli.verbosity level
-			cli[cmd] message
-		"match #{message} or hidden": (topic) ->
-			if outcome is yes then assert.match topic, /^[a-zA-Z0-9\?!+=\s]+/
-			else assert.ok true, "No output at this level"
+			cli[@context.name] message
+			@callback null, outcome, StreamProxy.read(), message
+
+		"Message '#{message}' logged? #{['no','yes'][0 | outcome]}": (error_, outcome_, message_, messageIn_) ->
+
+			assert.isNull error_
+			assert (message_ is messageIn_) is outcome_
 vows
-	.describe 'verbosity log levels'
+	.describe("#{_package.name} log levels")
 	.addBatch
-		"Log level debug (5)":
-			'as debug':
-				topic: ->
-					cli.verbosity 5
-					cli.debug 'testing debug'
-				'"testing debug" logged': (topic) ->
-						assert.match topic, /testing debug/
-			'as log':
-				topic: ->
-					cli.verbosity 5
-					cli.log 'testing log'
-				'"testing log" logged': (topic) ->
-						assert.match topic, /testing log/
-			'as info':
-				topic: ->
-					cli.verbosity 5
-					cli.info 'testing info'
-				'"testing info" logged': (topic) ->
-						assert.match topic, /testing info/
-	.addBatch
-		'5 debug': logmessage 'hmmmm', yes
-		'5 log':   logmessage 'oh, ok', yes
-		'5 info':  logmessage 'interesting', yes
-		'5 warn':  logmessage 'what happened?', yes
-		'5 error': logmessage 'arrrgh!', yes
-		'4 debug': logmessage 'hmmmm', no
-		'4 log':   logmessage 'oh, ok', yes
-		'4 info':  logmessage 'interesting', yes
-		'4 warn':  logmessage 'what happened?', yes
-		'4 error': logmessage 'arrrgh!', yes
-		'3 debug': logmessage 'hmmmm', no
-		'3 log':   logmessage 'oh, ok', no
-		'3 info':  logmessage 'interesting', yes
-		'3 warn':  logmessage 'what happened?', yes
-		'3 error': logmessage 'arrrgh!', yes
-		'2 debug': logmessage 'hmmmm', no
-		'2 log':   logmessage 'oh, ok', no
-		'2 info':  logmessage 'interesting', no
-		'2 warn':  logmessage 'what happened?', yes
-		'2 error': logmessage 'arrrgh!', yes
-		'1 debug': logmessage 'hmmmm', no
-		'1 log':   logmessage 'oh, ok', no
-		'1 info':  logmessage 'interesting', no
-		'1 warn':  logmessage 'what happened?', no
-		'1 error': logmessage 'arrrgh!', yes
+		'level 5':
+			debug: logmessage 'hmmmm', yes
+			log:   logmessage 'oh, ok', yes
+			info:  logmessage 'interesting', yes
+			warn:  logmessage 'what happened?', yes
+			error: logmessage 'arrrgh!', yes
+		'level 4':
+			debug: logmessage 'hmmmm', no
+			log:   logmessage 'oh, ok', yes
+			info:  logmessage 'interesting', yes
+			warn:  logmessage 'what happened?', yes
+			error: logmessage 'arrrgh!', yes
+		'level 3':
+			debug: logmessage 'hmmmm', no
+			log:   logmessage 'oh, ok', no
+			info:  logmessage 'interesting', yes
+			warn:  logmessage 'what happened?', yes
+			error: logmessage 'arrrgh!', yes
+		'level 2':
+			debug: logmessage 'hmmmm', no
+			log:   logmessage 'oh, ok', no
+			info:  logmessage 'interesting', no
+			warn:  logmessage 'what happened?', yes
+			error: logmessage 'arrrgh!', yes
+		'level 1':
+			debug: logmessage 'hmmmm', no
+			log:   logmessage 'oh, ok', no
+			info:  logmessage 'interesting', no
+			warn:  logmessage 'what happened?', no
+			error: logmessage 'arrrgh!', yes
 	.export(module)
 
