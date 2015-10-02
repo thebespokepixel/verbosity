@@ -54,7 +54,7 @@ Write a Critical/Emergency/Panic error message in red. Best used just before abo
 	console.panic('Core Flux Capacitor Meltdown!')
 ```
 
-    CRITICAL: Core Flux Capacitor Meltdown!
+    $ CRITICAL: Core Flux Capacitor Meltdown!
 
 #### error args... (level 1)
 
