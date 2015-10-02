@@ -1,6 +1,6 @@
 'use strict'
 ###
-	verbosity (v0.0.13)
+	verbosity (v0.0.14)
 	Module Tests
 ###
 
@@ -48,21 +48,32 @@ vows
 		'Console':
 			'instantiation?':
 				topic: ->
-					cli = verbosity.console StreamProxy
-				'cli should be an instanceof console.Console': (topic) ->
+					console = verbosity.console
+						out: StreamProxy
+				'console should be an instanceof console.Console': (topic) ->
 					assert.instanceOf topic, console.Console
 
-			'level is 5 (debug)?':
+			'level is 3 (log)?':
 				topic: ->
-					cli = verbosity.console StreamProxy
-					cli.verbosity()
+					console = verbosity.console
+						out:StreamProxy
+					console.verbosity()
+				"Should be 3": (topic) ->
+					assert.equal topic, 3
+
+			'set level to 5 (debug)?':
+				topic: ->
+					console = verbosity.console
+						out:StreamProxy
+					console.verbosity 5
 				"Should be 5": (topic) ->
 					assert.equal topic, 5
 
 			'set level to 1 (error)?':
 				topic: ->
-					cli = verbosity.console StreamProxy
-					cli.verbosity 1
+					console = verbosity.console
+						out: StreamProxy
+					console.verbosity 1
 				"Should be 1": (topic) ->
 					assert.equal topic, 1
 .export(module)

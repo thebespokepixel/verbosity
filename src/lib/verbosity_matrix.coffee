@@ -1,16 +1,25 @@
 'use strict'
 ###
-	verbosity (v0.0.13)
+	verbosity (v0.0.14)
 	Message Logging Priority Matrix
 ###
 util = require 'util'
 
 class VerbosityMatrix extends console.Console
-	constructor: (@outStream, @errorStream, @threshold) ->
-		@errorStream ?= @outStream
+	constructor: (options) ->
+		{ out, error, @threshold } = options
 
-		unless @outStream.writable and @errorStream.writable
-			throw new Error "Provided outputs must be writable streams"
+		out ?= process.stdout
+		error ?= out
+		@outStream = out
+		unless @outStream.writable
+			throw new Error "Provided output stream must be writable"
+
+		@errorStream = error
+		unless @errorStream.writable
+			throw new Error "Provided error stream must be writable"
+
+		@threshold ?= 3
 
 		super @outStream, @errorStream
 

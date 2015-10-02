@@ -1,6 +1,6 @@
 'use strict'
 ###
-	verbosity (v0.0.13)
+	verbosity (v0.0.14)
 	Loggin Level Tests
 ###
 
@@ -13,15 +13,16 @@ StreamProxy = new (require('stream').PassThrough)
 StreamProxy.setEncoding 'utf8'
 
 verbosity = require '..'
-cli = verbosity.console StreamProxy
+console = verbosity.console
+	out: StreamProxy
 
 logmessage = (message, outcome) ->
 	context =
 		topic: ->
 			levels = @context.title.split /\s+/
 			level = parseInt levels[1]
-			cli.verbosity level
-			cli[@context.name] message
+			console.verbosity level
+			console[@context.name] message
 			@callback null, outcome, StreamProxy.read(), message
 
 		"Message '#{message}' logged? #{['no','yes'][0 | outcome]}": (error_, outcome_, message_, messageIn_) ->
@@ -34,8 +35,8 @@ logcoloured = (message, sgr, prefix, outcome) ->
 		topic: ->
 			levels = @context.title.split /\s+/
 			level = parseInt levels[1]
-			cli.verbosity level
-			cli[@context.name] message
+			console.verbosity level
+			console[@context.name] message
 			@callback null, outcome, StreamProxy.read(), message
 
 		"Message '#{message}' logged? #{['no','yes'][0 | outcome]}": (error_, outcome_, message_, messageIn_) ->

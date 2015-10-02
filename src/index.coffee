@@ -1,6 +1,6 @@
 'use strict'
 ###
-	verbosity (v0.0.13)
+	verbosity (v0.0.14)
 	Verbosity Controlling Console Writer
 
 	Copyright (c) 2015 CryptoComposite
@@ -28,13 +28,9 @@
 _package = require "./package.json"
 _verbosity = require "./lib/verbosity_matrix"
 
-exports.console = (
-		sout_ = process.stdout,
-		serr_,
-		level_ = 5
-	) ->
+exports.console = ( options_ ) ->
 	try
-		new _verbosity sout_, serr_, level_
+		new _verbosity options_
 	catch error_
 		console.error error_.message
 		process.exit 1
