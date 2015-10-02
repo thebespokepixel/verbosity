@@ -1,16 +1,16 @@
-# verbosity v0.0.16
+# verbosity v0.0.17
 
 ![Project status](http://img.shields.io/badge/status-alpha-red.svg?style=flat) [![Build Status](http://img.shields.io/travis/MarkGriffiths/verbosity.svg?branch=master&style=flat)](https://travis-ci.org/MarkGriffiths/verbosity) [![Dependency Status](http://img.shields.io/david/MarkGriffiths/verbosity.svg?style=flat)](https://david-dm.org/MarkGriffiths/verbosity) [![devDependency Status](http://img.shields.io/david/dev/MarkGriffiths/verbosity.svg?style=flat)](https://david-dm.org/MarkGriffiths/verbosity#info=devDependencies) [![npm](https://img.shields.io/npm/v/@thebespokepixel/verbosity.svg?style=flat)](https://www.npmjs.com/package/@thebespokepixel/verbosity)
 
 __Work in progress.__
 
-## Install
+### Install
 
 ```console
 	npm install @thebespokepixel/verbosity --save
 ```
 
-## Usage
+### Usage
 
 Simple override the built in console object:
 
@@ -42,11 +42,11 @@ Simple override the built in console object:
 	})
 ```
 
-## API
+### API
 
 The API inherits from Console, and all the argument parsing options are available.
 
-### (critical | panic | emergency) args... (level 1)
+#### (critical | panic | emergency) args... (level 1)
 
 Write a Critical/Emergency/Panic error message in red. Best used just before aborting the process with a `process.exit(1)`
 
@@ -54,9 +54,9 @@ Write a Critical/Emergency/Panic error message in red. Best used just before abo
 	console.panic('Core Flux Capacitor Meltdown!')
 ```
 
-> <span style="background-color: black"> $ <span style="color: red; font-weight: bold"> CRITICAL: Core Flux Capacitor Meltdown!</span> </span> 
+    CRITICAL: Core Flux Capacitor Meltdown!
 
-### error args... (level 1)
+#### error args... (level 1)
 
 Write a normal error message in red.
 
@@ -64,9 +64,9 @@ Write a normal error message in red.
 	console.error('This statement is false does not overload my logic circuits. moron.')
 ```
 
-> <span style="background-color: black"> $ <span style="color: red"> ERROR:This statement is false does not overload my logic circuits. moron.</span> </span>
+    $ ERROR:This statement is false does not overload my logic circuits. moron.
 
-### warn args... (level 2)
+#### warn args... (level 2)
 
 Write a normal warning message in yellow.
 
@@ -74,25 +74,25 @@ Write a normal warning message in yellow.
 	console.warn("That tie doesn't go with that jacket.")
 ```
 
-> <span style="background-color: black"> $ <span style="color: yellow"> That tie doesn't go with that jacket.</span> </span>
+    $ That tie doesn't go with that jacket.
 
-### log args... (level 3)
+#### log args... (level 3)
 
 As console.log.
 
-### info args... (level 4)
+#### info args... (level 4)
 
 As console.info.
 
-### debug args... (level 5)
+#### debug args... (level 5)
 
 Same and console.info, just a level lower.
 
-### dir object [options]
+#### dir object [options]
 
 As console.dir, but defaults to colour and zero depth.
 
-### pretty object, depth
+#### pretty object, depth
 
 Pretty prints object, similar to OS X's plutil -p. Defaults to zero depth.
 
@@ -112,7 +112,7 @@ Pretty prints object, similar to OS X's plutil -p. Defaults to zero depth.
 	*/
 ```
 
-### yargs object, depth
+#### yargs object, depth
 
 Helper function for pretty printing a summary of the current 'yargs' options.
 
@@ -132,7 +132,7 @@ Only prints 'long options', `._` as 'arguments' and `$0` as 'self'.
 	*/
 ```
 
-### canWrite level
+#### canWrite level
 
 Returns true if a message of level would be printed.
 
@@ -142,22 +142,22 @@ Returns true if a message of level would be printed.
 	}
 ```
 
-### verbosity level
+#### verbosity level
 
 Set the current verbosity. The level will only stick if it's within the correct bounds. i.e 1-5.
 
-### time
+#### time
 
 As console.time.
 
-### timeEnd
+#### timeEnd
 
 As console.timeEnd.
 
-### trace
+#### trace
 
 As console.trace.
 
-### assert
+#### assert
 
 As console.assert.
