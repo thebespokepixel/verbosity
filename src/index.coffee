@@ -1,6 +1,6 @@
 'use strict'
 ###
-	verbosity (v0.0.12)
+	verbosity (v0.0.13)
 	Verbosity Controlling Console Writer
 
 	Copyright (c) 2015 CryptoComposite
@@ -32,7 +32,12 @@ exports.console = (
 		sout_ = process.stdout,
 		serr_,
 		level_ = 5
-	) -> new _verbosity sout_, serr_, level_
+	) ->
+	try
+		new _verbosity sout_, serr_, level_
+	catch error_
+		console.error error_.message
+		process.exit 1
 
 exports.getName = -> _package.name
 

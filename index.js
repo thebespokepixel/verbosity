@@ -1,7 +1,7 @@
 'use strict'
 
 /*
-	verbosity (v0.0.12)
+	verbosity (v0.0.13)
 	Verbosity Controlling Console Writer
 
 	Copyright (c) 2015 CryptoComposite
@@ -32,13 +32,20 @@ _package = require('./package.json')
 _verbosity = require('./lib/verbosity_matrix')
 
 exports.console = function (sout_, serr_, level_) {
+  var error, error_
   if (sout_ == null) {
     sout_ = process.stdout
   }
   if (level_ == null) {
     level_ = 5
   }
-  return new _verbosity(sout_, serr_, level_)
+  try {
+    return new _verbosity(sout_, serr_, level_)
+  } catch (error) {
+    error_ = error
+    console.error(error_.message)
+    return process.exit(1)
+  }
 }
 
 exports.getName = function () {
