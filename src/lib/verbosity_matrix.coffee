@@ -1,6 +1,6 @@
 'use strict'
 ###
-	verbosity (v0.0.11)
+	verbosity (v0.0.12)
 	Message Logging Priority Matrix
 ###
 util = require 'util'
@@ -25,20 +25,24 @@ class VerbosityMatrix extends console.Console
 		if @threshold > 4 then @outStream.write util.format(chunks...) + "\n"
 		else off
 
-	log: (chunks...) =>
+	info: (chunks...) =>
 		if @threshold > 3 then @outStream.write util.format(chunks...) + "\n"
 		else off
 
-	info: (chunks...) =>
+	log: (chunks...) =>
 		if @threshold > 2 then @outStream.write util.format(chunks...) + "\n"
 		else off
 
 	warn: (chunks...) =>
-		if @threshold > 1 then @errorStream.write util.format(chunks...) + "\n"
+		if @threshold > 1 then @errorStream.write "\x1b[33m" + util.format(chunks...) + "\x1b[0m\n"
 		else off
 
 	error: (chunks...) =>
-		if @threshold > 0 then @errorStream.write util.format(chunks...) + "\n"
+		if @threshold > 0 then @errorStream.write "\x1b[31mERROR: " + util.format(chunks...) + "\x1b[0m\n"
+		else off
+
+	critical: (chunks...) =>
+		if @threshold > 0 then @errorStream.write "\x1b[31mCRITICAL: " + util.format(chunks...) + "\x1b[0m\n"
 		else off
 
 	dir: (obj) ->
