@@ -1,6 +1,6 @@
 {
   "name": "@thebespokepixel/verbosity",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Automatically handle verbose logging to a tty.",
   "main": "index.js",
   "scripts": {

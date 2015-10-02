@@ -1,6 +1,6 @@
 'use strict'
 ###
-	verbosity (v0.0.9)
+	verbosity (v0.0.10)
 	Loggin Level Tests
 ###
 
@@ -27,7 +27,7 @@ logmessage = (message, outcome) ->
 		"Message '#{message}' logged? #{['no','yes'][0 | outcome]}": (error_, outcome_, message_, messageIn_) ->
 
 			assert.isNull error_
-			assert (message_ is messageIn_) is outcome_
+			assert (message_ is messageIn_ + "\n") is outcome_
 vows
 	.describe("#{_package.name} log levels")
 	.addBatch
