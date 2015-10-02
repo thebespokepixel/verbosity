@@ -1,13 +1,13 @@
 'use strict'
 ###
-	verbosity (v0.0.19)
+	verbosity (v0.0.20)
 	Message Logging Priority Matrix
 ###
 util = require 'util'
 
 class VerbosityMatrix extends console.Console
-	constructor: (options = {}) ->
-		{ out, error, verbosity } = options
+	constructor: (options_) ->
+		{ out, error, verbosity } = options_
 
 		out ?= process.stdout
 		error ?= out

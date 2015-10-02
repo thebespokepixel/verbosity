@@ -1,7 +1,7 @@
 'use strict'
 
 /*
-	verbosity (v0.0.19)
+	verbosity (v0.0.20)
 	Verbosity Controlling Console Writer
 
 	Copyright (c) 2015 CryptoComposite
@@ -33,6 +33,9 @@ _verbosity = require('./lib/verbosity_matrix')
 
 exports.console = function (options_) {
   var error, error_
+  if (options_ == null) {
+    options_ = {}
+  }
   try {
     return new _verbosity(options_)
   } catch (error) {

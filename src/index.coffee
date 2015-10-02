@@ -1,6 +1,6 @@
 'use strict'
 ###
-	verbosity (v0.0.19)
+	verbosity (v0.0.20)
 	Verbosity Controlling Console Writer
 
 	Copyright (c) 2015 CryptoComposite
@@ -28,7 +28,7 @@
 _package = require "./package.json"
 _verbosity = require "./lib/verbosity_matrix"
 
-exports.console = ( options_ ) ->
+exports.console = ( options_ = {} ) ->
 	try
 		new _verbosity options_
 	catch error_
