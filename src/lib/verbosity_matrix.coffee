@@ -1,6 +1,6 @@
 'use strict'
 ###
-	verbosity (v0.0.10)
+	verbosity (v0.0.11)
 	Message Logging Priority Matrix
 ###
 util = require 'util'
@@ -43,9 +43,31 @@ class VerbosityMatrix extends console.Console
 
 	dir: (obj) ->
 		super obj,
-			showHidden: no
 			depth: 5
 			colors: yes
 		obj
+
+	pretty: (obj, depth = 3) ->
+		formatted = util.inspect obj,
+			depth: depth
+			colors: yes
+		@outStream.write util.format "Object:\n  %s\n", formatted[2..-2].replace(/:/g, ' ▸').replace /,\n/g, '\n'
+
+	yargs: (obj) ->
+		parsed = {}
+		for key, val of obj
+			switch key
+				when '_'
+					parsed.arguments = val.join ' ' if val.length > 0
+				when '$0'
+					parsed.self = val
+				else
+					if key.length > 1
+						parsed[key] = val
+
+		formatted = util.inspect parsed,
+			colors: yes
+
+		@outStream.write util.format "Options (yargs):\n  %s\n", formatted[2..-2]
 
 module.exports = VerbosityMatrix

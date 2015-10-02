@@ -1,6 +1,6 @@
 'use strict'
 ###
-	verbosity (v0.0.10)
+	verbosity (v0.0.11)
 	Verbosity Controlling Console Writer
 
 	Copyright (c) 2015 CryptoComposite
@@ -41,5 +41,4 @@ exports.getVersion = (level) ->
 		when 1
 			"#{_package.version}"
 		else "#{_package.name} v#{_package.version}"
-
 
