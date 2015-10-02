@@ -41,7 +41,7 @@ module.exports = (grunt) ->
 				src: ['src/**/*.coffee', 'test/**/*.coffee']
 			readme:
 				options:
-					prefix: "verbosity v"
+					prefix: "(verbosity v|\# Outputs )"
 				src: ['README.md']
 		bump:
 			options:

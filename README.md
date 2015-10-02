@@ -1,4 +1,4 @@
-# verbosity v0.0.20
+# verbosity v0.0.21-alpha.6
 
 ![Project status](http://img.shields.io/badge/status-alpha-red.svg?style=flat) [![Build Status](http://img.shields.io/travis/MarkGriffiths/verbosity.svg?branch=master&style=flat)](https://travis-ci.org/MarkGriffiths/verbosity) [![Dependency Status](http://img.shields.io/david/MarkGriffiths/verbosity.svg?style=flat)](https://david-dm.org/MarkGriffiths/verbosity) [![devDependency Status](http://img.shields.io/david/dev/MarkGriffiths/verbosity.svg?style=flat)](https://david-dm.org/MarkGriffiths/verbosity#info=devDependencies) [![npm](https://img.shields.io/npm/v/@thebespokepixel/verbosity.svg?style=flat)](https://www.npmjs.com/package/@thebespokepixel/verbosity)
 
@@ -14,7 +14,7 @@ A augmented drop-in console replacement that supports logging levels.
 
 ### Usage
 
-Simply override the built in console object:
+Inside a single script, simply override the built in console object:
 
 ```js
 	// This will duplicate the behaviour of the built in console object.
@@ -42,6 +42,21 @@ Simply override the built in console object:
 		out: myFancyWriteableStream
 		verbosity: 5
 	})
+```
+
+To override the console object globally, in your main script (as coffeescript):
+
+```coffee
+	verbosity = require "@thebespokepixel/verbosity"
+	global.vconsole = verbosity.console
+		out: process.stderr
+
+	# You can then specify the override in each script's header.
+	console = global.vconsole
+
+	# Using the above pattern, you can also access verbosity helper methods.
+	verbosity.getVersion()
+	# Outputs 0.0.21-alpha.6
 ```
 
 ### API
