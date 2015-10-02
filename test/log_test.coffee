@@ -1,6 +1,6 @@
 'use strict'
 ###
-	verbosity (v0.0.15)
+	verbosity (v0.0.16)
 	Loggin Level Tests
 ###
 
@@ -39,10 +39,24 @@ logcoloured = (message, sgr, prefix, outcome) ->
 			console[@context.name] message
 			@callback null, outcome, StreamProxy.read(), message
 
-		"Message '#{message}' logged? #{['no','yes'][0 | outcome]}": (error_, outcome_, message_, messageIn_) ->
+		"Coloured message '#{message}' logged? #{['no','yes'][0 | outcome]}": (error_, outcome_, message_, messageIn_) ->
 
 			assert.isNull error_
 			assert (message_ is "\x1b[#{sgr}m"+ "#{prefix}" + messageIn_ + "\x1b[0m\n") is outcome_
+
+logbold = (message, sgr, prefix, outcome) ->
+	context =
+		topic: ->
+			levels = @context.title.split /\s+/
+			level = parseInt levels[1]
+			console.verbosity level
+			console[@context.name] message
+			@callback null, outcome, StreamProxy.read(), message
+
+		"Bold, coloured message '#{message}' logged? #{['no','yes'][0 | outcome]}": (error_, outcome_, message_, messageIn_) ->
+
+			assert.isNull error_
+			assert (message_ is "\x1b[1m\x1b[#{sgr}m"+ "#{prefix}" + messageIn_ + "\x1b[0m\n") is outcome_
 vows
 	.describe("#{_package.name} log levels")
 	.addBatch
@@ -52,34 +66,34 @@ vows
 			log      : logmessage 'oh, ok', yes
 			warn     : logcoloured 'what happened?', 33, '', yes
 			error    : logcoloured 'arrrgh!', 31, 'ERROR: ', yes
-			critical : logcoloured 'PANIC!', 31, 'CRITICAL: ', yes
+			critical : logbold 'Red Alert!', 31, 'CRITICAL: ', yes
 		'level 4':
 			debug    : logmessage 'hmmmm', no
 			info     : logmessage 'interesting', yes
 			log      : logmessage 'oh, ok', yes
 			warn     : logcoloured 'what happened?', 33, '', yes
 			error    : logcoloured 'arrrgh!', 31, 'ERROR: ', yes
-			critical : logcoloured 'PANIC!', 31, 'CRITICAL: ', yes
+			panic    : logbold 'PANIC!', 31, 'CRITICAL: ', yes
 		'level 3':
-			debug    : logmessage 'hmmmm', no
-			info     : logmessage 'interesting', no
-			log      : logmessage 'oh, ok', yes
-			warn     : logcoloured 'what happened?', 33, '', yes
-			error    : logcoloured 'arrrgh!', 31, 'ERROR: ', yes
-			critical : logcoloured 'PANIC!', 31, 'CRITICAL: ', yes
+			debug     : logmessage 'hmmmm', no
+			info      : logmessage 'interesting', no
+			log       : logmessage 'oh, ok', yes
+			warn      : logcoloured 'what happened?', 33, '', yes
+			error     : logcoloured 'arrrgh!', 31, 'ERROR: ', yes
+			emergency : logbold 'EMERGENCY!', 31, 'CRITICAL: ', yes
 		'level 2':
 			debug    : logmessage 'hmmmm', no
 			info     : logmessage 'interesting', no
 			log      : logmessage 'oh, ok', no
 			warn     : logcoloured 'what happened?', 33, '', yes
 			error    : logcoloured 'arrrgh!', 31, 'ERROR: ', yes
-			critical : logcoloured 'PANIC!', 31, 'CRITICAL: ', yes
+			critical : logbold 'Blimey Penfold!', 31, 'CRITICAL: ', yes
 		'level 1':
 			debug    : logmessage 'hmmmm', no
 			info     : logmessage 'interesting', no
 			log      : logmessage 'oh, ok', no
 			warn     : logcoloured 'what happened?', 33, '', no
 			error    : logcoloured 'arrrgh!', 31, 'ERROR: ', yes
-			critical : logcoloured 'PANIC!', 31, 'CRITICAL: ', yes
+			critical : logbold 'Damn you Chell, not again.', 31, 'CRITICAL: ', yes
 	.export(module)
 

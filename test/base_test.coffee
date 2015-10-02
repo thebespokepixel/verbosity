@@ -1,6 +1,6 @@
 'use strict'
 ###
-	verbosity (v0.0.15)
+	verbosity (v0.0.16)
 	Module Tests
 ###
 

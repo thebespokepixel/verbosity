@@ -1,6 +1,6 @@
 'use strict'
 ###
-	verbosity (v0.0.15)
+	verbosity (v0.0.16)
 	Verbosity Controlling Console Writer
 
 	Copyright (c) 2015 CryptoComposite
@@ -33,6 +33,7 @@ exports.console = ( options_ ) ->
 		new _verbosity options_
 	catch error_
 		console.error error_.message
+		console.trace()
 		process.exit 1
 
 exports.getName = -> _package.name
@@ -42,4 +43,3 @@ exports.getVersion = (level) ->
 		when 1
 			"#{_package.version}"
 		else "#{_package.name} v#{_package.version}"
-

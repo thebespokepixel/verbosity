@@ -1,7 +1,7 @@
 'use strict'
 
 /*
-	verbosity (v0.0.15)
+	verbosity (v0.0.16)
 	Verbosity Controlling Console Writer
 
 	Copyright (c) 2015 CryptoComposite
@@ -38,6 +38,7 @@ exports.console = function (options_) {
   } catch (error) {
     error_ = error
     console.error(error_.message)
+    console.trace()
     return process.exit(1)
   }
 }

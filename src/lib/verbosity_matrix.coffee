@@ -1,13 +1,13 @@
 'use strict'
 ###
-	verbosity (v0.0.15)
+	verbosity (v0.0.16)
 	Message Logging Priority Matrix
 ###
 util = require 'util'
 
 class VerbosityMatrix extends console.Console
 	constructor: (options) ->
-		{ out, error, @threshold } = options
+		{ out, error, verbosity } = options
 
 		out ?= process.stdout
 		error ?= out
@@ -19,7 +19,8 @@ class VerbosityMatrix extends console.Console
 		unless @errorStream.writable
 			throw new Error "Provided error stream must be writable"
 
-		@threshold ?= 3
+		verbosity ?= 3
+		@threshold = verbosity
 
 		super @outStream, @errorStream
 
@@ -51,20 +52,26 @@ class VerbosityMatrix extends console.Console
 		else off
 
 	critical: (chunks...) =>
-		if @threshold > 0 then @errorStream.write "\x1b[31mCRITICAL: " + util.format(chunks...) + "\x1b[0m\n"
+		if @threshold > 0 then @errorStream.write "\x1b[1m\x1b[31mCRITICAL: " + util.format(chunks...) + "\x1b[0m\n"
 		else off
 
-	dir: (obj) ->
+	panic: (chunks...) -> @critical chunks...
+	emergency: (chunks...) -> @critical chunks...
+
+	dir: (obj, options) ->
+		options ?= {}
+		options.depth ?= 0
+		options.color ?= yes
 		super obj,
 			depth: 5
 			colors: yes
 		obj
 
-	pretty: (obj, depth = 3) ->
+	pretty: (obj, descend = 0) ->
 		formatted = util.inspect obj,
-			depth: depth
+			depth: descend
 			colors: yes
-		@outStream.write util.format "Object:\n  %s\n", formatted[2..-2].replace(/:/g, ' ▸').replace /,\n/g, '\n'
+		@outStream.write util.format "Object: %s\n", formatted[..-2].replace(/^(\w+) {/, '$1').replace(/:/g, ' ▸').replace /,\n/g, '\n'
 
 	yargs: (obj) ->
 		parsed = {}
@@ -81,6 +88,6 @@ class VerbosityMatrix extends console.Console
 		formatted = util.inspect parsed,
 			colors: yes
 
-		@outStream.write util.format "Options (yargs):\n  %s\n", formatted[2..-2]
+		@outStream.write util.format "Options (yargs):\n  %s\n", formatted[2..-2].replace(/:/g, ' ▸').replace /,\n/g, '\n'
 
 module.exports = VerbosityMatrix
