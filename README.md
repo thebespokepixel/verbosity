@@ -1,8 +1,10 @@
-# verbosity v0.0.17
+# verbosity v0.0.18
 
 ![Project status](http://img.shields.io/badge/status-alpha-red.svg?style=flat) [![Build Status](http://img.shields.io/travis/MarkGriffiths/verbosity.svg?branch=master&style=flat)](https://travis-ci.org/MarkGriffiths/verbosity) [![Dependency Status](http://img.shields.io/david/MarkGriffiths/verbosity.svg?style=flat)](https://david-dm.org/MarkGriffiths/verbosity) [![devDependency Status](http://img.shields.io/david/dev/MarkGriffiths/verbosity.svg?style=flat)](https://david-dm.org/MarkGriffiths/verbosity#info=devDependencies) [![npm](https://img.shields.io/npm/v/@thebespokepixel/verbosity.svg?style=flat)](https://www.npmjs.com/package/@thebespokepixel/verbosity)
 
 __Work in progress.__
+
+A augmented drop-in console replacement that supports logging levels. 
 
 ### Install
 
@@ -12,7 +14,7 @@ __Work in progress.__
 
 ### Usage
 
-Simple override the built in console object:
+Simply override the built in console object:
 
 ```js
 	// This will duplicate the behaviour of the built in console object.
@@ -34,7 +36,7 @@ Simple override the built in console object:
 	})
 
 
-	// Or go mad with making up and number or custom console writers
+	// Or go mad with making up any number of custom console writers.
 
 	myUberConsole = require("@thebespokepixel/verbosity").console({
 		out: myFancyWriteableStream
