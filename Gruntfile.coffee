@@ -21,36 +21,6 @@ module.exports = (grunt) ->
 					dest: 'lib'
 					ext: '.js'
 				]
-		esformatter:
-			options:
-				preset: 'default'
-				plugins: [
-			      'esformatter-var-each'
-			      'esformatter-quotes'
-			      'esformatter-spaced-lined-comment'
-			      'esformatter-use-strict'
-			      'esformatter-literal-notation'
-			      'esformatter-asi'
-			    ],
-				skipHashbang: yes
-				indent:
-					value: '\t'
-			src: ['{,lib/}*.js']
-		replace:
-			shims:
-				src: ['index.js', 'lib/**/*.js']
-				overwrite: true
-				replacements: [
-					from: /,\n\s*indexOf.*\n/
-					to: '\nvar indexOf = [].indexOf\n'
-				]
-			implicitstrings:
-				src: ['index.js', 'lib/**/*.js']
-				overwrite: true
-				replacements: [
-					from: /(\s*)return\s""\s\+\s(\w+)/
-					to: '$1return String ($2)'
-				]
 		version:
 			default:
 
@@ -83,10 +53,10 @@ module.exports = (grunt) ->
 	grunt.registerTask 'default', ['bump-only:prerelease', 'version', 'coffee:compile', 'force:shell:version']
 	grunt.registerTask 'commit',  ['default', 'bump-commit']
 	grunt.registerTask 'push',    ['default', 'release', 'bump-commit']
-	grunt.registerTask 'patch',   ['bump-only:prepatch', 'version', 'coffee:compile', 'replace', 'esformatter', 'bump-commit']
-	grunt.registerTask 'minor',   ['bump-only:preminor', 'version', 'coffee:compile', 'replace', 'esformatter', 'bump-commit']
-	grunt.registerTask 'major',   ['bump-only:premajor', 'version', 'coffee:compile', 'replace', 'esformatter', 'bump-commit']
-	grunt.registerTask 'final',   ['bump-only', 'version', 'coffee:compile', 'release:final', 'replace', 'esformatter', 'bump-commit']
+	grunt.registerTask 'patch',   ['bump-only:prepatch', 'version', 'coffee:compile', 'bump-commit']
+	grunt.registerTask 'minor',   ['bump-only:preminor', 'version', 'coffee:compile', 'bump-commit']
+	grunt.registerTask 'major',   ['bump-only:premajor', 'version', 'coffee:compile', 'bump-commit']
+	grunt.registerTask 'final',   ['bump-only', 'version', 'coffee:compile', 'release:final', 'bump-commit']
 	grunt.registerTask 'publish', ['shell:publish']
 	grunt.registerTask 'shipit',  ['final', 'publish']
 

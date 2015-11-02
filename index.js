@@ -1,7 +1,7 @@
 'use strict';
 
 /*
-	verbosity (v0.0.22)
+	verbosity (v0.0.23)
 	Verbosity Controlling Console Writer
 
 	Copyright (c) 2015 CryptoComposite
@@ -45,7 +45,7 @@ exports.getName = function() {
 exports.getVersion = function(level) {
   switch (level) {
     case 1:
-      return String (_package).version;
+      return "" + _package.version;
     default:
       return _package.name + " v" + _package.version;
   }
