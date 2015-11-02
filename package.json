@@ -1,10 +1,10 @@
 {
   "name": "@thebespokepixel/verbosity",
-  "version": "0.0.21-alpha.50",
+  "version": "0.0.21",
   "description": "Automatically handle verbose logging to a tty.",
   "main": "index.js",
   "scripts": {
-    "test": "xo && vows test/*.coffee --spec"
+    "test": "vows test/*.coffee --spec"
   },
   "keywords": [
     "console",
