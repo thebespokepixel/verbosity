@@ -1,7 +1,7 @@
-'use strict'
+'use strict';
 
 /*
-	verbosity (v0.0.21-alpha.6)
+	verbosity (v0.0.21-alpha.50)
 	Verbosity Controlling Console Writer
 
 	Copyright (c) 2015 CryptoComposite
@@ -25,36 +25,28 @@
 	TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 	SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-var _package, _verbosity
+var _package, _verbosity;
 
-_package = require('./package.json')
+_package = require("./package.json");
 
-_verbosity = require('./lib/verbosity_matrix')
+_verbosity = require("./lib/verbosity_matrix");
 
-exports.console = function (options_) {
-  var error, error_
+exports.console = function(options_) {
   if (options_ == null) {
-    options_ = {}
+    options_ = {};
   }
-  try {
-    return new _verbosity(options_)
-  } catch (error) {
-    error_ = error
-    console.error(error_.message)
-    console.trace()
-    return process.exit(1)
-  }
-}
+  return new _verbosity(options_);
+};
 
-exports.getName = function () {
-  return _package.name
-}
+exports.getName = function() {
+  return _package.name;
+};
 
-exports.getVersion = function (level) {
+exports.getVersion = function(level) {
   switch (level) {
     case 1:
-      return '' + _package.version
+      return "" + _package.version;
     default:
-      return _package.name + ' v' + _package.version
+      return _package.name + " v" + _package.version;
   }
-}
+};
