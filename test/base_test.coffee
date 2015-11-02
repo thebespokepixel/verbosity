@@ -1,6 +1,6 @@
 'use strict'
 ###
-	verbosity (v0.0.21)
+	verbosity (v0.0.22)
 	Module Tests
 ###
 
@@ -28,7 +28,7 @@ vows
 			"is semvar?":
 				topic: verbosity.getVersion 1
 				"#{_package.version} matches /[0-9]+.[0-9]+.[0-9]+[0-9a-z.-]*/": (topic) ->
-					assert.match topic, /[0-9]+.[0-9]+.[0-9]+[0-9a-z.-]*/
+					assert.match topic, /[0-9]+\.[0-9]+\.[0-9]+[0-9a-z.-]*/
 
 			"is #{_package.version}?":
 				topic: verbosity.getVersion 1
