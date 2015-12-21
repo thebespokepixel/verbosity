@@ -1,4 +1,4 @@
-# verbosity v0.1.0
+# verbosity v0.1.1
 
 ![Project status](http://img.shields.io/badge/status-alpha-red.svg?style=flat) [![Build Status](http://img.shields.io/travis/MarkGriffiths/verbosity.svg?branch=master&style=flat)](https://travis-ci.org/MarkGriffiths/verbosity) [![Dependency Status](http://img.shields.io/david/MarkGriffiths/verbosity.svg?style=flat)](https://david-dm.org/MarkGriffiths/verbosity) [![devDependency Status](http://img.shields.io/david/dev/MarkGriffiths/verbosity.svg?style=flat)](https://david-dm.org/MarkGriffiths/verbosity#info=devDependencies) [![npm](https://img.shields.io/npm/v/@thebespokepixel/verbosity.svg?style=flat)](https://www.npmjs.com/package/@thebespokepixel/verbosity)
 
@@ -56,7 +56,7 @@ To override the console object globally, in your main script (as coffeescript):
 
 	# Using the above pattern, you can also access verbosity helper methods.
 	verbosity.getVersion()
-	# Outputs 0.1.0
+	# Outputs 0.1.1
 ```
 
 ### API
