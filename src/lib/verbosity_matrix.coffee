@@ -1,9 +1,10 @@
 'use strict'
 ###
-	verbosity (v0.1.1)
+	verbosity (v0.1.2)
 	Message Logging Priority Matrix
 ###
 util = require 'util'
+in_color = not (/no-color/.test process.argv.join '')
 
 class VerbosityMatrix extends console.Console
 	constructor: (options_) ->
@@ -11,18 +12,17 @@ class VerbosityMatrix extends console.Console
 
 		out ?= process.stdout
 		error ?= out
-		@outStream = out
-		super @outStream, @errorStream
-		unless @outStream.writable
-			throw new Error 'Provided output stream must be writable'
 
-		@errorStream = error
-		unless @errorStream.writable
+		unless out.writable
+			throw new Error 'Provided output stream must be writable'
+		unless error.writable
 			throw new Error 'Provided error stream must be writable'
 
+		super out, error
+
 		@threshold = verbosity ? 3
-
-
+		@outStream = out
+		@errorStream = error
 
 	verbosity: (level_) =>
 		@threshold = level_ if 0 < level_ < 6
@@ -61,16 +61,23 @@ class VerbosityMatrix extends console.Console
 	dir: (obj, options) ->
 		options ?= {}
 		options.depth ?= 0
-		options.color ?= yes
+		options.color ?= in_color
 		super obj,
+			depth: options.depth
+			colors: options.color
+		return obj
+
+	trace: (obj, title="") ->
+		@dir obj,
 			depth: 5
-			colors: yes
-		obj
+		@error "Line: #{obj.line}", "Column: #{obj.column}", title
+		super obj
+		return
 
 	pretty: (obj, descend = 0) ->
 		formatted = util.inspect obj,
 			depth: descend
-			colors: yes
+			colors: in_color
 		@outStream.write util.format "Content: %s\n", formatted[..-2].
 			replace(/^{/, 'Object\n ').
 			replace(/^\[/, 'Array\n ').
@@ -91,7 +98,7 @@ class VerbosityMatrix extends console.Console
 						parsed[key] = val
 
 		formatted = util.inspect parsed,
-			colors: yes
+			colors: in_color
 
 		@outStream.write util.format "Options (yargs):\n  %s\n", formatted[2..-2].replace(/:/g, ' ▸').replace /,\n/g, '\n'
 
