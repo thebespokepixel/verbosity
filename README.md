@@ -20,8 +20,8 @@ A augmented drop-in console replacement that supports logging levels.
 
 ### Install
 
-```console
-	npm install @thebespokepixel/verbosity --save
+```sh
+npm install verbosity --save
 ```
 
 ### Usage
@@ -29,46 +29,46 @@ A augmented drop-in console replacement that supports logging levels.
 Inside a single script, simply override the built in console object:
 
 ```js
-	// This will duplicate the behaviour of the built in console object.
+// This will duplicate the behaviour of the built in console object.
 	
-	console = require("@thebespokepixel/verbosity").console({
-		out: process.stdout
-		error: process.stderr
-		verbosity: 5
-	})
+console = require("verbosity").console({
+	out: process.stdout
+	error: process.stderr
+	verbosity: 5
+})
 
-	/* 
-	  This will direct all console output to stderr,
-	  but silence 'info' and 'debug' messages.
-	*/
+/* 
+  This will direct all console output to stderr,
+  but silence 'info' and 'debug' messages.
+*/
 
-	console = require("@thebespokepixel/verbosity").console({
-		out: process.stderr
-		verbosity: 3
-	})
+console = require("verbosity").console({
+	out: process.stderr
+	verbosity: 3
+})
 
 
-	// Or go mad with making up any number of custom console writers.
+// Or go mad with making up any number of custom console writers.
 
-	myUberConsole = require("@thebespokepixel/verbosity").console({
-		out: myFancyWriteableStream
-		verbosity: 5
-	})
+myUberConsole = require("verbosity").console({
+	out: myFancyWriteableStream
+	verbosity: 5
+})
 ```
 
 To override the console object globally, in your main script (as coffeescript):
 
 ```coffee
-	verbosity = require "@thebespokepixel/verbosity"
-	global.vconsole = verbosity.console
-		out: process.stderr
+verbosity = require "verbosity"
+global.vconsole = verbosity.console
+	out: process.stderr
 
-	# You can then specify the override in each script's header.
-	console = global.vconsole
+# You can then specify the override in each script's header.
+console = global.vconsole
 
-	# Using the above pattern, you can also access verbosity helper methods.
-	verbosity.getVersion()
-	# Outputs 0.1.3-alpha.0
+# Using the above pattern, you can also access verbosity helper methods.
+verbosity.getVersion()
+# Outputs 0.1.3-alpha.0
 ```
 
 ### API
@@ -80,7 +80,7 @@ The API inherits from Console, and all the argument parsing options are availabl
 Write a Critical/Emergency/Panic error message in red. Best used just before aborting the process with a `process.exit(1)`
 
 ```js
-	console.panic('Core Flux Capacitor Meltdown!')
+console.panic('Core Flux Capacitor Meltdown!')
 ```
 
     $ CRITICAL: Core Flux Capacitor Meltdown!
@@ -90,7 +90,7 @@ Write a Critical/Emergency/Panic error message in red. Best used just before abo
 Write a normal error message in red.
 
 ```js
-	console.error('This statement is false does not overload my logic circuits. moron.')
+console.error('This statement is false does not overload my logic circuits. moron.')
 ```
 
     $ ERROR:This statement is false does not overload my logic circuits. moron.
@@ -100,7 +100,7 @@ Write a normal error message in red.
 Write a normal warning message in yellow.
 
 ```js
-	console.warn("That tie doesn't go with that jacket.")
+console.warn("That tie doesn't go with that jacket.")
 ```
 
     $ That tie doesn't go with that jacket.
@@ -126,19 +126,19 @@ As console.dir, but defaults to colour and zero depth.
 Pretty prints object, similar to OS X's plutil -p. Defaults to zero depth.
 
 ```js
-	console.pretty(console)
+console.pretty(console)
 
-	/* Yeilds:
-		Object: VerbosityMatrix
-		  critical ▸ [Function]
-		  error ▸ [Function ▸ bound ]
-		  warn ▸ [Function ▸ bound ]
-		  log ▸ [Function ▸ bound ]
-		  info ▸ [Function ▸ bound ]
-		  debug ▸ [Function]
-		  canWrite ▸ [Function]
-		  ...
-	*/
+/* Yeilds:
+	Object: VerbosityMatrix
+	  critical ▸ [Function]
+	  error ▸ [Function ▸ bound ]
+	  warn ▸ [Function ▸ bound ]
+	  log ▸ [Function ▸ bound ]
+	  info ▸ [Function ▸ bound ]
+	  debug ▸ [Function]
+	  canWrite ▸ [Function]
+	  ...
+*/
 ```
 
 #### yargs object, depth
@@ -148,17 +148,17 @@ Helper function for pretty printing a summary of the current 'yargs' options.
 Only prints 'long options', `._` as 'arguments' and `$0` as 'self'.
 
 ```js
-	console.yargs(yargs)
+console.yargs(yargs)
 
-	/* Yeilds:
-		Object (yargs):
-		  left ▸ 2
-		  right ▸ 2
-		  mode ▸ 'hard'
-		  encoding ▸ 'utf8'
-		  ...
-		  self ▸ '/usr/local/bin/truwrap'
-	*/
+/* Yeilds:
+	Object (yargs):
+	  left ▸ 2
+	  right ▸ 2
+	  mode ▸ 'hard'
+	  encoding ▸ 'utf8'
+	  ...
+	  self ▸ '/usr/local/bin/truwrap'
+*/
 ```
 
 #### canWrite level
@@ -166,9 +166,9 @@ Only prints 'long options', `._` as 'arguments' and `$0` as 'self'.
 Returns true if a message of level would be printed.
 
 ```js
-	if (console.canWrite(5)) {
-		// Do something only if we're current logging at a debug level.
-	}
+if (console.canWrite(5)) {
+	// Do something only if we're current logging at a debug level.
+}
 ```
 
 #### verbosity level
