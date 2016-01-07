@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/MarkGriffiths/verbosity#readme",
   "dependencies": {
-    "term-ng": "^0.1.0"
+    "term-ng": "^0.2.0"
   },
   "devDependencies": {
     "coffee-script": "^1.10.0",
