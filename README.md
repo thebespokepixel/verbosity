@@ -1,10 +1,22 @@
-# verbosity v0.1.2
+[project-badge]: http://img.shields.io/badge/status-beta-blue.svg?style=flat
+[build-badge]: http://img.shields.io/travis/MarkGriffiths/verbosity.svg?branch=master&style=flat
+[david-badge]: http://img.shields.io/david/MarkGriffiths/verbosity.svg?style=flat
+[david-dev-badge]: http://img.shields.io/david/dev/MarkGriffiths/verbosity.svg?style=flat
+[npm-badge]: https://img.shields.io/npm/v/verbosity.svg?style=flat
 
-![Project status](http://img.shields.io/badge/status-alpha-red.svg?style=flat) [![Build Status](http://img.shields.io/travis/MarkGriffiths/verbosity.svg?branch=master&style=flat)](https://travis-ci.org/MarkGriffiths/verbosity) [![Dependency Status](http://img.shields.io/david/MarkGriffiths/verbosity.svg?style=flat)](https://david-dm.org/MarkGriffiths/verbosity) [![devDependency Status](http://img.shields.io/david/dev/MarkGriffiths/verbosity.svg?style=flat)](https://david-dm.org/MarkGriffiths/verbosity#info=devDependencies) [![npm](https://img.shields.io/npm/v/@thebespokepixel/verbosity.svg?style=flat)](https://www.npmjs.com/package/@thebespokepixel/verbosity)
+[travis]: https://travis-ci.org/MarkGriffiths/verbosity
+[david]: https://david-dm.org/MarkGriffiths/verbosity
+[david-dev]: https://david-dm.org/MarkGriffiths/verbosity#info=devDependencies
+[npm]: https://www.npmjs.com/package/verbosity
 
-__Work in progress.__
-
+# verbosity  
 A augmented drop-in console replacement that supports logging levels. 
+
+![Project status][project-badge]
+[![Build Status][build-badge]][travis]
+[![Dependency Status][david-badge]][david]
+[![devDependency Status][david-dev-badge]][david-dev]
+[![npm Status][npm-badge]][npm]
 
 ### Install
 
@@ -56,7 +68,7 @@ To override the console object globally, in your main script (as coffeescript):
 
 	# Using the above pattern, you can also access verbosity helper methods.
 	verbosity.getVersion()
-	# Outputs 0.1.2
+	# Outputs 0.1.3-alpha.0
 ```
 
 ### API

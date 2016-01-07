@@ -1,6 +1,6 @@
 'use strict'
 ###
-	verbosity (v0.1.2)
+	verbosity (v0.1.3-alpha.0)
 	Loggin Level Tests
 ###
 

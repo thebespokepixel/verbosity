@@ -1,9 +1,9 @@
 'use strict'
 ###
-	verbosity (v0.1.2)
+	verbosity
 	Verbosity Controlling Console Writer
 
-	Copyright (c) 2015 CryptoComposite
+	Copyright (c) 2016 Mark Griffiths/CryptoComposite
 
 	Permission is hereby granted, free of charge, to any person
 	obtaining a copy of this software and associated documentation
@@ -25,15 +25,15 @@
 	SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ###
 
-_package = require "./package.json"
-_verbosity = require "./lib/verbosity_matrix"
+pkg = require "./package.json"
+verbosity = require "./lib/verbosity_matrix"
 
-exports.console = ( options_ = {} ) -> new _verbosity options_
+exports.console = ( options_ = {} ) -> new verbosity options_
 
-exports.getName = -> _package.name
+exports.getName = -> pkg.name
 
 exports.getVersion = (level) ->
 	switch level
 		when 1
-			"#{_package.version}"
-		else "#{_package.name} v#{_package.version}"
+			"#{pkg.version}"
+		else "#{pkg.name} v#{pkg.version}"

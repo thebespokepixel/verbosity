@@ -1,10 +1,10 @@
 'use strict';
 
 /*
-	verbosity (v0.1.2)
+	verbosity
 	Verbosity Controlling Console Writer
 
-	Copyright (c) 2015 CryptoComposite
+	Copyright (c) 2016 Mark Griffiths/CryptoComposite
 
 	Permission is hereby granted, free of charge, to any person
 	obtaining a copy of this software and associated documentation
@@ -25,28 +25,28 @@
 	TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 	SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-var _package, _verbosity;
+var pkg, verbosity;
 
-_package = require("./package.json");
+pkg = require("./package.json");
 
-_verbosity = require("./lib/verbosity_matrix");
+verbosity = require("./lib/verbosity_matrix");
 
 exports.console = function(options_) {
   if (options_ == null) {
     options_ = {};
   }
-  return new _verbosity(options_);
+  return new verbosity(options_);
 };
 
 exports.getName = function() {
-  return _package.name;
+  return pkg.name;
 };
 
 exports.getVersion = function(level) {
   switch (level) {
     case 1:
-      return "" + _package.version;
+      return "" + pkg.version;
     default:
-      return _package.name + " v" + _package.version;
+      return pkg.name + " v" + pkg.version;
   }
 };

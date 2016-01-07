@@ -1,10 +1,10 @@
 'use strict'
 ###
-	verbosity (v0.1.2)
+	verbosity
 	Message Logging Priority Matrix
 ###
 util = require 'util'
-in_color = not (/no-color/.test process.argv.join '')
+in_color = require('term-ng').color.level ? false
 
 class VerbosityMatrix extends console.Console
 	constructor: (options_) ->
