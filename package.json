@@ -11,7 +11,11 @@
     "cli",
     "verbose"
   ],
-  "author": "Mark Griffiths <mark@cryptocomposite.com>",
+  "author": {
+    "name": "Mark Griffiths",
+    "email": "mark@thebespokepixel.com",
+    "url": "http://thebespokepixel.com"
+  },
   "license": "MIT",
   "directories": {
     "test": "test"
@@ -25,7 +29,7 @@
   },
   "bugs": {
     "url": "https://github.com/MarkGriffiths/verbosity/issues",
-    "email": "mark@cryptocomposite.com"
+    "email": "mark@thebespokepixel.com"
   },
   "homepage": "https://github.com/MarkGriffiths/verbosity#readme",
   "dependencies": {
