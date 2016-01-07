@@ -32,9 +32,9 @@ Inside a single script, simply override the built in console object:
 // This will duplicate the behaviour of the built in console object.
 	
 console = require("verbosity").console({
-	out: process.stdout
-	error: process.stderr
-	verbosity: 5
+  out: process.stdout
+  error: process.stderr
+  verbosity: 5
 })
 
 /* 
@@ -43,16 +43,16 @@ console = require("verbosity").console({
 */
 
 console = require("verbosity").console({
-	out: process.stderr
-	verbosity: 3
+  out: process.stderr
+  verbosity: 3
 })
 
 
 // Or go mad with making up any number of custom console writers.
 
 myUberConsole = require("verbosity").console({
-	out: myFancyWriteableStream
-	verbosity: 5
+  out: myFancyWriteableStream
+  verbosity: 5
 })
 ```
 
@@ -61,7 +61,7 @@ To override the console object globally, in your main script (as coffeescript):
 ```coffee
 verbosity = require "verbosity"
 global.vconsole = verbosity.console
-	out: process.stderr
+  out: process.stderr
 
 # You can then specify the override in each script's header.
 console = global.vconsole
@@ -129,15 +129,15 @@ Pretty prints object, similar to OS X's plutil -p. Defaults to zero depth.
 console.pretty(console)
 
 /* Yeilds:
-	Object: VerbosityMatrix
-	  critical ▸ [Function]
-	  error ▸ [Function ▸ bound ]
-	  warn ▸ [Function ▸ bound ]
-	  log ▸ [Function ▸ bound ]
-	  info ▸ [Function ▸ bound ]
-	  debug ▸ [Function]
-	  canWrite ▸ [Function]
-	  ...
+Object: VerbosityMatrix
+  critical ▸ [Function]
+  error ▸ [Function ▸ bound ]
+  warn ▸ [Function ▸ bound ]
+  log ▸ [Function ▸ bound ]
+  info ▸ [Function ▸ bound ]
+  debug ▸ [Function]
+  canWrite ▸ [Function]
+  ...
 */
 ```
 
@@ -151,13 +151,13 @@ Only prints 'long options', `._` as 'arguments' and `$0` as 'self'.
 console.yargs(yargs)
 
 /* Yeilds:
-	Object (yargs):
-	  left ▸ 2
-	  right ▸ 2
-	  mode ▸ 'hard'
-	  encoding ▸ 'utf8'
-	  ...
-	  self ▸ '/usr/local/bin/truwrap'
+Object (yargs):
+  left ▸ 2
+  right ▸ 2
+  mode ▸ 'hard'
+  encoding ▸ 'utf8'
+  ...
+  self ▸ '/usr/local/bin/truwrap'
 */
 ```
 
@@ -167,7 +167,7 @@ Returns true if a message of level would be printed.
 
 ```js
 if (console.canWrite(5)) {
-	// Do something only if we're current logging at a debug level.
+  // Do something only if we're current logging at a debug level.
 }
 ```
 
