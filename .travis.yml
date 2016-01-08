@@ -1,5 +1,13 @@
 language: node_js
 node_js:
-  - "4.2"
-  - "stable"
-
+- '4.2'
+- stable
+deploy:
+  provider: npm
+  email: mark@thebespokepixel.com
+  api_key:
+    secure: eqyf5j+6Pg5t1nuu4ktcHgCiJg0aHnQHEnEsCUPbpNz3oi2jE40YdNs4uJ9l617mXLeUMYDfexgK73HZE+SxnyqevadUXhUl9hj2O3ZoB6/V+z6jJ3X8H0XQc7Tct9iZKIVHhkmrosjm/hwbYgt7tlege9Np3u47wftKptG0mMBKoXIGGHqal41/EsWy1vBVwgwkik8PB3xy7M8MXfDkd/rp/VqYIZtK4NzXQYaLNmcNC2qONeZProHG5jhv1PMMtuJ0w6Yybcq+nRPl+fNeUSzN14nTAYUtXNSAXAgPOw9j3jCl+SgDluwYyRohoQjfWLb4nvbBjjzBPeLgQuVMKV3yO7gOLsksMBoLtZHc36QAIX6a3tBdwa41dpkiHywW5tIHcKT3lN6AJZ3SxSMIdrSo8COkFpQ+P3LKapmxwDFHMPtuYvpKYw81sTKkY5orhr68Wq8ppZ0m4VC8+SXc6QrdFFUpQ1CHsN2/oKTdlAmGkIsd+f7OgmPlBT/+XfSk+nj6iPHhnNlLAYClNr9Bd+SgoFTwSGd4GJL9nV+fI0R1ERBMAg9AF2BLZ2P4nAnRhkh0WFpWFnJHzQh1h9TcCEFKnKusQJIm9q3wmJySe5VOAAGqTlXEqSeX+pRwcJ/KeYPAhWYQYukHgFw7GLe3NGGq0MXQ5uoLd2o1FRcTb2o=
+  on:
+    tags: true
+    repo: MarkGriffiths/verbosity
+    branch: master
