@@ -24,7 +24,8 @@ gulp.task 'test', ['compile'], ->
 		.pipe vows
 			reporter: 'spec'
 
-gulp.task 'post-checkout', (cb) ->
+
+gulp.task 'shipit', (cb) ->
 	git.status
 		args : '--porcelain --branch',
 		(err_, stdout_) ->
@@ -34,15 +35,20 @@ gulp.task 'post-checkout', (cb) ->
 						gutil.log "Setting package to #{version}"
 						exec "npm version #{version}", (err, stdout, stderr) ->
 							unless err
-								gulp.src './package.json'
-								  .pipe do git.add
-								  .pipe git.commit "Setting version to #{version}"
-								do cb
+								gutil.log "Publishing #{pkg.name}@#{version}"
+								exec "npm publish", (err, stdout, stderr) ->
+									unless err
+										gutil.log stdout
+										do cb
+									else
+										cb err
 							else
 								cb err
 					else
 						gutil.log "Package version already set"
 						do cb
+				else
+					gutil.log "Not on a release branch."
 			else
 				cb err_
 
