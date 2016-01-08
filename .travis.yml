@@ -2,6 +2,7 @@ language: node_js
 node_js:
 - '4.2'
 - stable
+before_install: npm i -g npm@latest
 deploy:
   provider: npm
   email: mark@thebespokepixel.com
@@ -10,4 +11,3 @@ deploy:
   on:
     tags: true
     repo: MarkGriffiths/verbosity
-    branch: master
