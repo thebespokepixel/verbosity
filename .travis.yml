@@ -10,4 +10,3 @@ deploy:
   on:
     tags: true
     repo: MarkGriffiths/verbosity
-    branch: master
