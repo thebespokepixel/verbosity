@@ -1,6 +1,6 @@
 {
   "name": "verbosity",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Verbose logging features for ttys or any writable stream.",
   "main": "index.js",
   "scripts": {
@@ -42,7 +42,6 @@
     "gulp-git": "^1.6.1",
     "gulp-util": "^3.0.7",
     "gulp-vows": "^0.1.2",
-    "guppy-post-checkout": "^0.2.1",
     "semver-regex": "^1.0.0",
     "vows": "^0.8.1"
   }
