@@ -8,14 +8,19 @@ _package = require '../package.json'
 
 vows = require 'vows'
 assert = require 'assert'
+dateformat = require 'dateformat'
 chalk = require 'chalk'
 
 StreamProxy = new (require('stream').PassThrough)
 StreamProxy.setEncoding 'utf8'
 
 verbosity = require '..'
+
 console = verbosity.console
+	timestamp: 'XX:XX:XX'
 	out: StreamProxy
+
+getTimestamp = -> "[#{chalk.dim(dateformat 'XX:XX:XX')}]"
 
 logmessage = (message, outcome) ->
 	context =
@@ -26,10 +31,9 @@ logmessage = (message, outcome) ->
 			console[@context.name] message
 			@callback null, outcome, StreamProxy.read(), message
 
-		"Message '#{message}' logged? #{['no','yes'][0 | outcome]}": (error_, outcome_, message_, messageIn_) ->
-
+		"Message '#{getTimestamp()} #{message}' logged? #{['no','yes'][0 | outcome]}": (error_, outcome_, message_, messageIn_) ->
 			assert.isNull error_
-			assert.isTrue (message_ is "#{messageIn_}\n") is outcome_
+			assert.isTrue (message_ is "#{getTimestamp()} #{messageIn_}\n") is outcome_
 
 logcoloured = (message, sgr, prefix, outcome) ->
 	context =
@@ -40,10 +44,9 @@ logcoloured = (message, sgr, prefix, outcome) ->
 			console[@context.name] message
 			@callback null, outcome, StreamProxy.read(), message
 
-		"Coloured message '#{message}' logged? #{['no','yes'][0 | outcome]}": (error_, outcome_, message_, messageIn_) ->
-
+		"Coloured message '#{getTimestamp()} #{message}' logged? #{['no','yes'][0 | outcome]}": (error_, outcome_, message_, messageIn_) ->
 			assert.isNull error_
-			assert.isTrue (message_ is "#{chalk[sgr](prefix + messageIn_)}\n") is outcome_
+			assert.isTrue (message_ is "#{getTimestamp()} #{chalk[sgr](prefix + messageIn_)}\n") is outcome_
 
 logbold = (message, sgr, prefix, outcome) ->
 	context =
@@ -54,12 +57,12 @@ logbold = (message, sgr, prefix, outcome) ->
 			console[@context.name] message
 			@callback null, outcome, StreamProxy.read(), message
 
-		"Bold, coloured message '#{message}' logged? #{['no','yes'][0 | outcome]}": (error_, outcome_, message_, messageIn_) ->
+		"Bold, coloured message '#{getTimestamp()} #{message}' logged? #{['no','yes'][0 | outcome]}": (error_, outcome_, message_, messageIn_) ->
 
 			assert.isNull error_
-			assert.isTrue (message_ is "#{chalk.bold[sgr](prefix + messageIn_)}\n") is outcome_
+			assert.isTrue (message_ is "#{getTimestamp()} #{chalk.bold[sgr](prefix + messageIn_)}\n") is outcome_
 vows
-	.describe("#{_package.name} log levels")
+	.describe("#{_package.name} timestamped log levels")
 	.addBatch
 		'level 5':
 			debug    : logcoloured 'hmmmm', 'dim', '', yes

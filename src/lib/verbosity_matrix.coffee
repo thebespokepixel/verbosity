@@ -3,12 +3,14 @@
 	verbosity
 	Message Logging Priority Matrix
 ###
-util = require 'util'
+format = require('util').format
+inspect = require('util').inspect
 in_color = require('term-ng').color.level ? false
+chalk = require 'chalk'
 
 class VerbosityMatrix extends console.Console
 	constructor: (options_) ->
-		{ out, error, verbosity } = options_
+		{ out, error, verbosity, timestamp } = options_
 
 		out ?= process.stdout
 		error ?= out
@@ -19,6 +21,12 @@ class VerbosityMatrix extends console.Console
 			throw new Error 'Provided error stream must be writable'
 
 		super out, error
+
+		if timestamp?
+			dateformat = require 'dateformat'
+			@timestamp = -> "[#{chalk.dim(dateformat timestamp)}] "
+		else
+			@timestamp = -> ''
 
 		@threshold = verbosity ? 3
 		@outStream = out
@@ -31,32 +39,44 @@ class VerbosityMatrix extends console.Console
 	canWrite: (level_) =>
 		@threshold >= level_
 
-	debug: (chunks...) =>
-		if @threshold > 4 then @outStream.write util.format(chunks...) + "\n"
-		off
+	debug: (msg, args...) =>
+		if @threshold > 4
+			msg = format(msg, args...) if typeof msg is 'string' and args?
+			@outStream.write "#{@timestamp()}#{chalk.dim(msg)}\n"
+		return
 
-	info: (chunks...) =>
-		if @threshold > 3 then @outStream.write util.format(chunks...) + "\n"
-		off
+	info: (msg, args...) =>
+		if @threshold > 3
+			msg = format(msg, args...) if typeof msg is 'string' and args?
+			@outStream.write "#{@timestamp()}#{msg}\n"
+		return
 
-	log: (chunks...) =>
-		if @threshold > 2 then @outStream.write util.format(chunks...) + "\n"
-		off
+	log: (msg, args...) =>
+		if @threshold > 2
+			msg = format(msg, args...) if typeof msg is 'string' and args?
+			@outStream.write "#{@timestamp()}#{msg}\n"
+		return
 
-	warn: (chunks...) =>
-		if @threshold > 1 then @errorStream.write "\x1b[33m" + util.format(chunks...) + "\x1b[0m\n"
-		off
+	warn: (msg, args...) =>
+		if @threshold > 1
+			msg = format(msg, args...) if typeof msg is 'string' and args?
+			@errorStream.write "#{@timestamp()}#{chalk.yellow(msg)}\n"
+		return
 
-	error: (chunks...) =>
-		if @threshold > 0 then @errorStream.write "\x1b[31mERROR: " + util.format(chunks...) + "\x1b[0m\n"
-		off
+	error: (msg, args...) =>
+		if @threshold > 0
+			msg = format("ERROR:", msg, args...)
+			@errorStream.write "#{@timestamp()}#{chalk.red(msg)}\n"
+		return
 
-	critical: (chunks...) =>
-		if @threshold > 0 then @errorStream.write "\x1b[1m\x1b[31mCRITICAL: " + util.format(chunks...) + "\x1b[0m\n"
-		off
+	critical: (msg, args...) =>
+		if @threshold > 0
+			msg = format("CRITICAL:", msg, args...)
+			@errorStream.write "#{@timestamp()}#{chalk.bold.red(msg)}\n"
+		return
 
-	panic: (chunks...) -> @critical chunks...
-	emergency: (chunks...) -> @critical chunks...
+	panic: (msg, args...) -> @critical msg, args...
+	emergency: (msg, args...) -> @critical msg, args...
 
 	dir: (obj, options) ->
 		options ?= {}
@@ -75,10 +95,10 @@ class VerbosityMatrix extends console.Console
 		return
 
 	pretty: (obj, descend = 0) ->
-		formatted = util.inspect obj,
+		formatted = inspect obj,
 			depth: descend
 			colors: in_color
-		@outStream.write util.format "Content: %s\n", formatted[..-2].
+		@outStream.write format "Content: %s\n", formatted[..-2].
 			replace(/^{/, 'Object\n ').
 			replace(/^\[/, 'Array\n ').
 			replace(/^(\w+) {/, '$1').
@@ -97,9 +117,9 @@ class VerbosityMatrix extends console.Console
 					if key.length > 1
 						parsed[key] = val
 
-		formatted = util.inspect parsed,
+		formatted = inspect parsed,
 			colors: in_color
 
-		@outStream.write util.format "Options (yargs):\n  %s\n", formatted[2..-2].replace(/:/g, ' ▸').replace /,\n/g, '\n'
+		@outStream.write format "Options (yargs):\n  %s\n", formatted[2..-2].replace(/:/g, ' ▸').replace /,\n/g, '\n'
 
 module.exports = VerbosityMatrix
