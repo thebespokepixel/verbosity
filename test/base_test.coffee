@@ -29,7 +29,7 @@ vows
 			"is semver?":
 				topic: verbosity.getVersion 1
 				"#{_package.version} matches /[0-9]+.[0-9]+.[0-9]+[0-9a-z.-]*/": (topic) ->
-					assert.isTrue topic, /[0-9]+\.[0-9]+\.[0-9]+[0-9a-z.-]*/
+					assert.isTrue semverRegex().test topic
 
 			"is #{_package.version}?":
 				topic: verbosity.getVersion 1
