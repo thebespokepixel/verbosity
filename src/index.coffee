@@ -1,7 +1,7 @@
 'use strict'
 ###
 	verbosity
-	Verbosity Controlling Console Writer
+	Verbosity Controlling Console Writer/Emitter
 
 	Copyright (c) 2016 Mark Griffiths/CryptoComposite
 

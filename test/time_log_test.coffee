@@ -18,7 +18,7 @@ verbosity = require '..'
 
 console = verbosity.console
 	timestamp: 'XX:XX:XX'
-	out: StreamProxy
+	outStream: StreamProxy
 
 getTimestamp = -> "[#{chalk.dim(dateformat 'XX:XX:XX')}]"
 
@@ -77,14 +77,14 @@ vows
 			log      : logmessage 'oh, ok', yes
 			warn     : logcoloured 'what happened?', 'yellow', '', yes
 			error    : logcoloured 'arrrgh!', 'red', 'ERROR: ', yes
-			panic    : logbold 'PANIC!', 'red', 'CRITICAL: ', yes
+			panic    : logbold 'PANIC!', 'red', 'PANIC: ', yes
 		'level 3':
 			debug     : logcoloured 'hmmmm', 'dim', '', no
 			info      : logmessage 'interesting', no
 			log       : logmessage 'oh, ok', yes
 			warn      : logcoloured 'what happened?', 'yellow', '', yes
 			error     : logcoloured 'arrrgh!', 'red', 'ERROR: ', yes
-			emergency : logbold 'EMERGENCY!', 'red', 'CRITICAL: ', yes
+			emergency : logbold 'EMERGENCY!', 'red', 'EMERGENCY: ', yes
 		'level 2':
 			debug    : logcoloured 'hmmmm', 'dim', '', no
 			info     : logmessage 'interesting', no

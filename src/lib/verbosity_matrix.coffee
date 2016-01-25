@@ -6,77 +6,96 @@
 format = require('util').format
 inspect = require('util').inspect
 in_color = require('term-ng').color.level ? false
-chalk = require 'chalk'
+sgr = require 'chalk'
 
 class VerbosityMatrix extends console.Console
 	constructor: (options_) ->
-		{ out, error, verbosity, timestamp } = options_
+		{ outStream, errorStream, verbosity, timestamp, namespace, prefix } = options_
 
-		out ?= process.stdout
-		error ?= out
+		outStream ?= process.stdout
+		errorStream ?= outStream
 
-		unless out.writable
+		unless outStream.writable
 			throw new Error 'Provided output stream must be writable'
-		unless error.writable
+		unless errorStream.writable
 			throw new Error 'Provided error stream must be writable'
 
-		super out, error
+		super outStream, errorStream
 
-		if timestamp?
-			dateformat = require 'dateformat'
-			@timestamp = -> "[#{chalk.dim(dateformat timestamp)}] "
-		else
-			@timestamp = -> ''
+		if @emits = namespace?
+			sparkles = require 'sparkles'
+			@emitter = sparkles namespace
+
+		tstamp = if timestamp?
+				dateformat = require 'dateformat'
+				-> "[#{sgr.dim(dateformat timestamp)}] "
+			else -> ''
+
+		pfix = if prefix?
+				-> "[#{prefix}] "
+			else -> ''
 
 		@threshold = verbosity ? 3
-		@outStream = out
-		@errorStream = error
+		@outStream = outStream
+		@errorStream = errorStream
 
-	verbosity: (level_) =>
-		@threshold = level_ if 0 < level_ < 6
+		@_levels =
+			debug:
+				level: 5
+				stream: outStream
+				format: (msg) -> "#{do tstamp}#{do pfix}#{sgr.dim(msg)}"
+			info:
+				level: 4
+				stream: outStream
+				format: (msg) -> "#{do tstamp}#{do pfix}#{msg}"
+			log:
+				level: 3
+				stream: outStream
+				format: (msg) -> "#{do tstamp}#{do pfix}#{msg}"
+			warn:
+				level: 2
+				stream: errorStream
+				format: (msg) -> "#{do tstamp}#{do pfix}#{sgr.yellow(msg)}"
+			error:
+				level: 1
+				stream: errorStream
+				format: (msg) -> "#{do tstamp}#{do pfix}#{sgr.red('ERROR: ' + msg)}"
+			critical:
+				level: 0
+				stream: errorStream
+				format: (msg) -> "#{do tstamp}#{do pfix}#{sgr.bold.red('CRITICAL: ' + msg)}"
+			panic:
+				level: 0
+				stream: errorStream
+				format: (msg) -> "#{do tstamp}#{do pfix}#{sgr.bold.red('PANIC: ' + msg)}"
+			emergency:
+				level: 0
+				stream: errorStream
+				format: (msg) -> "#{do tstamp}#{do pfix}#{sgr.bold.red('EMERGENCY: ' + msg)}"
+
+	_router: (level_, msg, args...) ->
+		msg = format(msg, args...) if typeof msg is 'string' and args?
+		@emitter.emit(level_, msg) if @emits
+		@_levels[level_].stream.write(@_levels[level_].format(msg) + '\n') if @threshold >= @_levels[level_].level
+		return
+
+	verbosity: (level_) ->
+		level_ = @levels[level_] if typeof level_ is 'string'
+		@threshold = level_ if level_ < 6
 		@threshold
 
-	canWrite: (level_) =>
+	canWrite: (level_) ->
+		level_ = @levels[level_] if typeof level_ is 'string'
 		@threshold >= level_
 
-	debug: (msg, args...) =>
-		if @threshold > 4
-			msg = format(msg, args...) if typeof msg is 'string' and args?
-			@outStream.write "#{@timestamp()}#{chalk.dim(msg)}\n"
-		return
-
-	info: (msg, args...) =>
-		if @threshold > 3
-			msg = format(msg, args...) if typeof msg is 'string' and args?
-			@outStream.write "#{@timestamp()}#{msg}\n"
-		return
-
-	log: (msg, args...) =>
-		if @threshold > 2
-			msg = format(msg, args...) if typeof msg is 'string' and args?
-			@outStream.write "#{@timestamp()}#{msg}\n"
-		return
-
-	warn: (msg, args...) =>
-		if @threshold > 1
-			msg = format(msg, args...) if typeof msg is 'string' and args?
-			@errorStream.write "#{@timestamp()}#{chalk.yellow(msg)}\n"
-		return
-
-	error: (msg, args...) =>
-		if @threshold > 0
-			msg = format("ERROR:", msg, args...)
-			@errorStream.write "#{@timestamp()}#{chalk.red(msg)}\n"
-		return
-
-	critical: (msg, args...) =>
-		if @threshold > 0
-			msg = format("CRITICAL:", msg, args...)
-			@errorStream.write "#{@timestamp()}#{chalk.bold.red(msg)}\n"
-		return
-
-	panic: (msg, args...) -> @critical msg, args...
-	emergency: (msg, args...) -> @critical msg, args...
+	debug:     (msg, args...) -> @_router('debug',     msg, args...)
+	info:      (msg, args...) -> @_router('info',      msg, args...)
+	log:       (msg, args...) -> @_router('log',       msg, args...)
+	warn:      (msg, args...) -> @_router('warn',      msg, args...)
+	error:     (msg, args...) -> @_router('error',     msg, args...)
+	critical:  (msg, args...) -> @_router('critical',  msg, args...)
+	panic:     (msg, args...) -> @_router('panic',     msg, args...)
+	emergency: (msg, args...) -> @_router('emergency', msg, args...)
 
 	dir: (obj, options) ->
 		options ?= {}
@@ -85,13 +104,6 @@ class VerbosityMatrix extends console.Console
 		super obj,
 			depth: options.depth
 			colors: options.color
-		return obj
-
-	trace: (obj, title="") ->
-		@dir obj,
-			depth: 5
-		@error "Line: #{obj.line}", "Column: #{obj.column}", title
-		super obj
 		return
 
 	pretty: (obj, descend = 0) ->
@@ -104,6 +116,7 @@ class VerbosityMatrix extends console.Console
 			replace(/^(\w+) {/, '$1').
 			replace(/:/g, ' ▸').
 			replace /,\n/g, '\n'
+		return
 
 	yargs: (obj) ->
 		parsed = {}
@@ -121,5 +134,6 @@ class VerbosityMatrix extends console.Console
 			colors: in_color
 
 		@outStream.write format "Options (yargs):\n  %s\n", formatted[2..-2].replace(/:/g, ' ▸').replace /,\n/g, '\n'
+		return
 
 module.exports = VerbosityMatrix
