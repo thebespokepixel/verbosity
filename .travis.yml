@@ -2,4 +2,7 @@ language: node_js
 node_js:
 - '4.2'
 - stable
-before_install: npm i -g npm@latest
+sudo: false
+before_install:
+- git config --add gitflow.branch.master master
+- npm i -g npm@latest

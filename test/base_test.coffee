@@ -8,6 +8,7 @@ _package = require '../package.json'
 
 vows = require 'vows'
 assert = require 'assert'
+semverRegex = require 'semver-regex'
 
 StreamProxy = new (require('stream').PassThrough)
 StreamProxy.setEncoding 'utf8'
@@ -25,10 +26,10 @@ vows
 
 	.addBatch
 		'Module version':
-			"is semvar?":
+			"is semver?":
 				topic: verbosity.getVersion 1
 				"#{_package.version} matches /[0-9]+.[0-9]+.[0-9]+[0-9a-z.-]*/": (topic) ->
-					assert.match topic, /[0-9]+\.[0-9]+\.[0-9]+[0-9a-z.-]*/
+					assert.isTrue semverRegex().test topic
 
 			"is #{_package.version}?":
 				topic: verbosity.getVersion 1

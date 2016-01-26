@@ -1,9 +1,9 @@
 'use strict'
 ###
 	verbosity
-	Verbosity Controlling Console Writer
+	Verbosity Controlling Console Writer/Emitter
 
-	Copyright (c) 2016 Mark Griffiths/CryptoComposite
+	Copyright (c) 2016 Mark Griffiths
 
 	Permission is hereby granted, free of charge, to any person
 	obtaining a copy of this software and associated documentation
