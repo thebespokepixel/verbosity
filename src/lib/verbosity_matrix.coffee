@@ -6,7 +6,7 @@
 format = require('util').format
 inspect = require('util').inspect
 in_color = require('term-ng').color.level ? false
-sgr = require 'chalk'
+chalk = require 'chalk'
 
 class VerbosityMatrix extends console.Console
 	constructor: (options_) ->
@@ -28,7 +28,7 @@ class VerbosityMatrix extends console.Console
 
 		tstamp = if timestamp?
 				dateformat = require 'dateformat'
-				-> "[#{sgr.dim(dateformat timestamp)}] "
+				-> "[#{chalk.dim(dateformat timestamp)}] "
 			else -> ''
 
 		pfix = if prefix?
@@ -43,7 +43,7 @@ class VerbosityMatrix extends console.Console
 			debug:
 				level: 5
 				stream: outStream
-				format: (msg) -> "#{do tstamp}#{do pfix}#{sgr.dim(msg)}"
+				format: (msg) -> "#{do tstamp}#{do pfix}#{chalk.dim(msg)}"
 			info:
 				level: 4
 				stream: outStream
@@ -55,23 +55,23 @@ class VerbosityMatrix extends console.Console
 			warn:
 				level: 2
 				stream: errorStream
-				format: (msg) -> "#{do tstamp}#{do pfix}#{sgr.yellow(msg)}"
+				format: (msg) -> "#{do tstamp}#{do pfix}#{chalk.yellow(msg)}"
 			error:
 				level: 1
 				stream: errorStream
-				format: (msg) -> "#{do tstamp}#{do pfix}#{sgr.red('ERROR: ' + msg)}"
+				format: (msg) -> "#{do tstamp}#{do pfix}#{chalk.red('ERROR: ' + msg)}"
 			critical:
 				level: 0
 				stream: errorStream
-				format: (msg) -> "#{do tstamp}#{do pfix}#{sgr.bold.red('CRITICAL: ' + msg)}"
+				format: (msg) -> "#{do tstamp}#{do pfix}#{chalk.bold.red('CRITICAL: ' + msg)}"
 			panic:
 				level: 0
 				stream: errorStream
-				format: (msg) -> "#{do tstamp}#{do pfix}#{sgr.bold.red('PANIC: ' + msg)}"
+				format: (msg) -> "#{do tstamp}#{do pfix}#{chalk.bold.red('PANIC: ' + msg)}"
 			emergency:
 				level: 0
 				stream: errorStream
-				format: (msg) -> "#{do tstamp}#{do pfix}#{sgr.bold.red('EMERGENCY: ' + msg)}"
+				format: (msg) -> "#{do tstamp}#{do pfix}#{chalk.bold.red('EMERGENCY: ' + msg)}"
 
 	_router: (level_, msg, args...) ->
 		msg = format(msg, args...) if typeof msg is 'string' and args?
