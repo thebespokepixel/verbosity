@@ -1,6 +1,6 @@
 {
   "name": "verbosity",
-  "version": "0.2.6",
+  "version": "0.3.0",
   "description": "Verbose logging features for ttys or any writable stream.",
   "main": "index.js",
   "scripts": {
@@ -39,5 +39,5 @@
     "@thebespokepixel/cordial": "^0.3.0",
     "semver-regex": "^1.0.0"
   },
-  "build_number": 13
+  "build_number": 0
 }
