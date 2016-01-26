@@ -21,7 +21,7 @@ gulp.task 'publish', ['test'], cordial.npm.publish
 
 gulp.task 'post-flow-release-start', ['resetBuild'], cordial.flow.release.start
 gulp.task 'post-flow-release-finish', ['publish', 'push']
-gulp.task 'filter-flow-release-start-version', ['test'], cordial.flow.release.versionFilter
+gulp.task 'filter-flow-release-start-version', cordial.flow.release.versionFilter
 gulp.task 'filter-flow-release-finish-tag-message', cordial.flow.release.tagFilter
 
 gulp.task 'default', ['compile']
