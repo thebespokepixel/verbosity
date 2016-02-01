@@ -33,7 +33,7 @@
     "chalk": "^1.1.1",
     "dateformat": "^1.0.12",
     "sparkles": "^1.0.0",
-    "term-ng": "^0.4.0"
+    "term-ng": "^0.5.0"
   },
   "devDependencies": {
     "@thebespokepixel/cordial": "^0.3.0",
