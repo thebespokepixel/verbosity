@@ -1,5 +1,5 @@
 'use strict'
-###
+/*
 	verbosity
 	Verbosity Controlling Console Writer/Emitter
 
@@ -23,17 +23,14 @@
 	CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 	TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 	SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-###
+*/
 
-pkg = require "./package.json"
-verbosity = require "./lib/verbosity_matrix"
+import pkg from './package.json'
+import Verbosity from './lib/verbosity_matrix'
 
-exports.console = ( options_ = {} ) -> new verbosity options_
+exports.console = (options_ = {}) => new Verbosity(options_)
 
-exports.getName = -> pkg.name
+exports.getName = () => pkg.name
 
-exports.getVersion = (level) ->
-	switch level
-		when 1
-			"#{pkg.version}"
-		else "#{pkg.name} v#{pkg.version}"
+exports.getVersion = level_ => (level_ === undefined || level_ < 2) ? `${pkg.version}` : `${pkg.name} v${pkg.version}`
+
