@@ -1,10 +1,10 @@
 {
   "name": "verbosity",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Verbose logging features for ttys or any writable stream.",
   "main": "index.js",
   "scripts": {
-    "test": "gulp test"
+    "test": "xo && ava"
   },
   "keywords": [
     "console",
@@ -22,7 +22,7 @@
     "url": "https://github.com/MarkGriffiths/verbosity.git"
   },
   "engines": {
-    "node": ">=4.2"
+    "node": ">= 4.2 <6.0"
   },
   "bugs": {
     "url": "https://github.com/MarkGriffiths/verbosity/issues",
@@ -33,11 +33,48 @@
     "chalk": "^1.1.1",
     "dateformat": "^1.0.12",
     "sparkles": "^1.0.0",
-    "term-ng": "^0.4.0"
+    "term-ng": "*"
   },
   "devDependencies": {
-    "@thebespokepixel/cordial": "^0.3.0",
-    "semver-regex": "^1.0.0"
+    "@thebespokepixel/cordial": "*",
+    "ava": "^0.11.0",
+    "semver-regex": "^1.0.0",
+    "shelljs": "^0.5.3",
+    "xo": "^0.12.1"
   },
-  "build_number": 0
+  "build_number": 122,
+  "ava": {
+    "files": [
+      "test/*.js"
+    ],
+    "failFast": true,
+    "verbose": true
+  },
+  "xo": {
+    "semicolon": false,
+    "esnext": true,
+    "ignores": [
+      "lib/**/*.js",
+      "index.js"
+    ],
+    "rules": {
+      "camelcase": 0,
+      "prefer-const": 1,
+      "no-var": 0,
+      "key-spacing": [
+        0,
+        {
+          "beforeColon": false,
+          "afterColon": false
+        }
+      ],
+      "new-cap": [
+        2,
+        {
+          "newIsCap": false,
+          "capIsNew": true
+        }
+      ]
+    }
+  }
 }

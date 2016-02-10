@@ -1,18 +1,7 @@
-[project-badge]: http://img.shields.io/badge/status-beta-blue.svg?style=flat
-[build-badge]: http://img.shields.io/travis/MarkGriffiths/verbosity.svg?branch=master&style=flat
-[david-badge]: http://img.shields.io/david/MarkGriffiths/verbosity.svg?style=flat
-[david-dev-badge]: http://img.shields.io/david/dev/MarkGriffiths/verbosity.svg?style=flat
-[npm-badge]: https://img.shields.io/npm/v/verbosity.svg?style=flat
-
-[travis]: https://travis-ci.org/MarkGriffiths/verbosity
-[david]: https://david-dm.org/MarkGriffiths/verbosity
-[david-dev]: https://david-dm.org/MarkGriffiths/verbosity#info=devDependencies
-[npm]: https://www.npmjs.com/package/verbosity
-
 # verbosity  
-A augmented drop-in console replacement that supports logging levels. 
-
-![Project status][project-badge]
+>A augmented drop-in console replacement that supports logging levels. 
+>
+>![Project status][project-badge]
 [![Build Status][build-badge]][travis]
 [![Dependency Status][david-badge]][david]
 [![devDependency Status][david-dev-badge]][david-dev]
@@ -190,3 +179,14 @@ As console.trace.
 #### assert
 
 As console.assert.
+
+[project-badge]: http://img.shields.io/badge/status-beta-blue.svg?style=flat
+[build-badge]: http://img.shields.io/travis/MarkGriffiths/verbosity.svg?branch=master&style=flat
+[david-badge]: http://img.shields.io/david/MarkGriffiths/verbosity.svg?style=flat
+[david-dev-badge]: http://img.shields.io/david/dev/MarkGriffiths/verbosity.svg?style=flat
+[npm-badge]: https://img.shields.io/npm/v/verbosity.svg?style=flat
+
+[travis]: https://travis-ci.org/MarkGriffiths/verbosity
+[david]: https://david-dm.org/MarkGriffiths/verbosity
+[david-dev]: https://david-dm.org/MarkGriffiths/verbosity#info=devDependencies
+[npm]: https://www.npmjs.com/package/verbosity
