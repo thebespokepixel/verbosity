@@ -1,6 +1,6 @@
 {
   "name": "verbosity",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Verbose logging features for ttys or any writable stream.",
   "main": "index.js",
   "scripts": {
@@ -62,13 +62,15 @@
       "prefer-const": 1,
       "no-var": 0,
       "key-spacing": [
-        0, {
+        0,
+        {
           "beforeColon": false,
           "afterColon": false
         }
       ],
       "new-cap": [
-        2, {
+        2,
+        {
           "newIsCap": false,
           "capIsNew": true
         }
