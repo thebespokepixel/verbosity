@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@thebespokepixel/cordial": "*",
-    "ava": "^0.11.0",
+    "ava": "^0.12.0",
     "semver-regex": "^1.0.0",
     "shelljs": "^0.5.3",
     "xo": "^0.12.1"
