@@ -30,7 +30,5 @@ import Verbosity from './lib/verbosity_matrix'
 
 exports.console = (options_ = {}) => new Verbosity(options_)
 
-exports.getName = () => pkg.name
-
 exports.getVersion = level_ => (level_ === undefined || level_ < 2) ? `${pkg.version}` : `${pkg.name} v${pkg.version}`
 
