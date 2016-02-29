@@ -94,5 +94,5 @@ let testConsole = verbosity.console({outStream: StreamProxy})
 runSuite(testConsole)
 
 testConsole = verbosity.console({outStream: StreamProxy, timestamp: 'XX:XX:XX'})
-runSuite(testConsole, '[\u001b[2mXX:XX:XX\u001b[22m] ')
+runSuite(testConsole, '[XX:XX:XX] ')
 
