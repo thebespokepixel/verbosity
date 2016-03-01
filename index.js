@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 /*
 	verbosity
 	Verbosity Controlling Console Writer/Emitter
@@ -25,25 +25,23 @@
 	SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-var _package = require('./package.json');
+var _package = require('./package.json')
 
-var _package2 = _interopRequireDefault(_package);
+var _package2 = _interopRequireDefault(_package)
 
-var _verbosity_matrix = require('./lib/verbosity_matrix');
+var _verbosity_matrix = require('./lib/verbosity_matrix')
 
-var _verbosity_matrix2 = _interopRequireDefault(_verbosity_matrix);
+var _verbosity_matrix2 = _interopRequireDefault(_verbosity_matrix)
 
 function _interopRequireDefault(obj) {
 	return obj && obj.__esModule ? obj : {
 		default: obj
-	};
+	}
 }
 
 exports.console = function () {
-	let options_ = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-	return new _verbosity_matrix2.default(options_);
-};
+	let options_ = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0]
+	return new _verbosity_matrix2.default(options_)
+}
 
-exports.getName = () => _package2.default.name;
-
-exports.getVersion = level_ => level_ === undefined || level_ < 2 ? `${ _package2.default.version }` : `${ _package2.default.name } v${ _package2.default.version }`;
+exports.getVersion = level_ => level_ === undefined || level_ < 2 ? `${_package2.default.version}` : `${_package2.default.name} v${_package2.default.version}`

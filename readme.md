@@ -1,4 +1,4 @@
-# verbosity  
+# Verbosity  
 >A augmented drop-in console replacement that supports logging levels. 
 >
 >![Project status][project-badge]
