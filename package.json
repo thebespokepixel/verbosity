@@ -1,6 +1,6 @@
 {
   "name": "verbosity",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Verbose logging features for ttys or any writable stream.",
   "main": "index.js",
   "scripts": {
@@ -40,7 +40,7 @@
     "semver-regex": "^1.0.0",
     "shelljs": "^0.6.0"
   },
-  "build_number": 124,
+  "build_number": 0,
   "ava": {
     "files": [
       "test/*.js"
@@ -60,13 +60,15 @@
       "prefer-const": 1,
       "no-var": 0,
       "key-spacing": [
-        0, {
+        0,
+        {
           "beforeColon": false,
           "afterColon": false
         }
       ],
       "new-cap": [
-        2, {
+        2,
+        {
           "newIsCap": false,
           "capIsNew": true
         }
