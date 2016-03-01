@@ -180,7 +180,7 @@ class VerbosityMatrix extends console.Console {
 			}
 		}
 		const formatted = inspect(parsed, {colors: inColor})
-		this.outStream.write(format('Options (yargs):\n  %s\n', formatted.slice(2, -1).replace(/:/g, ' ▸').replace(/,\n/g)))
+		this.outStream.write(format('Options (yargs):\n  %s\n', formatted.slice(2, -1).replace(/:/g, ' ▸').replace(/,\n/g, '\n')))
 	}
 }
 
