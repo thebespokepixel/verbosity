@@ -35,40 +35,40 @@ const logbold = (message, sgr, prefix, outcome) => {
 }
 
 const levels = [{
-	debug    : logcoloured('hmmmm', 'dim', '', true),
-	info     : logmessage('interesting', true),
-	log      : logmessage('oh, ok', true),
-	warn     : logcoloured('what happened?', 'yellow', '', true),
-	error    : logcoloured('arrrgh!', 'red', 'ERROR: ', true),
-	critical : logbold('Red Alert!', 'red', 'CRITICAL: ', true)
+	debug: logcoloured('hmmmm', 'dim', '', true),
+	info: logmessage('interesting', true),
+	log: logmessage('oh, ok', true),
+	warn: logcoloured('what happened?', 'yellow', '', true),
+	error: logcoloured('arrrgh!', 'red', 'ERROR: ', true),
+	critical: logbold('Red Alert!', 'red', 'CRITICAL: ', true)
 }, {
-	debug    : logcoloured('hmmmm', 'dim', '', false),
-	info     : logmessage('interesting', true),
-	log      : logmessage('oh, ok', true),
-	warn     : logcoloured('what happened?', 'yellow', '', true),
-	error    : logcoloured('arrrgh!', 'red', 'ERROR: ', true),
-	panic    : logbold('PANIC!', 'red', 'PANIC: ', true)
+	debug: logcoloured('hmmmm', 'dim', '', false),
+	info: logmessage('interesting', true),
+	log: logmessage('oh, ok', true),
+	warn: logcoloured('what happened?', 'yellow', '', true),
+	error: logcoloured('arrrgh!', 'red', 'ERROR: ', true),
+	panic: logbold('PANIC!', 'red', 'PANIC: ', true)
 }, {
-	debug     : logcoloured('hmmmm', 'dim', '', false),
-	info      : logmessage('interesting', false),
-	log       : logmessage('oh, ok', true),
-	warn      : logcoloured('what happened?', 'yellow', '', true),
-	error     : logcoloured('arrrgh!', 'red', 'ERROR: ', true),
-	emergency : logbold('EMERGENCY!', 'red', 'EMERGENCY: ', true)
+	debug: logcoloured('hmmmm', 'dim', '', false),
+	info: logmessage('interesting', false),
+	log: logmessage('oh, ok', true),
+	warn: logcoloured('what happened?', 'yellow', '', true),
+	error: logcoloured('arrrgh!', 'red', 'ERROR: ', true),
+	emergency: logbold('EMERGENCY!', 'red', 'EMERGENCY: ', true)
 }, {
-	debug    : logcoloured('hmmmm', 'dim', '', false),
-	info     : logmessage('interesting', false),
-	log      : logmessage('oh, ok', false),
-	warn     : logcoloured('what happened?', 'yellow', '', true),
-	error    : logcoloured('arrrgh!', 'red', 'ERROR: ', true),
-	critical : logbold('Blimey Penfold!', 'red', 'CRITICAL: ', true)
+	debug: logcoloured('hmmmm', 'dim', '', false),
+	info: logmessage('interesting', false),
+	log: logmessage('oh, ok', false),
+	warn: logcoloured('what happened?', 'yellow', '', true),
+	error: logcoloured('arrrgh!', 'red', 'ERROR: ', true),
+	critical: logbold('Blimey Penfold!', 'red', 'CRITICAL: ', true)
 }, {
-	debug    : logcoloured('hmmmm', 'dim', '', false),
-	info     : logmessage('interesting', false),
-	log      : logmessage('oh, ok', false),
-	warn     : logcoloured('what happened?', 'yellow', '', false),
-	error    : logcoloured('arrrgh!', 'red', 'ERROR: ', true),
-	critical : logbold('Damn you Chell, not again.', 'red', 'CRITICAL: ', true)
+	debug: logcoloured('hmmmm', 'dim', '', false),
+	info: logmessage('interesting', false),
+	log: logmessage('oh, ok', false),
+	warn: logcoloured('what happened?', 'yellow', '', false),
+	error: logcoloured('arrrgh!', 'red', 'ERROR: ', true),
+	critical: logbold('Damn you Chell, not again.', 'red', 'CRITICAL: ', true)
 }]
 
 function runSuite(console_, stamp_ = '') {
@@ -94,5 +94,5 @@ let testConsole = verbosity.console({outStream: StreamProxy})
 runSuite(testConsole)
 
 testConsole = verbosity.console({outStream: StreamProxy, timestamp: 'XX:XX:XX'})
-runSuite(testConsole, '[XX:XX:XX] ')
+runSuite(testConsole, '[\u001b[2mXX:XX:XX\u001b[22m] ')
 
