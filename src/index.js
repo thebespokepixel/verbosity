@@ -25,10 +25,8 @@
 	SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-import pkg from './package.json'
-import Verbosity from './lib/verbosity_matrix'
-
+const pkg = require('./package.json')
+const Verbosity = require('./lib/verbosity_matrix')
 exports.console = (options_ = {}) => new Verbosity(options_)
-
 exports.getVersion = level_ => (level_ === undefined || level_ < 2) ? `${pkg.version}` : `${pkg.name} v${pkg.version}`
 
