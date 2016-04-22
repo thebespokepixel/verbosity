@@ -1,5 +1,5 @@
 # Verbosity  
->A augmented drop-in console replacement that supports logging levels. 
+>An augmented drop-in console replacement that supports logging levels. 
 >
 >![Project status][project-badge]
 [![npm Status][npm-badge]][npm]

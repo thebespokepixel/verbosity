@@ -1,9 +1,10 @@
 'use strict'
-import pkg from '../package.json'
+
 import stream from 'stream'
 import test from 'ava'
 import verbosity from '..'
 import semverRegex from 'semver-regex'
+import pkg from '../package.json'
 
 const StreamProxy = new stream.PassThrough()
 StreamProxy.setEncoding('utf8')
@@ -17,13 +18,13 @@ test(`Module long version is '${pkg.name} v${pkg.version}'.`, t => {
 })
 
 test(`Module version '${pkg.version} is semver'.`, t => {
-	t.ok(semverRegex().test(verbosity.getVersion()))
+	t.truthy(semverRegex().test(verbosity.getVersion()))
 })
 
 const testConsole = verbosity.console({outStream: StreamProxy})
 
 test('Verbosity Console instance of console.Console', t => {
-	t.ok(testConsole instanceof console.Console)
+	t.truthy(testConsole instanceof console.Console)
 })
 
 test('Default level is 3 (log)', t => {
