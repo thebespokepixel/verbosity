@@ -4,15 +4,15 @@
 	Message Logging Priority Matrix
 */
 
-import util from 'util'
-import termNG from 'term-ng'
-import sparkles from 'sparkles'
-import dateformat from 'dateformat'
-import chalk from 'chalk'
+const util = require('util')
+const termNG = require('term-ng')
+const chalk = require('chalk')
+const sparkles = require('sparkles')
+const dateformat = require('dateformat')
 
 const format = util.format
 const inspect = util.inspect
-const inColor = (!termNG.color.level === false)
+const inColor = termNG.color.hasBasic
 
 class VerbosityMatrix extends console.Console {
 	constructor(options_) {

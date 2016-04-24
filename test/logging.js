@@ -3,7 +3,6 @@ import stream from 'stream'
 import test from 'ava'
 import verbosity from '..'
 import chalk from 'chalk'
-import termNG from 'term-ng'
 
 const StreamProxy = new stream.PassThrough()
 StreamProxy.setEncoding('utf8')
@@ -95,5 +94,5 @@ let testConsole = verbosity.console({outStream: StreamProxy})
 runSuite(testConsole)
 
 testConsole = verbosity.console({outStream: StreamProxy, timestamp: 'XX:XX:XX'})
-runSuite(testConsole, termNG.color.basic ? '[\u001b[2mXX:XX:XX\u001b[22m] ' : '[XX:XX:XX] ')
+runSuite(testConsole, `[${chalk.dim('XX:XX:XX')}] `)
 
