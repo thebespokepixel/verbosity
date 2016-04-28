@@ -23,8 +23,8 @@ test(`Module version '${pkg.version} is semver'.`, t => {
 
 const testConsole = verbosity.console({outStream: StreamProxy})
 
-test('Verbosity Console instance of console.Console', t => {
-	t.truthy(testConsole instanceof console.Console)
+test('Verbosity Console‘s prototype inherits from console', t => {
+	t.true(testConsole.prototype === Object.getPrototypeOf(console))
 })
 
 test('Default level is 3 (log)', t => {

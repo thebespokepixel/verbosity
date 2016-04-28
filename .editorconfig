@@ -23,9 +23,21 @@ indent_size = 2
 # Tabs for indent, spaces for alignment. It's the typeographer in me.
 # Tab width of 3 is my 'Goldilocks' zone of indentation and until I can grep
 # indention spaces explicitly, Tabs it will be. Opinionated? Absolutely!
-[*.{coffee,js,JavaScript,json,c,h,ino,cpp,fish,sh,pl}]
+[*.{coffee,js,JavaScript,json,es6}]
 indent_style = tab
 indent_size = 3
+
+[*.{py,go}]
+indent_style = tab
+indent_size = 3
+
+[*.{c,h,ino,cpp}]
+indent_style = tab
+indent_size = 3
+
+[*.{fish,sh,pl}]
+indent_style = tab
+indent_size = 4
 
 [package.json]
 insert_final_newline = false

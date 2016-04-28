@@ -7,11 +7,11 @@ const gulp = require('gulp')
 const cordial = require('@thebespokepixel/cordial')
 
 // Comtranspilationatting
-gulp.task('babel-format', cordial.format.babel(['src/**/*.js'], './'))
+gulp.task('babel-format', cordial.format.babel(['src/**/*.es6'], './'))
 
 // Tests
 gulp.task('ava', cordial.test.ava(['test/*.js']))
-gulp.task('xo', cordial.test.xo(['**/*.js', '!{lib,node_modules}/**/*', '!index.js']))
+gulp.task('xo', cordial.test.xo(['**/*.js', '!node_modules/**/*', '!index.js']))
 gulp.task('test', gulp.series('xo', 'ava'))
 
 // Guppy Hooks

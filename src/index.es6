@@ -38,18 +38,12 @@ const format = util.format
 const inspect = util.inspect
 
 const readPkg = require('read-pkg-up')
-const _package = readPkg.sync({
-	normalize: false
-}).pkg
+const _package = readPkg.sync({normalize: false}).pkg
 
-const consoleFactory = function consoleFactory() {
-	let options_ = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0]
-	const outStream = options_.outStream
-	const errorStream = options_.errorStream
-	const verbosity = options_.verbosity
-	const timestamp = options_.timestamp
-	const namespace = options_.namespace
-	const prefix = options_.prefix
+const consoleFactory = function consoleFactory(options_ = {}) {
+	const {
+		outStream, errorStream, verbosity, timestamp, namespace, prefix
+	} = options_
 
 	const sOut = (ws => {
 		if (!ws.writable) {
@@ -67,9 +61,15 @@ const consoleFactory = function consoleFactory() {
 
 	const willEmit = Boolean(namespace)
 
-	const timeFormatter = (ts => ts ? () => `[${chalk.dim(dateformat(ts))}] ` : () => '')(timestamp)
+	const timeFormatter = (ts => ts ?
+		() => `[${chalk.dim(dateformat(ts))}] ` :
+		() => ''
+	)(timestamp)
 
-	const prefixFormatter = (pfix => pfix ? () => `[${pfix}] ` : () => '')(prefix)
+	const prefixFormatter = (pfix => pfix ?
+		() => `[${pfix}] ` :
+		() => ''
+	)(prefix)
 
 	return Object.assign(consoleDelegate, {
 		_stdout: sOut,
@@ -118,108 +118,71 @@ const consoleFactory = function consoleFactory() {
 				format: (pfix, msg) => `${pfix}${chalk.bold.red(`EMERGENCY: ${msg}`)}`
 			}
 		},
-		verbosity: function verbosity(level_) {
-			level_ = typeof level_ === 'string' ? this.matrix[level_] : level_
+		verbosity(level_) {
+			level_ = (typeof level_ === 'string') ? this.matrix[level_] : level_
 			if (level_ < 6) {
 				this.threshold = level_
 			}
 			return this.threshold
 		},
-		canWrite: function canWrite(level_) {
-			level_ = typeof level_ === 'string' ? this.matrix[level_] : level_
+		canWrite(level_) {
+			level_ = (typeof level_ === 'string') ? this.matrix[level_] : level_
 			return this.threshold >= level_
 		},
-		route: function route(level_, msg) {
-			for (var _len = arguments.length, a = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
-				a[_key - 2] = arguments[_key]
-			}
-
-			msg = a.length > 0 ? format(msg, ...a) : msg
+		route(level_, msg, ...a) {
+			msg = (a.length > 0) ? format(msg, ...a) : msg
 			if (willEmit) {
 				this.emitter.emit(level_, msg)
 			}
 			if (this.threshold >= this.matrix[level_].level) {
 				const pfix = `${timeFormatter()}${prefixFormatter()}`
-				this.matrix[level_].stream.write(`${this.matrix[level_].format(pfix, msg)}
-`)
+				this.matrix[level_].stream.write(`${this.matrix[level_].format(pfix, msg)}\n`)
 			}
 		},
-		debug: function debug(msg) {
-			for (var _len2 = arguments.length, args = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
-				args[_key2 - 1] = arguments[_key2]
-			}
-
+		debug(msg, ...args) {
 			this.route('debug', msg, ...args)
 		},
-		info: function info(msg) {
-			for (var _len3 = arguments.length, args = Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
-				args[_key3 - 1] = arguments[_key3]
-			}
-
+		info(msg, ...args) {
 			this.route('info', msg, ...args)
 		},
-		log: function log(msg) {
-			for (var _len4 = arguments.length, args = Array(_len4 > 1 ? _len4 - 1 : 0), _key4 = 1; _key4 < _len4; _key4++) {
-				args[_key4 - 1] = arguments[_key4]
-			}
-
+		log(msg, ...args) {
 			this.route('log', msg, ...args)
 		},
-		warn: function warn(msg) {
-			for (var _len5 = arguments.length, args = Array(_len5 > 1 ? _len5 - 1 : 0), _key5 = 1; _key5 < _len5; _key5++) {
-				args[_key5 - 1] = arguments[_key5]
-			}
-
+		warn(msg, ...args) {
 			this.route('warn', msg, ...args)
 		},
-		error: function error(msg) {
-			for (var _len6 = arguments.length, args = Array(_len6 > 1 ? _len6 - 1 : 0), _key6 = 1; _key6 < _len6; _key6++) {
-				args[_key6 - 1] = arguments[_key6]
-			}
-
+		error(msg, ...args) {
 			this.route('error', msg, ...args)
 		},
-		critical: function critical(msg) {
-			for (var _len7 = arguments.length, args = Array(_len7 > 1 ? _len7 - 1 : 0), _key7 = 1; _key7 < _len7; _key7++) {
-				args[_key7 - 1] = arguments[_key7]
-			}
-
+		critical(msg, ...args) {
 			this.route('critical', msg, ...args)
 		},
-		panic: function panic(msg) {
-			for (var _len8 = arguments.length, args = Array(_len8 > 1 ? _len8 - 1 : 0), _key8 = 1; _key8 < _len8; _key8++) {
-				args[_key8 - 1] = arguments[_key8]
-			}
-
+		panic(msg, ...args) {
 			this.route('panic', msg, ...args)
 		},
-		emergency: function emergency(msg) {
-			for (var _len9 = arguments.length, args = Array(_len9 > 1 ? _len9 - 1 : 0), _key9 = 1; _key9 < _len9; _key9++) {
-				args[_key9 - 1] = arguments[_key9]
-			}
-
+		emergency(msg, ...args) {
 			this.route('emergency', msg, ...args)
 		},
-		dir: function dir(obj) {
-			let options_ = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1]
-			var _options_$depth = options_.depth
-			const depth = _options_$depth === undefined ? 0 : _options_$depth
-			var _options_$colors = options_.colors
-			const colors = _options_$colors === undefined ? termNG.color.basic : _options_$colors
-
+		dir(obj, options_ = {}) {
+			const {depth = 0, colors = termNG.color.basic} = options_
 			options_.depth = depth
 			options_.colors = colors
 			sOut.write(format(inspect(obj, options_)))
 		},
-		pretty: function pretty(obj) {
-			let depth = arguments.length <= 1 || arguments[1] === undefined ? 0 : arguments[1]
-
+		pretty(obj, depth = 0) {
 			sOut.write(format('Content: %s\n', inspect(obj, {
-				depth: depth,
+				depth,
 				colors: termNG.color.basic
-			}).slice(0, -1).replace(/^{/, 'Object\n ').replace(/^\[/, 'Array\n ').replace(/^(\w+) {/, '$1').replace(/:/g, ' ▸').replace(/,\n/g, '\n')))
+			})
+				.slice(0, -1)
+				.replace(/^{/, 'Object\n ')
+				.replace(/^\[/, 'Array\n ')
+				.replace(/^(\w+) {/, '$1')
+				.replace(/:/g, ' ▸')
+				.replace(/,\n/g, '\n')
+			))
 		},
-		yargs: function yargs(obj) {
+		yargs(obj) {
 			const parsed = {}
 			Object.keys(obj).forEach(key_ => {
 				const val = obj[key_]
@@ -240,16 +203,21 @@ const consoleFactory = function consoleFactory() {
 			})
 			sOut.write(format('Options (yargs):\n  %s\n', inspect(parsed, {
 				colors: termNG.color.basic
-			}).slice(2, -1).replace(/:/g, ' ▸').replace(/,\n/g, '\n')))
+			})
+				.slice(2, -1)
+				.replace(/:/g, ' ▸')
+				.replace(/,\n/g, '\n')))
 		}
 	})
 }
 
 module.exports = {
-	console: function console(options) {
+	console(options) {
 		return consoleFactory(options)
 	},
-	getVersion: function getVersion(level) {
-		return level === undefined || level < 2 ? `${_package.version}` : `${_package.name} v${_package.version}`
+	getVersion(level) {
+		return (level === undefined || level < 2) ?
+			`${_package.version}` :
+			`${_package.name} v${_package.version}`
 	}
 }
