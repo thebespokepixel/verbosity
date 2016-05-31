@@ -1,7 +1,7 @@
 'use strict'
 import stream from 'stream'
 import test from 'ava'
-import verbosity from '..'
+import {createConsole} from '..'
 import chalk from 'chalk'
 
 const StreamProxy = new stream.PassThrough()
@@ -90,9 +90,9 @@ function runSuite(console_, stamp_ = '') {
 	})
 }
 
-let testConsole = verbosity.console({outStream: StreamProxy})
+let testConsole = createConsole({outStream: StreamProxy})
 runSuite(testConsole)
 
-testConsole = verbosity.console({outStream: StreamProxy, timestamp: 'XX:XX:XX'})
+testConsole = createConsole({outStream: StreamProxy, timestamp: 'XX:XX:XX'})
 runSuite(testConsole, `[${chalk.dim('XX:XX:XX')}] `)
 

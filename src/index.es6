@@ -215,7 +215,7 @@ const consoleFactory = function consoleFactory(options_ = {}) {
 	})
 }
 
-export function console(options) {
+export function createConsole(options) {
 	return consoleFactory(options)
 }
 
