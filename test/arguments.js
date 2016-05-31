@@ -2,12 +2,12 @@
 
 import stream from 'stream'
 import test from 'ava'
-import verbosity from '..'
+import {createConsole} from '..'
 
 const StreamProxy = new stream.PassThrough()
 StreamProxy.setEncoding('utf8')
 
-const testConsole = verbosity.console({outStream: StreamProxy})
+const testConsole = createConsole({outStream: StreamProxy})
 
 test(`Multiple arguments`, t => {
 	testConsole.log('this', 'has', 'many', 'arguments')
