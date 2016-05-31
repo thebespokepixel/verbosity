@@ -25,20 +25,24 @@
 	SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-const util = require('util')
+import util from 'util'
 
-const consoleDelegate = Object.create(require('console').Console)
+import consoleSource from 'console'
 
-const termNG = require('term-ng')
-const chalk = require('chalk')
-const sparkles = require('sparkles')
-const dateformat = require('dateformat')
+import termNG from 'term-ng'
+import chalk from 'chalk'
+import sparkles from 'sparkles'
+import dateformat from 'dateformat'
+import readPkg from 'read-pkg-up'
+
+const consoleDelegate = Object.create(consoleSource.Console)
 
 const format = util.format
 const inspect = util.inspect
 
-const readPkg = require('read-pkg-up')
-const _package = readPkg.sync({normalize: false}).pkg
+const _package = readPkg.sync({
+	normalize: false
+}).pkg
 
 const consoleFactory = function consoleFactory(options_ = {}) {
 	const {
@@ -211,13 +215,12 @@ const consoleFactory = function consoleFactory(options_ = {}) {
 	})
 }
 
-module.exports = {
-	console(options) {
-		return consoleFactory(options)
-	},
-	getVersion(level) {
-		return (level === undefined || level < 2) ?
-			`${_package.version}` :
-			`${_package.name} v${_package.version}`
-	}
+export function console(options) {
+	return consoleFactory(options)
+}
+
+export function getVersion(level) {
+	return (level === undefined || level < 2) ?
+		`${_package.version}` :
+		`${_package.name} v${_package.version}`
 }
