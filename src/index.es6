@@ -35,8 +35,6 @@ import sparkles from 'sparkles'
 import dateformat from 'dateformat'
 import readPkg from 'read-pkg-up'
 
-const consoleDelegate = Object.create(consoleSource.Console)
-
 const format = util.format
 const inspect = util.inspect
 
@@ -75,7 +73,7 @@ const consoleFactory = function consoleFactory(options_ = {}) {
 		() => ''
 	)(prefix)
 
-	return Object.assign(consoleDelegate, {
+	return Object.assign(Object.create(consoleSource.Console), {
 		_stdout: sOut,
 		_stderr: sErr,
 		threshold: verbosity ? verbosity : 3,
