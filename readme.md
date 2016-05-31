@@ -20,8 +20,16 @@ npm install verbosity --save
 Inside a single script, simply override the built in console object:
 
 ```js
-// This will duplicate the behaviour of the built in console object.
+// This will duplicate the behaviour of the built in console object, with added logging levels.
 	
+console = require("verbosity").createConsole({
+  out: process.stdout
+  error: process.stderr
+  verbosity: 5
+})
+
+// The pre-v0.6.0 method is still available, but deprecated and will be removed in v1.0.0.
+
 console = require("verbosity").console({
   out: process.stdout
   error: process.stderr
@@ -33,7 +41,7 @@ console = require("verbosity").console({
   but silence 'info' and 'debug' messages.
 */
 
-console = require("verbosity").console({
+console = require("verbosity").createConsole({
   out: process.stderr
   verbosity: 3
 })
@@ -41,7 +49,7 @@ console = require("verbosity").console({
 
 // Or go mad with making up any number of custom console writers.
 
-myUberConsole = require("verbosity").console({
+myUberConsole = require("verbosity").createConsole({
   out: myFancyWriteableStream
   verbosity: 5
 })
@@ -51,7 +59,7 @@ To override the console object globally, in your main script (as coffeescript):
 
 ```coffee
 verbosity = require "verbosity"
-global.vconsole = verbosity.console
+global.vconsole = verbosity.createConsole
   out: process.stderr
 
 # You can then specify the override in each script's header.
@@ -62,9 +70,22 @@ verbosity.getVersion()
 # Outputs 0.1.3-alpha.0
 ```
 
+Full support of es2015 and rollup tree-shaking (jsnext:main points to optimised es2015 code)
+
+```js
+import {createConsole} from 'verbosity'
+
+console = createConsole({
+  out: process.stdout
+  error: process.stderr
+  verbosity: 5
+})
+
+```
+
 ### API
 
-The API inherits from Console, and all the argument parsing options are available.
+The API inherits (prototypically) from Console, and all the argument parsing options are available.
 
 #### (critical | panic | emergency) args... (level 1)
 
