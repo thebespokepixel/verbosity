@@ -3,6 +3,7 @@
   "version": "0.6.0",
   "description": "Verbose logging features for ttys or any writable stream.",
   "main": "index.js",
+  "jsnext:main": "lib/index-es6.js",
   "scripts": {
     "test": "gulp test"
   },
