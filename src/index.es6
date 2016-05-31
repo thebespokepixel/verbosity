@@ -215,6 +215,12 @@ const consoleFactory = function consoleFactory(options_ = {}) {
 	})
 }
 
+// Deprecated
+export function console(options) {
+	return consoleFactory(options)
+}
+
+// Shiny, hot, new-ness
 export function createConsole(options) {
 	return consoleFactory(options)
 }
