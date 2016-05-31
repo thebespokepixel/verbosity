@@ -1,11 +1,16 @@
 {
   "name": "verbosity",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "Verbose logging features for ttys or any writable stream.",
   "main": "index.js",
+  "jsnext:main": "lib/index-es6.js",
   "scripts": {
-    "test": "xo && ava"
+    "test": "gulp test"
   },
+  "files": [
+    "index.js",
+    "lib"
+  ],
   "keywords": [
     "console",
     "cli",
@@ -22,7 +27,7 @@
     "url": "https://github.com/MarkGriffiths/verbosity.git"
   },
   "engines": {
-    "node": ">= 4.2 <6.0"
+    "node": ">=4.0 <7.0"
   },
   "bugs": {
     "url": "https://github.com/MarkGriffiths/verbosity/issues",
@@ -32,15 +37,14 @@
   "dependencies": {
     "chalk": "^1.1.1",
     "dateformat": "^1.0.12",
+    "read-pkg-up": "^1.0.1",
     "sparkles": "^1.0.0",
     "term-ng": "*"
   },
   "devDependencies": {
-    "@thebespokepixel/cordial": "*",
-    "semver-regex": "^1.0.0",
-    "shelljs": "^0.6.0"
+    "@thebespokepixel/cordial": "github:MarkGriffiths/cordial#develop",
+    "semver-regex": "^1.0.0"
   },
-  "build_number": 0,
   "xo": {
     "semicolon": false,
     "esnext": true,
@@ -48,5 +52,6 @@
       "lib/**/*.js",
       "index.js"
     ]
-  }
+  },
+  "buildNumber": 4
 }
