@@ -42,7 +42,7 @@
     "term-ng": "*"
   },
   "devDependencies": {
-    "@thebespokepixel/cordial": "github:MarkGriffiths/cordial#develop",
+    "@thebespokepixel/cordial": "^0.13.0",
     "semver-regex": "^1.0.0"
   },
   "xo": {
@@ -53,5 +53,5 @@
       "index.js"
     ]
   },
-  "buildNumber": 0
+  "buildNumber": 3
 }
