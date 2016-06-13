@@ -218,7 +218,7 @@ export function console(options) {
 	return consoleFactory(options)
 }
 
-// Shiny, hot, new-ness
+// Shiny, hot new-ness
 export function createConsole(options) {
 	return consoleFactory(options)
 }
