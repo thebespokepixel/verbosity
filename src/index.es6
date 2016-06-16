@@ -32,7 +32,7 @@ import _console from 'console'
 import termNG from 'term-ng'
 import chalk from 'chalk'
 import sparkles from 'sparkles'
-import dateformat from 'dateformat'
+import {bespokeTimeFormat} from '@thebespokepixel/time'
 import readPkg from 'read-pkg-up'
 
 const format = util.format
@@ -64,7 +64,7 @@ const consoleFactory = function consoleFactory(options_ = {}) {
 	const willEmit = Boolean(namespace)
 
 	const timeFormatter = (ts => ts ?
-		() => `[${chalk.dim(dateformat(ts))}] ` :
+		() => `[${chalk.dim(bespokeTimeFormat(ts))}] ` :
 		() => ''
 	)(timestamp)
 

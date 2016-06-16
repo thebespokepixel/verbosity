@@ -55,5 +55,11 @@
       "index.js"
     ]
   },
-  "buildNumber": 1
+  "ava": {
+    "verbose": true,
+    "files": [
+      "test/*.js"
+    ]
+  },
+  "buildNumber": 3
 }
