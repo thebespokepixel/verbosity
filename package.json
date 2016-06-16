@@ -42,7 +42,7 @@
     "term-ng": "*"
   },
   "devDependencies": {
-    "@thebespokepixel/cordial": "^0.13.0",
+    "@thebespokepixel/cordial": "^0.15.0",
     "semver-regex": "^1.0.0"
   },
   "xo": {
