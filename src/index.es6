@@ -27,7 +27,7 @@
 
 import util from 'util'
 
-import consoleSource from 'console'
+import _console from 'console'
 
 import termNG from 'term-ng'
 import chalk from 'chalk'
@@ -73,7 +73,7 @@ const consoleFactory = function consoleFactory(options_ = {}) {
 		() => ''
 	)(prefix)
 
-	return Object.assign(Object.create(consoleSource.Console), {
+	return Object.assign(Object.create(_console.Console), {
 		_stdout: sOut,
 		_stderr: sErr,
 		threshold: verbosity ? verbosity : 3,
