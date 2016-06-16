@@ -3,7 +3,6 @@
 import stream from 'stream'
 import test from 'ava'
 import {createConsole, getVersion} from '..'
-import semverRegex from 'semver-regex'
 import pkg from '../package.json'
 
 const StreamProxy = new stream.PassThrough()
@@ -15,10 +14,6 @@ test(`Module version is '${pkg.version}'.`, t => {
 
 test(`Module long version is '${pkg.name} v${pkg.version}'.`, t => {
 	t.is(`${pkg.name} v${pkg.version}`, getVersion(2))
-})
-
-test(`Module version '${pkg.version} is semver'.`, t => {
-	t.truthy(semverRegex().test(getVersion()))
 })
 
 const testConsole = createConsole({outStream: StreamProxy})

@@ -1,6 +1,6 @@
 {
   "name": "verbosity",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Verbose logging features for ttys or any writable stream.",
   "main": "index.js",
   "jsnext:main": "lib/index-es6.js",
@@ -35,15 +35,17 @@
   },
   "homepage": "https://github.com/MarkGriffiths/verbosity#readme",
   "dependencies": {
+    "@thebespokepixel/time": "^0.2.0",
     "chalk": "^1.1.1",
-    "dateformat": "^1.0.12",
     "read-pkg-up": "^1.0.1",
     "sparkles": "^1.0.0",
     "term-ng": "*"
   },
   "devDependencies": {
-    "@thebespokepixel/cordial": "^0.13.0",
-    "semver-regex": "^1.0.0"
+    "@thebespokepixel/cordial": "*",
+    "ava": "^0.15.2",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "xo": "^0.16.0"
   },
   "xo": {
     "semicolon": false,
@@ -51,6 +53,12 @@
     "ignore": [
       "lib/**/*.js",
       "index.js"
+    ]
+  },
+  "ava": {
+    "verbose": true,
+    "files": [
+      "test/*.js"
     ]
   },
   "buildNumber": 0
