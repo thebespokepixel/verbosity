@@ -45,7 +45,7 @@
     "@thebespokepixel/cordial": "*",
     "ava": "^0.15.2",
     "gulp": "github:gulpjs/gulp#4.0",
-    "xo": "^0.16.0"
+    "xo": "^0.17.0"
   },
   "xo": {
     "semicolon": false,
