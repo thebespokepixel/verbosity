@@ -37,7 +37,7 @@
   "dependencies": {
     "@thebespokepixel/time": "^0.2.0",
     "chalk": "^1.1.1",
-    "read-pkg-up": "^1.0.1",
+    "read-pkg-up": "^2.0.0",
     "sparkles": "^1.0.0",
     "term-ng": "*"
   },
