@@ -42,7 +42,7 @@
     "term-ng": "*"
   },
   "devDependencies": {
-    "@thebespokepixel/cordial": "*",
+    "@thebespokepixel/cordial": "0.17.9",
     "ava": "^0.15.2",
     "gulp": "github:gulpjs/gulp#4.0",
     "xo": "^0.16.0"
