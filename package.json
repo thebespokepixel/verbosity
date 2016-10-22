@@ -1,11 +1,17 @@
 {
   "name": "verbosity",
-  "version": "0.7.1",
+  "version": "0.8.0-beta.0",
   "description": "Verbose logging features for ttys or any writable stream.",
   "main": "index.js",
-  "jsnext:main": "lib/index-es6.js",
+  "jsnext:main": "lib/index-es.js",
   "scripts": {
-    "test": "gulp test"
+    "test": "xo && snyk test && nyc ava",
+    "doc-serve": "documentation serve --watch --theme node_modules/documentation-theme-bespoke --github --config src/docs/documentation.yml --name $npm_package_name  --project-version $npm_package_version src/index.js",
+    "doc-build": "documentation build --format html --output docs --theme node_modules/documentation-theme-bespoke --github --config src/docs/documentation.yml --name $npm_package_name  --project-version $npm_package_version src/index.js",
+    "readme": "compile-readme -u src/docs/example.md src/docs/readme.md > readme.md",
+    "code-climate": "nyc report --reporter=text-lcov | codeclimate-test-reporter",
+    "coverage": "nyc ava && nyc report --reporter=lcov --report-dir test/coverage; open test/coverage/lcov-report/index.html",
+    "clean": "gulp clean"
   },
   "files": [
     "index.js",
@@ -19,15 +25,14 @@
   "author": "Mark Griffiths <mark@thebespokepixel.com> (http://thebespokepixel.com/)",
   "license": "MIT",
   "directories": {
-    "test": "test",
-    "lib": "lib"
+    "test": "test"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/MarkGriffiths/verbosity.git"
   },
   "engines": {
-    "node": ">=4.0 <7.0"
+    "node": ">=4.0 <8.0"
   },
   "bugs": {
     "url": "https://github.com/MarkGriffiths/verbosity/issues",
@@ -35,24 +40,33 @@
   },
   "homepage": "https://github.com/MarkGriffiths/verbosity#readme",
   "dependencies": {
+    "@thebespokepixel/meta": "^0.1.6",
     "@thebespokepixel/time": "^0.2.0",
     "chalk": "^1.1.1",
-    "read-pkg-up": "^1.0.1",
     "sparkles": "^1.0.0",
-    "term-ng": "*"
+    "term-ng": "0.7.2"
   },
   "devDependencies": {
-    "@thebespokepixel/cordial": "*",
-    "ava": "^0.15.2",
+    "@thebespokepixel/cordial": "^0.17.9",
+    "ava": "^0.16.0",
+    "codeclimate-test-reporter": "^0.4.0",
+    "documentation": "^4.0.0-beta11",
+    "documentation-theme-bespoke": "^0.3.0",
+    "greenkeeper-postpublish": "^1.0.1",
     "gulp": "github:gulpjs/gulp#4.0",
-    "xo": "^0.16.0"
+    "nyc": "^8.3.2",
+    "snyk": "^1.19.1",
+    "xo": "^0.17.0"
   },
   "xo": {
     "semicolon": false,
     "esnext": true,
     "ignore": [
-      "lib/**/*.js",
-      "index.js"
+      "index.js",
+      "lib/**",
+      "docs/**",
+      "src/docs/example.js",
+      "test/coverage/**"
     ]
   },
   "ava": {
@@ -61,5 +75,61 @@
       "test/*.js"
     ]
   },
-  "buildNumber": 0
+  "buildNumber": 0,
+  "badges": {
+    "github": "MarkGriffiths",
+    "npm": "thebespokepixel",
+    "name": "verbosity",
+    "providers": {
+      "status": {
+        "text": "beta",
+        "color": "blue"
+      },
+      "aux1": {
+        "title": "github",
+        "text": "source",
+        "color": "4E73B6",
+        "link": "https://github.com/MarkGriffiths/verbosity"
+      }
+    },
+    "test-1": [
+      "status"
+    ],
+    "readme": {
+      "Status": [
+        [
+          "status",
+          "npm",
+          "travis",
+          "david"
+        ],
+        [
+          "code-climate",
+          "code-climate-coverage",
+          "snyk"
+        ]
+      ],
+      "Developer": [
+        "david-dev",
+        "rollup"
+      ],
+      "Help": [
+        "inch",
+        "gitter"
+      ]
+    },
+    "docs": [
+      [
+        "aux1",
+        "travis"
+      ],
+      [
+        "code-climate",
+        "code-climate-coverage"
+      ],
+      [
+        "david"
+      ]
+    ]
+  }
 }
