@@ -3,17 +3,19 @@
 import stream from 'stream'
 import test from 'ava'
 import {createConsole, getVersion} from '..'
-import pkg from '../package.json'
+import pkg from '../package'
+
+const expectedVersion = ((pkg.buildNumber === 0) && pkg.version) || `${pkg.version}-Δ${pkg.buildNumber}`
 
 const StreamProxy = new stream.PassThrough()
 StreamProxy.setEncoding('utf8')
 
 test(`Module version is '${pkg.version}'.`, t => {
-	t.is(`${pkg.version}`, getVersion())
+	t.is(`${expectedVersion}`, getVersion())
 })
 
 test(`Module long version is '${pkg.name} v${pkg.version}'.`, t => {
-	t.is(`${pkg.name} v${pkg.version}`, getVersion(2))
+	t.is(`${pkg.name} v${expectedVersion}`, getVersion(2))
 })
 
 const testConsole = createConsole({outStream: StreamProxy})
