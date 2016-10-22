@@ -75,7 +75,7 @@
       "test/*.js"
     ]
   },
-  "buildNumber": 0,
+  "buildNumber": 4,
   "badges": {
     "github": "MarkGriffiths",
     "npm": "thebespokepixel",

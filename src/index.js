@@ -362,12 +362,17 @@ const consoleFactory = function (options = {}) {
 	})
 }
 
-// Deprecated
+/**
+ * Create a new VerbosityConsole object.
+ * @private
+ * @deprecated Use `createConsole` instead.
+ * @param  {Object} options Options to pass to the factory.
+ * @return {VerbosityConsole} Verbosity's console object.
+ */
 export function console(options) {
 	return consoleFactory(options)
 }
 
-// Shiny, hot new-ness
 /**
  * Create a new VerbosityConsole object.
  * @param  {Object} options Options to pass to the factory.
@@ -377,4 +382,10 @@ export function createConsole(options) {
 	return consoleFactory(options)
 }
 
+/**
+ * Return the modules version metadata.
+ * @function
+ * @param  {Number} level Version format required.
+ * @return {String} The version string.
+ */
 export const getVersion = level => metadata.version(level)
