@@ -1,6 +1,6 @@
 {
   "name": "verbosity",
-  "version": "0.8.0-beta.1",
+  "version": "0.8.0-beta.2",
   "description": "Verbose logging features for ttys or any writable stream.",
   "main": "index.js",
   "jsnext:main": "lib/index-es.js",
