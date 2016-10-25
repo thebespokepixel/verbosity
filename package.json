@@ -1,6 +1,6 @@
 {
   "name": "verbosity",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "Verbose logging features for ttys or any writable stream.",
   "main": "index.js",
   "jsnext:main": "lib/index-es.js",
@@ -75,7 +75,7 @@
       "test/*.js"
     ]
   },
-  "buildNumber": 2,
+  "buildNumber": 0,
   "badges": {
     "github": "MarkGriffiths",
     "npm": "thebespokepixel",
