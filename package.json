@@ -32,7 +32,7 @@
     "url": "https://github.com/MarkGriffiths/verbosity.git"
   },
   "engines": {
-    "node": ">=4.0 <8.0"
+    "node": ">=4.0 <9.0"
   },
   "bugs": {
     "url": "https://github.com/MarkGriffiths/verbosity/issues",
@@ -40,14 +40,14 @@
   },
   "homepage": "https://github.com/MarkGriffiths/verbosity#readme",
   "dependencies": {
-    "@thebespokepixel/meta": "^0.1.6",
-    "@thebespokepixel/time": "^0.2.0",
+    "@thebespokepixel/meta": "^0.1.8",
+    "@thebespokepixel/time": "^0.2.3",
     "chalk": "^1.1.1",
     "sparkles": "^1.0.0",
-    "term-ng": "0.7.2"
+    "term-ng": "0.7.4"
   },
   "devDependencies": {
-    "@thebespokepixel/cordial": "^0.17.9",
+    "@thebespokepixel/cordial": "^0.17.10",
     "ava": "^0.16.0",
     "codeclimate-test-reporter": "^0.4.0",
     "documentation": "^4.0.0-beta11",
@@ -75,7 +75,7 @@
       "test/*.js"
     ]
   },
-  "buildNumber": 0,
+  "buildNumber": 2,
   "badges": {
     "github": "MarkGriffiths",
     "npm": "thebespokepixel",
