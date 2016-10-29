@@ -44,7 +44,7 @@
     "@thebespokepixel/time": "^0.2.3",
     "chalk": "^1.1.1",
     "sparkles": "^1.0.0",
-    "term-ng": "0.7.4"
+    "term-ng": "0.7.6"
   },
   "devDependencies": {
     "@thebespokepixel/cordial": "^0.17.10",
