@@ -5,7 +5,7 @@
   "main": "index.js",
   "jsnext:main": "lib/index-es.js",
   "scripts": {
-    "test": "xo && snyk test && nyc ava",
+    "test": "xo && nyc ava",
     "doc-serve": "documentation serve --watch --theme node_modules/documentation-theme-bespoke --github --config src/docs/documentation.yml --name $npm_package_name  --project-version $npm_package_version src/index.js",
     "doc-build": "documentation build --format html --output docs --theme node_modules/documentation-theme-bespoke --github --config src/docs/documentation.yml --name $npm_package_name  --project-version $npm_package_version src/index.js",
     "readme": "compile-readme -u src/docs/example.md src/docs/readme.md > readme.md",
@@ -40,22 +40,21 @@
   },
   "homepage": "https://github.com/MarkGriffiths/verbosity#readme",
   "dependencies": {
-    "@thebespokepixel/meta": "^0.1.8",
+    "@thebespokepixel/meta": "^0.1.9",
     "@thebespokepixel/time": "^0.2.3",
     "chalk": "^1.1.1",
     "sparkles": "^1.0.0",
-    "term-ng": "0.7.4"
+    "term-ng": "0.7.6"
   },
   "devDependencies": {
-    "@thebespokepixel/cordial": "^0.17.10",
+    "@thebespokepixel/cordial": "^0.17.11",
     "ava": "^0.16.0",
     "codeclimate-test-reporter": "^0.4.0",
     "documentation": "^4.0.0-beta11",
-    "documentation-theme-bespoke": "^0.3.0",
+    "documentation-theme-bespoke": "^0.3.2",
     "greenkeeper-postpublish": "^1.0.1",
     "gulp": "github:gulpjs/gulp#4.0",
     "nyc": "^8.3.2",
-    "snyk": "^1.19.1",
     "xo": "^0.17.0"
   },
   "xo": {
@@ -75,7 +74,7 @@
       "test/*.js"
     ]
   },
-  "buildNumber": 0,
+  "buildNumber": 1,
   "badges": {
     "github": "MarkGriffiths",
     "npm": "thebespokepixel",
