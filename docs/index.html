@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>verbosity 0.8.2 | Documentation</title>
+  <title>verbosity 0.8.3 | Documentation</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link href="assets/css/ace.min.css" rel="stylesheet">
   <link href="assets/fonts/TypoPRO-Hack/TypoPRO-Hack.css" type="text/css" rel="stylesheet" />
@@ -11,9 +11,9 @@
 </head>
 <body class="m0 documentation">
   <div class="flex">
-    <div class="flex-column fixed top-0 bottom-0 px2 pt2 xs-hide overflow-auto max-height-100 sidebar">
+    <div class="flex-column fixed top-0 bottom-0 px2 pt2 max-height-100 sidebar">
       <h3 class="m0 no-anchor">verbosity</h3>
-      <div class="mb1"><code>v0.8.2</code></div>
+      <div class="mb1"><code>v0.8.3</code></div>
       <input
         placeholder="Filter"
         id="filter-input"
@@ -220,8 +220,8 @@
         <a href="http://documentation.js.org/reading-documentation.html">Need help reading this?</a>
       </div>
     </div>
-    <div class="flex-column px2 xs-hide sidespace">
-      <h3 class="mb0 no-anchor">verbosity</h3>
+    <div class="flex-column px2 sidespace">
+      <h3 class="m0 no-anchor">verbosity</h3>
     </div>
     <div class="flex-auto px2 pt1">
       
@@ -233,34 +233,30 @@
 	
 	
 		<h4>Installation</h4>
-<pre><code class="language-shell">npm install --save verbosity
-</code></pre>
+<pre class='hljs'>npm install --save verbosity</pre>
 <h4>Examples</h4>
 <p>Simply override the built in console object:</p>
-<pre><code class="language-javascript">const console = require('../../index.js').createConsole({
-    outStream: process.stdout,
-    errorStream: process.stderr,
-    verbosity: 5
-})
-</code></pre>
+<pre class='hljs'><span class="hljs-keyword">const</span> <span class="hljs-built_in">console</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../../index.js'</span>).createConsole({
+	<span class="hljs-attr">outStream</span>: process.stdout,
+	<span class="hljs-attr">errorStream</span>: process.stderr,
+	<span class="hljs-attr">verbosity</span>: <span class="hljs-number">5</span>
+})</pre>
 <p>This will direct all console output to stderr, but silence 'info' and 'debug' messages.</p>
-<pre><code class="language-javascript">const console = require('../../index.js').createConsole({
-    outStream: process.stderr,
-    verbosity: 3
+<pre class='hljs'><span class="hljs-keyword">const</span> <span class="hljs-built_in">console</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../../index.js'</span>).createConsole({
+	<span class="hljs-attr">outStream</span>: process.stderr,
+	<span class="hljs-attr">verbosity</span>: <span class="hljs-number">3</span>
 })
 
-console.log('Picked brown jacket...') // Printed
-console.debug('Purple tie chosen...') // Not printed
-console.warn("That tie doesn't go with that jacket.") // Printed
-</code></pre>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Picked brown jacket...'</span>) <span class="hljs-comment">// Printed</span>
+<span class="hljs-built_in">console</span>.debug(<span class="hljs-string">'Purple tie chosen...'</span>) <span class="hljs-comment">// Not printed</span>
+<span class="hljs-built_in">console</span>.warn(<span class="hljs-string">"That tie doesn't go with that jacket."</span>) <span class="hljs-comment">// Printed</span></pre>
 <p>Or go mad with making up any number of custom console writers.</p>
-<pre><code class="language-javascript">const myUberConsole = require('../../index.js').createConsole({
-    outStream: myFancyWriteableStream,
-    verbosity: 5
+<pre class='hljs'><span class="hljs-keyword">const</span> myUberConsole = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../../index.js'</span>).createConsole({
+	<span class="hljs-attr">outStream</span>: myFancyWriteableStream,
+	<span class="hljs-attr">verbosity</span>: <span class="hljs-number">5</span>
 })
 
-myUberConsole.panic('Core Flux Capacitor Meltdown!')
-</code></pre>
+myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</span>)</pre>
 
 	
 </section>
@@ -290,7 +286,7 @@ myUberConsole.panic('Core Flux Capacitor Meltdown!')
       consoleFactory  <span>→ VerbosityConsole</span>
     </h3>
     
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/3e4b4c08f36854114b0ba6c658f72efe670f9089/src/index.js#L36-L363">src/index.js</a>
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/a2e494df3b2ebfd56d17aceb83619e428fac2f76/src/index.js#L36-L363">src/index.js</a>
     
   </div>
   
@@ -312,7 +308,7 @@ myUberConsole.panic('Core Flux Capacitor Meltdown!')
       
         <div class="space-bottom0">
           <div>
-            <span class="code bold">options</span> <code class="quiet">([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>](default {}))</code> Configuration options.
+            <span class="code bold">options</span> <code class="quiet">(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?= {})</code> Configuration options.
 
           </div>
           
@@ -419,7 +415,7 @@ myUberConsole.panic('Core Flux Capacitor Meltdown!')
       verbosity  <span>→ <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span>
     </h3>
     
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/3e4b4c08f36854114b0ba6c658f72efe670f9089/src/index.js#L180-L186">src/index.js</a>
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/a2e494df3b2ebfd56d17aceb83619e428fac2f76/src/index.js#L180-L186">src/index.js</a>
     
   </div>
   
@@ -486,7 +482,7 @@ myUberConsole.panic('Core Flux Capacitor Meltdown!')
       canWrite  <span>→ <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span>
     </h3>
     
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/3e4b4c08f36854114b0ba6c658f72efe670f9089/src/index.js#L192-L195">src/index.js</a>
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/a2e494df3b2ebfd56d17aceb83619e428fac2f76/src/index.js#L192-L195">src/index.js</a>
     
   </div>
   
@@ -554,7 +550,7 @@ myUberConsole.panic('Core Flux Capacitor Meltdown!')
       debug  
     </h3>
     
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/3e4b4c08f36854114b0ba6c658f72efe670f9089/src/index.js#L218-L220">src/index.js</a>
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/a2e494df3b2ebfd56d17aceb83619e428fac2f76/src/index.js#L218-L220">src/index.js</a>
     
   </div>
   
@@ -621,7 +617,7 @@ myUberConsole.panic('Core Flux Capacitor Meltdown!')
       info  
     </h3>
     
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/3e4b4c08f36854114b0ba6c658f72efe670f9089/src/index.js#L226-L228">src/index.js</a>
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/a2e494df3b2ebfd56d17aceb83619e428fac2f76/src/index.js#L226-L228">src/index.js</a>
     
   </div>
   
@@ -688,7 +684,7 @@ myUberConsole.panic('Core Flux Capacitor Meltdown!')
       log  
     </h3>
     
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/3e4b4c08f36854114b0ba6c658f72efe670f9089/src/index.js#L234-L236">src/index.js</a>
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/a2e494df3b2ebfd56d17aceb83619e428fac2f76/src/index.js#L234-L236">src/index.js</a>
     
   </div>
   
@@ -755,7 +751,7 @@ myUberConsole.panic('Core Flux Capacitor Meltdown!')
       warn  
     </h3>
     
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/3e4b4c08f36854114b0ba6c658f72efe670f9089/src/index.js#L242-L244">src/index.js</a>
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/a2e494df3b2ebfd56d17aceb83619e428fac2f76/src/index.js#L242-L244">src/index.js</a>
     
   </div>
   
@@ -822,7 +818,7 @@ myUberConsole.panic('Core Flux Capacitor Meltdown!')
       error  
     </h3>
     
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/3e4b4c08f36854114b0ba6c658f72efe670f9089/src/index.js#L250-L252">src/index.js</a>
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/a2e494df3b2ebfd56d17aceb83619e428fac2f76/src/index.js#L250-L252">src/index.js</a>
     
   </div>
   
@@ -889,7 +885,7 @@ myUberConsole.panic('Core Flux Capacitor Meltdown!')
       critical  
     </h3>
     
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/3e4b4c08f36854114b0ba6c658f72efe670f9089/src/index.js#L258-L260">src/index.js</a>
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/a2e494df3b2ebfd56d17aceb83619e428fac2f76/src/index.js#L258-L260">src/index.js</a>
     
   </div>
   
@@ -956,7 +952,7 @@ myUberConsole.panic('Core Flux Capacitor Meltdown!')
       panic  
     </h3>
     
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/3e4b4c08f36854114b0ba6c658f72efe670f9089/src/index.js#L266-L268">src/index.js</a>
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/a2e494df3b2ebfd56d17aceb83619e428fac2f76/src/index.js#L266-L268">src/index.js</a>
     
   </div>
   
@@ -1023,7 +1019,7 @@ myUberConsole.panic('Core Flux Capacitor Meltdown!')
       emergency  
     </h3>
     
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/3e4b4c08f36854114b0ba6c658f72efe670f9089/src/index.js#L274-L276">src/index.js</a>
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/a2e494df3b2ebfd56d17aceb83619e428fac2f76/src/index.js#L274-L276">src/index.js</a>
     
   </div>
   
@@ -1090,7 +1086,7 @@ myUberConsole.panic('Core Flux Capacitor Meltdown!')
       dir  
     </h3>
     
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/3e4b4c08f36854114b0ba6c658f72efe670f9089/src/index.js#L282-L287">src/index.js</a>
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/a2e494df3b2ebfd56d17aceb83619e428fac2f76/src/index.js#L282-L287">src/index.js</a>
     
   </div>
   
@@ -1098,7 +1094,7 @@ myUberConsole.panic('Core Flux Capacitor Meltdown!')
   <p>As console.dir, but defaults to colour (if appropriate) and zero depth.</p>
 
   
-  <div class="pre p1 bg-darken-1 mt0 signature">dir(obj: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, options: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>](default {}))</div>
+  <div class="pre p1 bg-darken-1 mt0 signature">dir(obj: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, options: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
   
   
 
@@ -1122,7 +1118,7 @@ myUberConsole.panic('Core Flux Capacitor Meltdown!')
       
         <div class="space-bottom0">
           <div>
-            <span class="code bold">options</span> <code class="quiet">([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>](default {}))</code> As console.dir options object.
+            <span class="code bold">options</span> <code class="quiet">(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code> As console.dir options object.
 
           </div>
           
@@ -1157,7 +1153,7 @@ myUberConsole.panic('Core Flux Capacitor Meltdown!')
       pretty  
     </h3>
     
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/3e4b4c08f36854114b0ba6c658f72efe670f9089/src/index.js#L306-L318">src/index.js</a>
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/a2e494df3b2ebfd56d17aceb83619e428fac2f76/src/index.js#L306-L318">src/index.js</a>
     
   </div>
   
@@ -1165,7 +1161,7 @@ myUberConsole.panic('Core Flux Capacitor Meltdown!')
   <p>Pretty prints object, similar to OS X's plutil -p. Defaults to zero depth.</p>
 
   
-  <div class="pre p1 bg-darken-1 mt0 signature">pretty(obj: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, depth: [<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>](default 0))</div>
+  <div class="pre p1 bg-darken-1 mt0 signature">pretty(obj: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, depth: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)</div>
   
   
 
@@ -1189,7 +1185,7 @@ myUberConsole.panic('Core Flux Capacitor Meltdown!')
       
         <div class="space-bottom0">
           <div>
-            <span class="code bold">depth</span> <code class="quiet">([<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>](default 0))</code> How many object levels to print.
+            <span class="code bold">depth</span> <code class="quiet">(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)</code> How many object levels to print.
 
           </div>
           
@@ -1241,7 +1237,7 @@ myUberConsole.panic('Core Flux Capacitor Meltdown!')
       yargs  
     </h3>
     
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/3e4b4c08f36854114b0ba6c658f72efe670f9089/src/index.js#L336-L361">src/index.js</a>
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/a2e494df3b2ebfd56d17aceb83619e428fac2f76/src/index.js#L336-L361">src/index.js</a>
     
   </div>
   
@@ -1316,7 +1312,7 @@ myUberConsole.panic('Core Flux Capacitor Meltdown!')
       createConsole  <span>→ VerbosityConsole</span>
     </h3>
     
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/3e4b4c08f36854114b0ba6c658f72efe670f9089/src/index.js#L381-L383">src/index.js</a>
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/a2e494df3b2ebfd56d17aceb83619e428fac2f76/src/index.js#L381-L383">src/index.js</a>
     
   </div>
   
@@ -1383,7 +1379,7 @@ myUberConsole.panic('Core Flux Capacitor Meltdown!')
       getVersion  <span>→ <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>
     </h3>
     
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/3e4b4c08f36854114b0ba6c658f72efe670f9089/src/index.js#L391-L391">src/index.js</a>
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/a2e494df3b2ebfd56d17aceb83619e428fac2f76/src/index.js#L391-L391">src/index.js</a>
     
   </div>
   
