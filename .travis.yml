@@ -10,6 +10,8 @@ node_js:
   - 5
   - 4
 sudo: false
+env:
+  - CXX=g++-4.8
 before_install: npm i -g npm@latest
 notifications:
   webhooks:
@@ -19,6 +21,11 @@ notifications:
     on_failure: change
     on_start: never
 addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
   code_climate:
     repo_token: 0b75780aa2ecb4ca547ca268f175e2f8c6600965317ace528b3bc67f6a09b255
 after_script:
