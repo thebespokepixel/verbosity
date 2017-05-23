@@ -47,14 +47,14 @@
   },
   "devDependencies": {
     "@thebespokepixel/cordial": "^0.17.11",
-    "ava": "^0.17.0",
+    "ava": "^0.19.1",
     "codeclimate-test-reporter": "^0.4.0",
     "documentation": "^4.0.0-beta11",
     "documentation-theme-bespoke": "^0.3.4",
     "greenkeeper-postpublish": "^1.0.1",
     "gulp": "github:gulpjs/gulp#4.0",
     "nyc": "^10.0.0",
-    "xo": "^0.17.0"
+    "xo": "^0.18.2"
   },
   "xo": {
     "semicolon": false,
