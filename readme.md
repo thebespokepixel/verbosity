@@ -1,5 +1,7 @@
 # verbosity
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/MarkGriffiths/verbosity.svg)](https://greenkeeper.io/)
+
 > An augmented drop-in console replacement that supports logging levels.
 
 ##### Status
