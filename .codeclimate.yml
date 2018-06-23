@@ -2,9 +2,6 @@
 engines:
   duplication:
     enabled: true
-    checks:
-      Similar code:
-        enabled: false
     config:
       languages:
       - javascript
@@ -18,8 +15,8 @@ ratings:
   paths:
   - "src/**.js"
 exclude_paths:
-- docs/
 - test/
-- bin/
-- scripts/
-- lib/
+- docs/
+- index.js
+- index.mjs
+- gulpfile.js

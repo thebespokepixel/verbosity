@@ -1,16 +1,10 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
-var util = _interopDefault(require('util'));
-var _console = _interopDefault(require('console'));
-var termNG = _interopDefault(require('term-ng'));
-var chalk = _interopDefault(require('chalk'));
-var sparkles = _interopDefault(require('sparkles'));
-var time = require('@thebespokepixel/time');
-var meta = _interopDefault(require('@thebespokepixel/meta'));
+import util from 'util';
+import _console from 'console';
+import termNG from 'term-ng';
+import chalk from 'chalk';
+import sparkles from 'sparkles';
+import { bespokeTimeFormat } from '@thebespokepixel/time';
+import meta from '@thebespokepixel/meta';
 
 const format = util.format;
 const inspect = util.inspect;
@@ -44,7 +38,7 @@ const consoleFactory = function (options = {}) {
 
   const willEmit = Boolean(namespace);
 
-  const timeFormatter = (ts => ts ? () => `[${chalk.dim(time.bespokeTimeFormat(ts))}] ` : () => '')(timestamp);
+  const timeFormatter = (ts => ts ? () => `[${chalk.dim(bespokeTimeFormat(ts))}] ` : () => '')(timestamp);
 
   const prefixFormatter = (pfix => pfix ? () => `[${pfix}] ` : () => '')(prefix);
 
@@ -225,6 +219,4 @@ function createConsole(options) {
 
 const getVersion = level => metadata.version(level);
 
-exports.console = console;
-exports.createConsole = createConsole;
-exports.getVersion = getVersion;
+export { console, createConsole, getVersion };
