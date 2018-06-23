@@ -1,6 +1,6 @@
 {
   "name": "verbosity",
-  "version": "0.8.4",
+  "version": "0.9.0",
   "description": "Verbose logging features for ttys or any writable stream.",
   "main": "index.js",
   "module": "index.mjs",
@@ -22,6 +22,10 @@
     "verbose"
   ],
   "author": "Mark Griffiths <mark@thebespokepixel.com> (http://thebespokepixel.com/)",
+  "copyright": {
+    "year": "2018",
+    "owner": "Mark Griffiths @ The Bespoke Pixel"
+  },
   "license": "MIT",
   "directories": {
     "test": "test"
