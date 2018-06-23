@@ -21,198 +21,198 @@
         type="text" />
       <div id="toc">
         <ul class="list-reset h5 py1-ul">
-          
-            
+
+
             <li><a
               href="#usage"
               class="h5 bold black caps">
               Usage
-              
+
             </a>
-            
+
             </li>
-          
-            
+
+
             <li><a
               href="#api"
               class="h5 bold black caps">
               API
-              
+
             </a>
-            
+
             </li>
-          
-            
+
+
             <li><a
               href="#consolefactory"
               class="">
               consoleFactory
-              
+
             </a>
-            
+
             </li>
-          
-            
+
+
             <li><a
               href="#verbosity"
               class="">
               verbosity
-              
+
             </a>
-            
+
             </li>
-          
-            
+
+
             <li><a
               href="#canwrite"
               class="">
               canWrite
-              
+
             </a>
-            
+
             </li>
-          
-            
+
+
             <li><a
               href="#debug"
               class="">
               debug
-              
+
             </a>
-            
+
             </li>
-          
-            
+
+
             <li><a
               href="#info"
               class="">
               info
-              
+
             </a>
-            
+
             </li>
-          
-            
+
+
             <li><a
               href="#log"
               class="">
               log
-              
+
             </a>
-            
+
             </li>
-          
-            
+
+
             <li><a
               href="#warn"
               class="">
               warn
-              
+
             </a>
-            
+
             </li>
-          
-            
+
+
             <li><a
               href="#error"
               class="">
               error
-              
+
             </a>
-            
+
             </li>
-          
-            
+
+
             <li><a
               href="#critical"
               class="">
               critical
-              
+
             </a>
-            
+
             </li>
-          
-            
+
+
             <li><a
               href="#panic"
               class="">
               panic
-              
+
             </a>
-            
+
             </li>
-          
-            
+
+
             <li><a
               href="#emergency"
               class="">
               emergency
-              
+
             </a>
-            
+
             </li>
-          
-            
+
+
             <li><a
               href="#dir"
               class="">
               dir
-              
+
             </a>
-            
+
             </li>
-          
-            
+
+
             <li><a
               href="#pretty"
               class="">
               pretty
-              
+
             </a>
-            
+
             </li>
-          
-            
+
+
             <li><a
               href="#yargs"
               class="">
               yargs
-              
+
             </a>
-            
+
             </li>
-          
-            
+
+
             <li><a
               href="#createconsole"
               class="">
               createConsole
-              
+
             </a>
-            
+
             </li>
-          
-            
+
+
             <li><a
               href="#getversion"
               class="">
               getVersion
-              
+
             </a>
-            
+
             </li>
-          
+
         </ul>
       </div>
       <div class="badges"><p><a href="https://github.com/MarkGriffiths/verbosity" title="Github"><img src="https://img.shields.io/badge/github-source-4E73B6.svg?style=flat" alt="Github"></a> <a href="https://travis-ci.org/MarkGriffiths/verbosity" title="Travis"><img src="https://img.shields.io/travis/MarkGriffiths/verbosity.svg?branch=master&#x26;style=flat" alt="Travis"></a> <br>
 </p>
- 
-<p><a href="https://codeclimate.com/github/MarkGriffiths/verbosity" title="Code-climate"><img src="https://codeclimate.com/github/MarkGriffiths/verbosity/badges/gpa.svg?style=flat" alt="Code-climate"></a> <a href="https://codeclimate.com/github/MarkGriffiths/verbosity/coverage" title="Coverage"><img src="https://codeclimate.com/github/MarkGriffiths/verbosity/badges/coverage.svg?style=flat" alt="Coverage"></a> <br>
+
+<p><a href="https://codeclimate.com/github/MarkGriffiths/verbosity" title="Code-climate"><img src="https://codeclimate.com/github/MarkGriffiths/verbosity/badges/gpa.svg?style=flat" alt="Code-climate"></a> <br><a href="https://codeclimate.com/github/MarkGriffiths/verbosity/coverage" title="Coverage"><img src="https://codeclimate.com/github/MarkGriffiths/verbosity/badges/coverage.svg?style=flat" alt="Coverage"></a> <br>
 </p>
- 
+
 <p><a href="https://david-dm.org/MarkGriffiths/verbosity/master" title="David"><img src="https://img.shields.io/david/MarkGriffiths/verbosity.svg?branch=master&#x26;style=flat" alt="David"></a> <br>
 </p>
- 
+
 <br>
 
 </div>
@@ -224,14 +224,14 @@
       <h3 class="m0 no-anchor">verbosity</h3>
     </div>
     <div class="flex-auto px2 pt1">
-      
-        
+
+
           <div class="keyline-top-not py1"><section class="py0 px2 clearfix note">
 	<h3 id="usage" class="m0">
 		Usage
 	</h3>
-	
-	
+
+
 		<h4>Installation</h4>
 <pre class='hljs'>npm install --save verbosity</pre>
 <h4>Examples</h4>
@@ -258,60 +258,60 @@
 
 myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</span>)</pre>
 
-	
+
 </section>
 </div>
-        
-      
-        
+
+
+
           <div class="keyline-top-not py1"><section class="py0 px2 clearfix note">
 	<h3 id="api" class="m0">
 		API
 	</h3>
-	
-		
 
-	
-	
+
+
+
+
 </section>
 </div>
-        
-      
-        
+
+
+
           <section class="py2 px3 mb2 clearfix bg-white rounded minishadow">
 
-  
+
   <div class="clearfix">
     <h3 class="left m0 panel-title" id="consolefactory">
       consoleFactory  <span>→ VerbosityConsole</span>
     </h3>
-    
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/7a4335c69dca22ee6a81c15c3bcda0efb2acb63e/src/index.js#L36-L363">src/index.js</a>
-    
+
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/6603581e1468332d8ebf02f3138ff49dd5220ad7/src/index.js#L36-L363">src/index.js</a>
+
   </div>
-  
+
 
   <p>Generate a verbosity console</p>
 
-  
-  
 
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
     <div class="py1 quiet mt1 prose-big">Parameters</div>
     <div class="prose">
-      
+
         <div class="space-bottom0">
           <div>
             <span class="code bold">options</span> <code class="quiet">(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?= {})</code> Configuration options.
 
           </div>
-          
+
           <table class="mt1 mb2 fixed-table h5 col-12">
             <colgroup>
               <col width="30%" />
@@ -324,21 +324,21 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
               </tr>
             </thead>
             <tbody class="mt1">
-              
+
                 <tr>
                   <td class="break-word"><span class="code bold">options.outStream</span> <code class="quiet"><a href="https://nodejs.org/api/stream.html#stream_class_stream_writable">stream.writable</a></code>
                   </td>
                   <td class="break-word"><span>Stream to write normal output
 </span></td>
                 </tr>
-              
+
                 <tr>
                   <td class="break-word"><span class="code bold">options.errorStream</span> <code class="quiet"><a href="https://nodejs.org/api/stream.html#stream_class_stream_writable">stream.writable</a></code>
                   </td>
                   <td class="break-word"><span>Stream to write error output
 </span></td>
                 </tr>
-              
+
                 <tr>
                   <td class="break-word"><span class="code bold">options.verbosity</span> <code class="quiet"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>
                   </td>
@@ -351,859 +351,859 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
 5: Debug
 </span></td>
                 </tr>
-              
+
                 <tr>
                   <td class="break-word"><span class="code bold">options.timestamp</span> <code class="quiet"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>
                   </td>
                   <td class="break-word"><span>Timestamp format.
 </span></td>
                 </tr>
-              
+
                 <tr>
                   <td class="break-word"><span class="code bold">options.namespace</span> <code class="quiet"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>
                   </td>
                   <td class="break-word"><span>Sparkles namespace to emit events to.
 </span></td>
                 </tr>
-              
+
                 <tr>
                   <td class="break-word"><span class="code bold">options.prefix</span> <code class="quiet"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>
                   </td>
                   <td class="break-word"><span>Logging message prefix.
 </span></td>
                 </tr>
-              
+
             </tbody>
           </table>
-          
+
         </div>
-      
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="py1 quiet mt1 prose-big">Returns</div>
       <code>VerbosityConsole</code>:
         Verbosity's console object.
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
-        
-      
-        
+
+
+
           <section class="py2 px3 mb2 clearfix bg-white rounded minishadow">
 
-  
+
   <div class="clearfix">
     <h3 class="left m0 panel-title" id="verbosity">
       verbosity  <span>→ <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span>
     </h3>
-    
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/7a4335c69dca22ee6a81c15c3bcda0efb2acb63e/src/index.js#L180-L186">src/index.js</a>
-    
+
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/6603581e1468332d8ebf02f3138ff49dd5220ad7/src/index.js#L180-L186">src/index.js</a>
+
   </div>
-  
+
 
   <p>Set the current verbosity.</p>
 
-  
+
   <div class="pre p1 bg-darken-1 mt0 signature">verbosity(level: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>) → <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></div>
-  
-  
 
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
     <div class="py1 quiet mt1 prose-big">Parameters</div>
     <div class="prose">
-      
+
         <div class="space-bottom0">
           <div>
             <span class="code bold">level</span> <code class="quiet">(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)</code> The current level (0 to 5).
 
           </div>
-          
+
         </div>
-      
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="py1 quiet mt1 prose-big">Returns</div>
       <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>:
         The current verboseness (0 to 5).
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
-        
-      
-        
+
+
+
           <section class="py2 px3 mb2 clearfix bg-white rounded minishadow">
 
-  
+
   <div class="clearfix">
     <h3 class="left m0 panel-title" id="canwrite">
       canWrite  <span>→ <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span>
     </h3>
-    
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/7a4335c69dca22ee6a81c15c3bcda0efb2acb63e/src/index.js#L192-L195">src/index.js</a>
-    
+
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/6603581e1468332d8ebf02f3138ff49dd5220ad7/src/index.js#L192-L195">src/index.js</a>
+
   </div>
-  
+
 
   <p>Can the requested logging level be written at this time.</p>
 
-  
+
   <div class="pre p1 bg-darken-1 mt0 signature">canWrite(level: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>) → <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></div>
-  
-  
 
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
     <div class="py1 quiet mt1 prose-big">Parameters</div>
     <div class="prose">
-      
+
         <div class="space-bottom0">
           <div>
             <span class="code bold">level</span> <code class="quiet">(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)</code> The requested level (0 to 5).
 
           </div>
-          
+
         </div>
-      
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="py1 quiet mt1 prose-big">Returns</div>
       <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>:
         <code>true</code>
  if ok to write.
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
-        
-      
-        
+
+
+
           <section class="py2 px3 mb2 clearfix bg-white rounded minishadow">
 
-  
+
   <div class="clearfix">
     <h3 class="left m0 panel-title" id="debug">
-      debug  
+      debug
     </h3>
-    
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/7a4335c69dca22ee6a81c15c3bcda0efb2acb63e/src/index.js#L218-L220">src/index.js</a>
-    
+
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/6603581e1468332d8ebf02f3138ff49dd5220ad7/src/index.js#L218-L220">src/index.js</a>
+
   </div>
-  
+
 
   <p>Log a debug message. (Level 5)</p>
 
-  
+
   <div class="pre p1 bg-darken-1 mt0 signature">debug(msg: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
-  
-  
 
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
     <div class="py1 quiet mt1 prose-big">Parameters</div>
     <div class="prose">
-      
+
         <div class="space-bottom0">
           <div>
             <span class="code bold">msg</span> <code class="quiet">(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> The debug message to log.
 
           </div>
-          
+
         </div>
-      
+
         <div class="space-bottom0">
           <div>
             <span class="code bold">args</span> <code class="quiet">(...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> Additional arguments to log.
 
           </div>
-          
+
         </div>
-      
+
     </div>
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
-        
-      
-        
+
+
+
           <section class="py2 px3 mb2 clearfix bg-white rounded minishadow">
 
-  
+
   <div class="clearfix">
     <h3 class="left m0 panel-title" id="info">
-      info  
+      info
     </h3>
-    
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/7a4335c69dca22ee6a81c15c3bcda0efb2acb63e/src/index.js#L226-L228">src/index.js</a>
-    
+
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/6603581e1468332d8ebf02f3138ff49dd5220ad7/src/index.js#L226-L228">src/index.js</a>
+
   </div>
-  
+
 
   <p>Log an info message. (Level 4)</p>
 
-  
+
   <div class="pre p1 bg-darken-1 mt0 signature">info(msg: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
-  
-  
 
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
     <div class="py1 quiet mt1 prose-big">Parameters</div>
     <div class="prose">
-      
+
         <div class="space-bottom0">
           <div>
             <span class="code bold">msg</span> <code class="quiet">(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> The info message to log.
 
           </div>
-          
+
         </div>
-      
+
         <div class="space-bottom0">
           <div>
             <span class="code bold">args</span> <code class="quiet">(...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> Additional arguments to log.
 
           </div>
-          
+
         </div>
-      
+
     </div>
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
-        
-      
-        
+
+
+
           <section class="py2 px3 mb2 clearfix bg-white rounded minishadow">
 
-  
+
   <div class="clearfix">
     <h3 class="left m0 panel-title" id="log">
-      log  
+      log
     </h3>
-    
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/7a4335c69dca22ee6a81c15c3bcda0efb2acb63e/src/index.js#L234-L236">src/index.js</a>
-    
+
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/6603581e1468332d8ebf02f3138ff49dd5220ad7/src/index.js#L234-L236">src/index.js</a>
+
   </div>
-  
+
 
   <p>Log a normal message. (Level 3)</p>
 
-  
+
   <div class="pre p1 bg-darken-1 mt0 signature">log(msg: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
-  
-  
 
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
     <div class="py1 quiet mt1 prose-big">Parameters</div>
     <div class="prose">
-      
+
         <div class="space-bottom0">
           <div>
             <span class="code bold">msg</span> <code class="quiet">(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> The normal message to log.
 
           </div>
-          
+
         </div>
-      
+
         <div class="space-bottom0">
           <div>
             <span class="code bold">args</span> <code class="quiet">(...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> Additional arguments to log.
 
           </div>
-          
+
         </div>
-      
+
     </div>
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
-        
-      
-        
+
+
+
           <section class="py2 px3 mb2 clearfix bg-white rounded minishadow">
 
-  
+
   <div class="clearfix">
     <h3 class="left m0 panel-title" id="warn">
-      warn  
+      warn
     </h3>
-    
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/7a4335c69dca22ee6a81c15c3bcda0efb2acb63e/src/index.js#L242-L244">src/index.js</a>
-    
+
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/6603581e1468332d8ebf02f3138ff49dd5220ad7/src/index.js#L242-L244">src/index.js</a>
+
   </div>
-  
+
 
   <p>Log a warning message. (Level 2)</p>
 
-  
+
   <div class="pre p1 bg-darken-1 mt0 signature">warn(msg: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
-  
-  
 
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
     <div class="py1 quiet mt1 prose-big">Parameters</div>
     <div class="prose">
-      
+
         <div class="space-bottom0">
           <div>
             <span class="code bold">msg</span> <code class="quiet">(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> The warning message to log.
 
           </div>
-          
+
         </div>
-      
+
         <div class="space-bottom0">
           <div>
             <span class="code bold">args</span> <code class="quiet">(...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> Additional arguments to log.
 
           </div>
-          
+
         </div>
-      
+
     </div>
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
-        
-      
-        
+
+
+
           <section class="py2 px3 mb2 clearfix bg-white rounded minishadow">
 
-  
+
   <div class="clearfix">
     <h3 class="left m0 panel-title" id="error">
-      error  
+      error
     </h3>
-    
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/7a4335c69dca22ee6a81c15c3bcda0efb2acb63e/src/index.js#L250-L252">src/index.js</a>
-    
+
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/6603581e1468332d8ebf02f3138ff49dd5220ad7/src/index.js#L250-L252">src/index.js</a>
+
   </div>
-  
+
 
   <p>Log an error message. (Level 1)</p>
 
-  
+
   <div class="pre p1 bg-darken-1 mt0 signature">error(msg: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
-  
-  
 
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
     <div class="py1 quiet mt1 prose-big">Parameters</div>
     <div class="prose">
-      
+
         <div class="space-bottom0">
           <div>
             <span class="code bold">msg</span> <code class="quiet">(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> The error message to log.
 
           </div>
-          
+
         </div>
-      
+
         <div class="space-bottom0">
           <div>
             <span class="code bold">args</span> <code class="quiet">(...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> Additional arguments to log.
 
           </div>
-          
+
         </div>
-      
+
     </div>
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
-        
-      
-        
+
+
+
           <section class="py2 px3 mb2 clearfix bg-white rounded minishadow">
 
-  
+
   <div class="clearfix">
     <h3 class="left m0 panel-title" id="critical">
-      critical  
+      critical
     </h3>
-    
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/7a4335c69dca22ee6a81c15c3bcda0efb2acb63e/src/index.js#L258-L260">src/index.js</a>
-    
+
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/6603581e1468332d8ebf02f3138ff49dd5220ad7/src/index.js#L258-L260">src/index.js</a>
+
   </div>
-  
+
 
   <p>Log a critical error message, if something breaks. (Level 1)</p>
 
-  
+
   <div class="pre p1 bg-darken-1 mt0 signature">critical(msg: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
-  
-  
 
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
     <div class="py1 quiet mt1 prose-big">Parameters</div>
     <div class="prose">
-      
+
         <div class="space-bottom0">
           <div>
             <span class="code bold">msg</span> <code class="quiet">(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> The critical error message to log.
 
           </div>
-          
+
         </div>
-      
+
         <div class="space-bottom0">
           <div>
             <span class="code bold">args</span> <code class="quiet">(...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> Additional arguments to log.
 
           </div>
-          
+
         </div>
-      
+
     </div>
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
-        
-      
-        
+
+
+
           <section class="py2 px3 mb2 clearfix bg-white rounded minishadow">
 
-  
+
   <div class="clearfix">
     <h3 class="left m0 panel-title" id="panic">
-      panic  
+      panic
     </h3>
-    
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/7a4335c69dca22ee6a81c15c3bcda0efb2acb63e/src/index.js#L266-L268">src/index.js</a>
-    
+
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/6603581e1468332d8ebf02f3138ff49dd5220ad7/src/index.js#L266-L268">src/index.js</a>
+
   </div>
-  
+
 
   <p>Log a panic error message if something unexpected happens. (Level 1)</p>
 
-  
+
   <div class="pre p1 bg-darken-1 mt0 signature">panic(msg: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
-  
-  
 
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
     <div class="py1 quiet mt1 prose-big">Parameters</div>
     <div class="prose">
-      
+
         <div class="space-bottom0">
           <div>
             <span class="code bold">msg</span> <code class="quiet">(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> The panic message to log.
 
           </div>
-          
+
         </div>
-      
+
         <div class="space-bottom0">
           <div>
             <span class="code bold">args</span> <code class="quiet">(...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> Additional arguments to log.
 
           </div>
-          
+
         </div>
-      
+
     </div>
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
-        
-      
-        
+
+
+
           <section class="py2 px3 mb2 clearfix bg-white rounded minishadow">
 
-  
+
   <div class="clearfix">
     <h3 class="left m0 panel-title" id="emergency">
-      emergency  
+      emergency
     </h3>
-    
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/7a4335c69dca22ee6a81c15c3bcda0efb2acb63e/src/index.js#L274-L276">src/index.js</a>
-    
+
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/6603581e1468332d8ebf02f3138ff49dd5220ad7/src/index.js#L274-L276">src/index.js</a>
+
   </div>
-  
+
 
   <p>Log a emergency message, for when something needs emergency attention. (Level 1)</p>
 
-  
+
   <div class="pre p1 bg-darken-1 mt0 signature">emergency(msg: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
-  
-  
 
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
     <div class="py1 quiet mt1 prose-big">Parameters</div>
     <div class="prose">
-      
+
         <div class="space-bottom0">
           <div>
             <span class="code bold">msg</span> <code class="quiet">(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> The debug message to log.
 
           </div>
-          
+
         </div>
-      
+
         <div class="space-bottom0">
           <div>
             <span class="code bold">args</span> <code class="quiet">(...<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> Additional arguments to log.
 
           </div>
-          
+
         </div>
-      
+
     </div>
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
-        
-      
-        
+
+
+
           <section class="py2 px3 mb2 clearfix bg-white rounded minishadow">
 
-  
+
   <div class="clearfix">
     <h3 class="left m0 panel-title" id="dir">
-      dir  
+      dir
     </h3>
-    
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/7a4335c69dca22ee6a81c15c3bcda0efb2acb63e/src/index.js#L282-L287">src/index.js</a>
-    
+
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/6603581e1468332d8ebf02f3138ff49dd5220ad7/src/index.js#L282-L287">src/index.js</a>
+
   </div>
-  
+
 
   <p>As console.dir, but defaults to colour (if appropriate) and zero depth.</p>
 
-  
+
   <div class="pre p1 bg-darken-1 mt0 signature">dir(obj: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, options: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
-  
-  
 
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
     <div class="py1 quiet mt1 prose-big">Parameters</div>
     <div class="prose">
-      
+
         <div class="space-bottom0">
           <div>
             <span class="code bold">obj</span> <code class="quiet">(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code> The Object to print.
 
           </div>
-          
+
         </div>
-      
+
         <div class="space-bottom0">
           <div>
             <span class="code bold">options</span> <code class="quiet">(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code> As console.dir options object.
 
           </div>
-          
+
         </div>
-      
+
     </div>
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
-        
-      
-        
+
+
+
           <section class="py2 px3 mb2 clearfix bg-white rounded minishadow">
 
-  
+
   <div class="clearfix">
     <h3 class="left m0 panel-title" id="pretty">
-      pretty  
+      pretty
     </h3>
-    
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/7a4335c69dca22ee6a81c15c3bcda0efb2acb63e/src/index.js#L306-L318">src/index.js</a>
-    
+
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/6603581e1468332d8ebf02f3138ff49dd5220ad7/src/index.js#L306-L318">src/index.js</a>
+
   </div>
-  
+
 
   <p>Pretty prints object, similar to OS X's plutil -p. Defaults to zero depth.</p>
 
-  
+
   <div class="pre p1 bg-darken-1 mt0 signature">pretty(obj: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, depth: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)</div>
-  
-  
 
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
     <div class="py1 quiet mt1 prose-big">Parameters</div>
     <div class="prose">
-      
+
         <div class="space-bottom0">
           <div>
             <span class="code bold">obj</span> <code class="quiet">(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code> The Object to print.
 
           </div>
-          
+
         </div>
-      
+
         <div class="space-bottom0">
           <div>
             <span class="code bold">depth</span> <code class="quiet">(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)</code> How many object levels to print.
 
           </div>
-          
+
         </div>
-      
+
     </div>
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
     <div class="py1 quiet mt1 prose-big">Example</div>
-      
-      
+
+
       <pre class="p1 overflow-auto rounded bg-darken-1"><span class="hljs-built_in">console</span>.pretty(<span class="hljs-built_in">console</span>)
 
 <span class="hljs-comment">// Outputs:</span>
@@ -1216,71 +1216,71 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   debug ▸ [<span class="hljs-built_in">Function</span>]
   canWrite ▸ [<span class="hljs-built_in">Function</span>]
   ...</pre>
-    
-  
 
-  
 
-  
 
-  
+
+
+
+
+
 </section>
 
-        
-      
-        
+
+
+
           <section class="py2 px3 mb2 clearfix bg-white rounded minishadow">
 
-  
+
   <div class="clearfix">
     <h3 class="left m0 panel-title" id="yargs">
-      yargs  
+      yargs
     </h3>
-    
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/7a4335c69dca22ee6a81c15c3bcda0efb2acb63e/src/index.js#L336-L361">src/index.js</a>
-    
+
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/6603581e1468332d8ebf02f3138ff49dd5220ad7/src/index.js#L336-L361">src/index.js</a>
+
   </div>
-  
+
 
   <p>Helper function for pretty printing a summary of the current 'yargs' options.</p>
 <p>Only prints 'long options', <code>._</code> as 'arguments' and <code>$0</code> as 'self'.</p>
 
-  
+
   <div class="pre p1 bg-darken-1 mt0 signature">yargs(obj: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
-  
-  
 
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
     <div class="py1 quiet mt1 prose-big">Parameters</div>
     <div class="prose">
-      
+
         <div class="space-bottom0">
           <div>
             <span class="code bold">obj</span> <code class="quiet">(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code> The Yargs argv object to print.
 
           </div>
-          
+
         </div>
-      
+
     </div>
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
     <div class="py1 quiet mt1 prose-big">Example</div>
-      
-      
+
+
       <pre class="p1 overflow-auto rounded bg-darken-1"><span class="hljs-built_in">console</span>.yargs(yargs)
 
 <span class="hljs-comment">// Outputs:</span>
@@ -1291,152 +1291,152 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   encoding ▸ <span class="hljs-string">'utf8'</span>
   ...
   self ▸ <span class="hljs-string">'/usr/local/bin/truwrap'</span></pre>
-    
-  
 
-  
 
-  
 
-  
+
+
+
+
+
 </section>
 
-        
-      
-        
+
+
+
           <section class="py2 px3 mb2 clearfix bg-white rounded minishadow">
 
-  
+
   <div class="clearfix">
     <h3 class="left m0 panel-title" id="createconsole">
       createConsole  <span>→ VerbosityConsole</span>
     </h3>
-    
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/7a4335c69dca22ee6a81c15c3bcda0efb2acb63e/src/index.js#L381-L383">src/index.js</a>
-    
+
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/6603581e1468332d8ebf02f3138ff49dd5220ad7/src/index.js#L381-L383">src/index.js</a>
+
   </div>
-  
+
 
   <p>Create a new VerbosityConsole object.</p>
 
-  
+
   <div class="pre p1 bg-darken-1 mt0 signature">createConsole(options: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>) → VerbosityConsole</div>
-  
-  
 
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
     <div class="py1 quiet mt1 prose-big">Parameters</div>
     <div class="prose">
-      
+
         <div class="space-bottom0">
           <div>
             <span class="code bold">options</span> <code class="quiet">(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code> Options to pass to the factory.
 
           </div>
-          
+
         </div>
-      
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="py1 quiet mt1 prose-big">Returns</div>
       <code>VerbosityConsole</code>:
         Verbosity's console object.
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
-        
-      
-        
+
+
+
           <section class="py2 px3 mb2 clearfix bg-white rounded minishadow">
 
-  
+
   <div class="clearfix">
     <h3 class="left m0 panel-title" id="getversion">
       getVersion  <span>→ <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>
     </h3>
-    
-      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/7a4335c69dca22ee6a81c15c3bcda0efb2acb63e/src/index.js#L391-L391">src/index.js</a>
-    
+
+      <a class="pl3 pr1 right rounded github" href="https://github.com/MarkGriffiths/verbosity/blob/6603581e1468332d8ebf02f3138ff49dd5220ad7/src/index.js#L391-L391">src/index.js</a>
+
   </div>
-  
+
 
   <p>Return the modules version metadata.</p>
 
-  
+
   <div class="pre p1 bg-darken-1 mt0 signature">getVersion(level: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>) → <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></div>
-  
-  
 
-  
-  
-  
-  
-  
 
-  
+
+
+
+
+
+
+
+
     <div class="py1 quiet mt1 prose-big">Parameters</div>
     <div class="prose">
-      
+
         <div class="space-bottom0">
           <div>
             <span class="code bold">level</span> <code class="quiet">(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)</code> Version format required.
 
           </div>
-          
+
         </div>
-      
+
     </div>
-  
 
-  
 
-  
-    
+
+
+
+
       <div class="py1 quiet mt1 prose-big">Returns</div>
       <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
         The version string.
 
-      
-    
-  
 
-  
 
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
+
 </section>
 
-        
-      
+
+
     </div>
   </div>
   <script src="assets/js/anchor.min.js"></script>
