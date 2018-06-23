@@ -12,8 +12,12 @@ var sparkles = _interopDefault(require('sparkles'));
 var time = require('@thebespokepixel/time');
 var meta = _interopDefault(require('@thebespokepixel/meta'));
 
-const format = util.format;
-const inspect = util.inspect;
+const {
+  format
+} = util;
+const {
+  inspect
+} = util;
 const metadata = meta(__dirname);
 
 const consoleFactory = function (options = {}) {
