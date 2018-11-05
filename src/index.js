@@ -289,7 +289,7 @@ const consoleFactory = function (options = {}) {
 		 * Pretty prints object, similar to OS X's plutil -p. Defaults to zero depth.
 		 * @param  {Object} obj   The Object to print.
 		 * @param  {Number} depth How many object levels to print.
-		 * @param  {Boolean} color Print output in color, of supported.
+		 * @param  {Boolean} color Print output in color, if supported.
 		 * @example
 		 * console.pretty(console)
 		 *
@@ -322,6 +322,7 @@ const consoleFactory = function (options = {}) {
 		 *
 		 * Only prints 'long options', `._` as 'arguments' and `$0` as 'self'.
 		 * @param  {Object} obj The Yargs argv object to print.
+		 * @param  {Boolean} color Print output in color, if supported.
 		 * @example
 		 * console.yargs(yargs)
 		 *
@@ -334,7 +335,7 @@ const consoleFactory = function (options = {}) {
 		 *   ...
 		 *   self ▸ '/usr/local/bin/truwrap'
 		 */
-		yargs(obj) {
+		yargs(obj, color = true) {
 			const parsed = {}
 			Object.keys(obj).forEach(key_ => {
 				const val = obj[key_]
@@ -354,10 +355,10 @@ const consoleFactory = function (options = {}) {
 				}
 			})
 			sOut.write(format('Options (yargs):\n  %s\n', inspect(parsed, {
-				colors: termNG.color.basic
+				colors: color && termNG.color.basic
 			})
 				.slice(2, -1)
-				.replace(/:/g, ' ▸')
+				.replace(/(\w+):/g, '$1 ▸')
 				.replace(/,\n/g, '\n')))
 		}
 	})

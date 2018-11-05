@@ -34,3 +34,13 @@ test('Object dir print', t => {
 	const result = StreamProxy.read()
 	t.is(result, "{ test: 'Testing', another: { level: 'deep' } }")
 })
+
+test('Object yargs print', t => {
+	testConsole.yargs({
+		_: ['one', 'two', 'three'],
+		$0: 'self',
+		test: 'Testing'
+	}, false)
+	const result = StreamProxy.read()
+	t.is(result, "Options (yargs):\n  arguments ▸ 'one two three', self ▸ 'self', test ▸ 'Testing' \n")
+})
