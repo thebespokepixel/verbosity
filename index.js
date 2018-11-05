@@ -179,11 +179,11 @@ const consoleFactory = function (options = {}) {
       sOut.write(format(inspect(obj, options)));
     },
 
-    pretty(obj, depth = 0) {
+    pretty(obj, depth = 0, color = true) {
       sOut.write(format('Content: %s\n', inspect(obj, {
         depth,
-        colors: termNG.color.basic
-      }).slice(0, -1).replace(/^{/, 'Object\n ').replace(/^\[/, 'Array\n ').replace(/^(\w+) {/, '$1').replace(/:/g, ' ▸').replace(/,\n/g, '\n')));
+        colors: color && termNG.color.basic
+      }).slice(0, -1).replace(/^{/, 'Object\n ').replace(/^\[/, 'Array\n ').replace(/^(\w+) {/, '$1').replace(/(\w+):/g, '$1 ▸').replace(/,\n/g, '\n')));
     },
 
     yargs(obj) {

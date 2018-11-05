@@ -303,16 +303,16 @@ const consoleFactory = function (options = {}) {
 		 *	  canWrite ▸ [Function]
 		 *	  ...
 		 */
-		pretty(obj, depth = 0) {
+		pretty(obj, depth = 0, color = true) {
 			sOut.write(format('Content: %s\n', inspect(obj, {
 				depth,
-				colors: termNG.color.basic
+				colors: color && termNG.color.basic
 			})
 				.slice(0, -1)
 				.replace(/^{/, 'Object\n ')
 				.replace(/^\[/, 'Array\n ')
 				.replace(/^(\w+) {/, '$1')
-				.replace(/:/g, ' ▸')
+				.replace(/(\w+):/g, '$1 ▸')
 				.replace(/,\n/g, '\n')
 			))
 		},
