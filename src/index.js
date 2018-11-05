@@ -4,7 +4,7 @@
 
 import util from 'util'
 
-import _console from 'console'
+import {Console} from 'console'
 
 import termNG from 'term-ng'
 import chalk from 'chalk'
@@ -64,7 +64,7 @@ const consoleFactory = function (options = {}) {
 		() => ''
 	)(prefix)
 
-	return Object.assign(Object.create(_console.Console), {
+	return Object.assign(new Console(sOut, sErr), {
 		_stdout: sOut,
 		_stderr: sErr,
 		threshold: verbosity ? verbosity : 3,
