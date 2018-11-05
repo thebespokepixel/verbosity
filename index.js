@@ -5,7 +5,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
 var util = _interopDefault(require('util'));
-var _console = _interopDefault(require('console'));
+var console = require('console');
 var termNG = _interopDefault(require('term-ng'));
 var chalk = _interopDefault(require('chalk'));
 var sparkles = _interopDefault(require('sparkles'));
@@ -52,7 +52,7 @@ const consoleFactory = function (options = {}) {
 
   const prefixFormatter = (pfix => pfix ? () => `[${pfix}] ` : () => '')(prefix);
 
-  return Object.assign(Object.create(_console.Console), {
+  return Object.assign(new console.Console(sOut, sErr), {
     _stdout: sOut,
     _stderr: sErr,
     threshold: verbosity ? verbosity : 3,
@@ -179,14 +179,14 @@ const consoleFactory = function (options = {}) {
       sOut.write(format(inspect(obj, options)));
     },
 
-    pretty(obj, depth = 0) {
+    pretty(obj, depth = 0, color = true) {
       sOut.write(format('Content: %s\n', inspect(obj, {
         depth,
-        colors: termNG.color.basic
-      }).slice(0, -1).replace(/^{/, 'Object\n ').replace(/^\[/, 'Array\n ').replace(/^(\w+) {/, '$1').replace(/:/g, ' ▸').replace(/,\n/g, '\n')));
+        colors: color && termNG.color.basic
+      }).slice(0, -1).replace(/^{/, 'Object\n ').replace(/^\[/, 'Array\n ').replace(/^(\w+) {/, '$1').replace(/(\w+):/g, '$1 ▸').replace(/,\n/g, '\n')));
     },
 
-    yargs(obj) {
+    yargs(obj, color = true) {
       const parsed = {};
       Object.keys(obj).forEach(key_ => {
         const val = obj[key_];
@@ -211,15 +211,15 @@ const consoleFactory = function (options = {}) {
         }
       });
       sOut.write(format('Options (yargs):\n  %s\n', inspect(parsed, {
-        colors: termNG.color.basic
-      }).slice(2, -1).replace(/:/g, ' ▸').replace(/,\n/g, '\n')));
+        colors: color && termNG.color.basic
+      }).slice(2, -1).replace(/(\w+):/g, '$1 ▸').replace(/,\n/g, '\n')));
     }
 
   });
 };
 
 
-function console(options) {
+function console$1(options) {
   return consoleFactory(options);
 }
 
@@ -229,6 +229,6 @@ function createConsole(options) {
 
 const getVersion = level => metadata.version(level);
 
-exports.console = console;
+exports.console = console$1;
 exports.createConsole = createConsole;
 exports.getVersion = getVersion;

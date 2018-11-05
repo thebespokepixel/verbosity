@@ -4,7 +4,7 @@
 
 import util from 'util'
 
-import _console from 'console'
+import {Console} from 'console'
 
 import termNG from 'term-ng'
 import chalk from 'chalk'
@@ -64,7 +64,7 @@ const consoleFactory = function (options = {}) {
 		() => ''
 	)(prefix)
 
-	return Object.assign(Object.create(_console.Console), {
+	return Object.assign(new Console(sOut, sErr), {
 		_stdout: sOut,
 		_stderr: sErr,
 		threshold: verbosity ? verbosity : 3,
@@ -289,6 +289,7 @@ const consoleFactory = function (options = {}) {
 		 * Pretty prints object, similar to OS X's plutil -p. Defaults to zero depth.
 		 * @param  {Object} obj   The Object to print.
 		 * @param  {Number} depth How many object levels to print.
+		 * @param  {Boolean} color Print output in color, if supported.
 		 * @example
 		 * console.pretty(console)
 		 *
@@ -303,16 +304,16 @@ const consoleFactory = function (options = {}) {
 		 *	  canWrite ▸ [Function]
 		 *	  ...
 		 */
-		pretty(obj, depth = 0) {
+		pretty(obj, depth = 0, color = true) {
 			sOut.write(format('Content: %s\n', inspect(obj, {
 				depth,
-				colors: termNG.color.basic
+				colors: color && termNG.color.basic
 			})
 				.slice(0, -1)
 				.replace(/^{/, 'Object\n ')
 				.replace(/^\[/, 'Array\n ')
 				.replace(/^(\w+) {/, '$1')
-				.replace(/:/g, ' ▸')
+				.replace(/(\w+):/g, '$1 ▸')
 				.replace(/,\n/g, '\n')
 			))
 		},
@@ -321,6 +322,7 @@ const consoleFactory = function (options = {}) {
 		 *
 		 * Only prints 'long options', `._` as 'arguments' and `$0` as 'self'.
 		 * @param  {Object} obj The Yargs argv object to print.
+		 * @param  {Boolean} color Print output in color, if supported.
 		 * @example
 		 * console.yargs(yargs)
 		 *
@@ -333,7 +335,7 @@ const consoleFactory = function (options = {}) {
 		 *   ...
 		 *   self ▸ '/usr/local/bin/truwrap'
 		 */
-		yargs(obj) {
+		yargs(obj, color = true) {
 			const parsed = {}
 			Object.keys(obj).forEach(key_ => {
 				const val = obj[key_]
@@ -353,10 +355,10 @@ const consoleFactory = function (options = {}) {
 				}
 			})
 			sOut.write(format('Options (yargs):\n  %s\n', inspect(parsed, {
-				colors: termNG.color.basic
+				colors: color && termNG.color.basic
 			})
 				.slice(2, -1)
-				.replace(/:/g, ' ▸')
+				.replace(/(\w+):/g, '$1 ▸')
 				.replace(/,\n/g, '\n')))
 		}
 	})
