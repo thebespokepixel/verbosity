@@ -1,3 +1,4 @@
+/* eslint quotes:0 */
 'use strict'
 
 import stream from 'stream'
@@ -17,7 +18,7 @@ test('Pretty print', t => {
 		}
 	}, 2, false)
 	const result = StreamProxy.read()
-	t.is(result, `Content: Object\n  test ▸ 'Testing', another ▸ { level ▸ 'deep' } \n`)
+	t.is(result, "Content: Object\n  test ▸ 'Testing', another ▸ { level ▸ 'deep' } \n")
 })
 
 test('Object dir print', t => {
@@ -31,5 +32,5 @@ test('Object dir print', t => {
 		colors: false
 	})
 	const result = StreamProxy.read()
-	t.is(result, `{ test: 'Testing', another: { level: 'deep' } }`)
+	t.is(result, "{ test: 'Testing', another: { level: 'deep' } }")
 })

@@ -289,6 +289,7 @@ const consoleFactory = function (options = {}) {
 		 * Pretty prints object, similar to OS X's plutil -p. Defaults to zero depth.
 		 * @param  {Object} obj   The Object to print.
 		 * @param  {Number} depth How many object levels to print.
+		 * @param  {Boolean} color Print output in color, of supported.
 		 * @example
 		 * console.pretty(console)
 		 *
