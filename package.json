@@ -54,7 +54,7 @@
     "@babel/preset-env": "^7.1.0",
     "acorn": "^6.0.4",
     "ava": "^0.25.0",
-    "documentation": "^8.1.2",
+    "documentation": "^9.0.0",
     "documentation-theme-bespoke": "^0.4.3",
     "gulp": "^4.0.0",
     "gulp-better-rollup": "^3.4.0",
