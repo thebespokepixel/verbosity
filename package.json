@@ -47,7 +47,7 @@
     "@thebespokepixel/time": "^0.4.1",
     "chalk": "^2.4.1",
     "sparkles": "^1.0.1",
-    "term-ng": "^0.8.1"
+    "term-ng": "^0.8.2"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
