@@ -60,7 +60,7 @@
     "gulp-better-rollup": "^3.4.0",
     "gulp-rename": "^1.4.0",
     "gulp-strip-comments": "^2.5.2",
-    "nyc": "^12.0.2",
+    "nyc": "^13.2.0",
     "rollup-plugin-babel": "^4.0.3",
     "xo": "^0.23.0"
   },
