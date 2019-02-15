@@ -1,5 +1,10 @@
 import chalk from 'chalk'
 
+/**
+ * Message routing and formatting matrix.
+ * @private
+ * @type {Object}
+ */
 export default function matrix(sOut, sErr) {
 	return {
 		debug: {

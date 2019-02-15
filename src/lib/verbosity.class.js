@@ -54,7 +54,6 @@ export default class Verbosity extends Console {
 		})(errorStream ? errorStream : sOut)
 
 		super(sOut, sErr)
-
 		this.willEmit = Boolean(namespace)
 
 		this.timeFormatter = (ts => ts ?
@@ -71,12 +70,6 @@ export default class Verbosity extends Console {
 		this._stderr = sErr
 		this.threshold = verbosity ? verbosity : 3
 		this.emitter = this.willEmit && sparkles(namespace)
-
-		/**
-		 * Message routing and formatting matrix.
-		 * @private
-		 * @type {Object}
-		 */
 		this.matrix = matrix(sOut, sErr)
 	}
 
