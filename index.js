@@ -4,12 +4,57 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
+var chalk = _interopDefault(require('chalk'));
 var util = _interopDefault(require('util'));
 var termNG = _interopDefault(require('term-ng'));
-var chalk = _interopDefault(require('chalk'));
 var sparkles = _interopDefault(require('sparkles'));
 var time = require('@thebespokepixel/time');
 var meta = _interopDefault(require('@thebespokepixel/meta'));
+
+function matrix(sOut, sErr) {
+  return {
+    debug: {
+      level: 5,
+      stream: sOut,
+      format: (pfix, msg) => `${pfix}${chalk.dim(msg)}`
+    },
+    info: {
+      level: 4,
+      stream: sOut,
+      format: (pfix, msg) => `${pfix}${msg}`
+    },
+    log: {
+      level: 3,
+      stream: sOut,
+      format: (pfix, msg) => `${pfix}${msg}`
+    },
+    warn: {
+      level: 2,
+      stream: sErr,
+      format: (pfix, msg) => `${pfix}${chalk.yellow(msg)}`
+    },
+    error: {
+      level: 1,
+      stream: sErr,
+      format: (pfix, msg) => `${pfix}${chalk.red(`ERROR: ${msg}`)}`
+    },
+    critical: {
+      level: 0,
+      stream: sErr,
+      format: (pfix, msg) => `${pfix}${chalk.bold.red(`CRITICAL: ${msg}`)}`
+    },
+    panic: {
+      level: 0,
+      stream: sErr,
+      format: (pfix, msg) => `${pfix}${chalk.bold.red(`PANIC: ${msg}`)}`
+    },
+    emergency: {
+      level: 0,
+      stream: sErr,
+      format: (pfix, msg) => `${pfix}${chalk.bold.red(`EMERGENCY: ${msg}`)}`
+    }
+  };
+}
 
 const {
   format,
@@ -54,48 +99,7 @@ class Verbosity extends Console {
     this._stderr = sErr;
     this.threshold = verbosity ? verbosity : 3;
     this.emitter = this.willEmit && sparkles(namespace);
-    this.matrix = {
-      debug: {
-        level: 5,
-        stream: sOut,
-        format: (pfix, msg) => `${pfix}${chalk.dim(msg)}`
-      },
-      info: {
-        level: 4,
-        stream: sOut,
-        format: (pfix, msg) => `${pfix}${msg}`
-      },
-      log: {
-        level: 3,
-        stream: sOut,
-        format: (pfix, msg) => `${pfix}${msg}`
-      },
-      warn: {
-        level: 2,
-        stream: sErr,
-        format: (pfix, msg) => `${pfix}${chalk.yellow(msg)}`
-      },
-      error: {
-        level: 1,
-        stream: sErr,
-        format: (pfix, msg) => `${pfix}${chalk.red(`ERROR: ${msg}`)}`
-      },
-      critical: {
-        level: 0,
-        stream: sErr,
-        format: (pfix, msg) => `${pfix}${chalk.bold.red(`CRITICAL: ${msg}`)}`
-      },
-      panic: {
-        level: 0,
-        stream: sErr,
-        format: (pfix, msg) => `${pfix}${chalk.bold.red(`PANIC: ${msg}`)}`
-      },
-      emergency: {
-        level: 0,
-        stream: sErr,
-        format: (pfix, msg) => `${pfix}${chalk.bold.red(`EMERGENCY: ${msg}`)}`
-      }
-    };
+    this.matrix = matrix(sOut, sErr);
   }
 
   verbosity(level) {
