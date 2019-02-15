@@ -172,6 +172,7 @@ export default class Verbosity extends Console {
 			}
 		}
 	}
+
 	/**
 	 * Set the current verbosity.
 	 * @param  {Number} level - The current level (0 to 5).
@@ -182,6 +183,7 @@ export default class Verbosity extends Console {
 		if (level < 6) {
 			this.threshold = level
 		}
+
 		return this.threshold
 	}
 
@@ -204,11 +206,12 @@ export default class Verbosity extends Console {
 	 */
 	route(level, msg, ...a) {
 		msg = (a.length > 0) ? format(msg, ...a) : msg
-		if (willEmit) {
+		if (this.willEmit) {
 			this.emitter.emit(level, msg)
 		}
+
 		if (this.threshold >= this.matrix[level].level) {
-			const pfix = `${timeFormatter()}${prefixFormatter()}`
+			const pfix = `${this.timeFormatter()}${this.prefixFormatter()}`
 			this.matrix[level].stream.write(`${this.matrix[level].format(pfix, msg)}\n`)
 		}
 	}
@@ -294,7 +297,7 @@ export default class Verbosity extends Console {
 		const {depth = 0, colors = termNG.color.basic} = options
 		options.depth = depth
 		options.colors = colors
-		sOut.write(format(inspect(obj, options)))
+		this._stdout.write(format(inspect(obj, options)))
 	}
 
 	/**
@@ -317,7 +320,7 @@ export default class Verbosity extends Console {
 	 *	  ...
 	 */
 	pretty(obj, depth = 0, color = true) {
-		sOut.write(format('Content: %s\n', inspect(obj, {
+		this._stdout.write(format('Content: %s\n', inspect(obj, {
 			depth,
 			colors: color && termNG.color.basic
 		})
@@ -350,6 +353,7 @@ export default class Verbosity extends Console {
 	 */
 	yargs(obj, color = true) {
 		const parsed = {}
+
 		Object.keys(obj).forEach(key_ => {
 			const val = obj[key_]
 			switch (key_) {
@@ -357,6 +361,7 @@ export default class Verbosity extends Console {
 					if (val.length > 0) {
 						parsed.arguments = val.join(' ')
 					}
+
 					break
 				case '$0':
 					parsed.self = val
@@ -367,7 +372,7 @@ export default class Verbosity extends Console {
 					}
 			}
 		})
-		sOut.write(format('Options (yargs):\n  %s\n', inspect(parsed, {
+		this._stdout.write(format('Options (yargs):\n  %s\n', inspect(parsed, {
 			colors: color && termNG.color.basic
 		})
 			.slice(2, -1)
