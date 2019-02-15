@@ -12,7 +12,7 @@ const {format, inspect} = util
 const {Console} = console
 /**
  * Generate a verbosity console
- * @param  {Object} options                     - Configuration options.
+ * @param  {Object} options                    - Configuration options.
  * @param {stream.writable} options.outStream   - Stream to write normal output
  * @param {stream.writable} options.errorStream - Stream to write error output
  * @param {Number} options.verbosity            - The verboseness of output:
@@ -28,11 +28,14 @@ const {Console} = console
  * @return {Verbosity} Verbosity's console object.
  */
 export default class Verbosity extends Console {
-	constructor(options = {}) {
-		const {
-			outStream, errorStream, verbosity, timestamp, namespace, prefix
-		} = options
-
+	constructor({
+		outStream,
+		errorStream,
+		verbosity,
+		timestamp,
+		namespace,
+		prefix
+	} = {}) {
 		const sOut = (ws => {
 			if (!ws.writable) {
 				throw new Error('Provided output stream must be writable')
@@ -220,6 +223,13 @@ export default class Verbosity extends Console {
 	 * Log a debug message. (Level 5)
 	 * @param  {String}    msg  The debug message to log.
 	 * @param  {...String} args Additional arguments to log.
+	 */
+
+	/**
+	 * [debug description]
+	 * @param  {[type]}    msg  [description]
+	 * @param  {...[type]} args [description]
+	 * @return {[type]}         [description]
 	 */
 	debug(msg, ...args) {
 		this.route('debug', msg, ...args)

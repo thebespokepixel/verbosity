@@ -19,16 +19,14 @@ const {
   Console
 } = console;
 class Verbosity extends Console {
-  constructor(options = {}) {
-    const {
-      outStream,
-      errorStream,
-      verbosity,
-      timestamp,
-      namespace,
-      prefix
-    } = options;
-
+  constructor({
+    outStream,
+    errorStream,
+    verbosity,
+    timestamp,
+    namespace,
+    prefix
+  } = {}) {
     const sOut = (ws => {
       if (!ws.writable) {
         throw new Error('Provided output stream must be writable');
