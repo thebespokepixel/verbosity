@@ -2,264 +2,245 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>verbosity 0.9.2 | Documentation</title>
+  <title>verbosity 0.10.0 | Documentation</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link href="assets/css/ace.min.css" rel="stylesheet">
   <link href="assets/fonts/TypoPRO-Hack/TypoPRO-Hack.css" type="text/css" rel="stylesheet" />
   <link href="assets/fonts/TypoPRO-FiraSans/TypoPRO-FiraSans.css" type="text/css" rel="stylesheet" />
   <link href="assets/css/style.css" type="text/css" rel="stylesheet" />
+  <meta name='description' content='Verbose logging features for ttys or any writable stream.'>
 </head>
-<body class="m0 documentation">
+<body class='documentation m0'>
   <div class="flex">
-    <div class="flex-column fixed top-0 bottom-0 px2 pt2 max-height-100 sidebar">
-      <h3 class="m0 no-anchor">verbosity</h3>
-      <div class="mb1"><code>v0.9.2</code></div>
-      <input
-        placeholder="Filter"
-        id="filter-input"
-        class="col12 block input"
-        type="text" />
-      <div id="toc">
-        <ul class="list-reset h5 py1-ul">
-          
+    <div id='split-left' class='overflow-auto fs0 height-viewport-100 sidebar'>
+      <div class='py1 px2'>
+        <h3 class="m0 no-anchor">verbosity</h3>
+        <div class="mb1"><code>0.10.0</code></div>
+        <input
+          placeholder="Filter"
+          id="filter-input"
+          class="col12 block input"
+          type="text" />
+        <div id="toc">
+          <ul class="list-reset h5 py1-ul">
             
-            <li><a
-              href="#usage"
-              class="h5 bold black caps">
-              Usage
               
-            </a>
-            
-            </li>
-          
-            
-            <li><a
-              href="#api"
-              class="h5 bold black caps">
-              API
+              <li><a
+                href="#usage"
+                class="h5 bold black caps">
+                Usage
+                
+              </a>
               
-            </a>
+              </li>
             
-            </li>
-          
-            
-            <li><a
-              href="#consolefactory"
-              class="">
-              consoleFactory
               
-            </a>
-            
-            </li>
-          
-            
-            <li><a
-              href="#verbosity"
-              class="">
-              verbosity
+              <li><a
+                href="#api"
+                class="h5 bold black caps">
+                API
+                
+              </a>
               
-            </a>
+              </li>
             
-            </li>
-          
-            
-            <li><a
-              href="#canwrite"
-              class="">
-              canWrite
               
-            </a>
-            
-            </li>
-          
-            
-            <li><a
-              href="#debug"
-              class="">
-              debug
+              <li><a
+                href="#createconsole"
+                class="">
+                createConsole
+                
+              </a>
               
-            </a>
+              </li>
             
-            </li>
-          
-            
-            <li><a
-              href="#info"
-              class="">
-              info
               
-            </a>
-            
-            </li>
-          
-            
-            <li><a
-              href="#log"
-              class="">
-              log
+              <li><a
+                href="#getversion"
+                class="">
+                getVersion
+                
+              </a>
               
-            </a>
+              </li>
             
-            </li>
-          
-            
-            <li><a
-              href="#warn"
-              class="">
-              warn
               
-            </a>
-            
-            </li>
-          
-            
-            <li><a
-              href="#error"
-              class="">
-              error
+              <li><a
+                href="#verbosity"
+                class=" toggle-sibling">
+                Verbosity
+                <span class="icon">▸</span>
+              </a>
               
-            </a>
-            
-            </li>
-          
-            
-            <li><a
-              href="#critical"
-              class="">
-              critical
+              <div class="toggle-target display-none">
+                
+                
+                  <ul class="list-reset py1-ul pl1">
+                    <li class="h5"><span>Instance members</span></li>
+                    
+                    <li><a
+                      href="#Verbosity#verbosity"
+                      class="regular pre-open">
+                      #verbosity
+                    </a></li>
+                    
+                    <li><a
+                      href="#Verbosity#canWrite"
+                      class="regular pre-open">
+                      #canWrite
+                    </a></li>
+                    
+                    <li><a
+                      href="#Verbosity#debug"
+                      class="regular pre-open">
+                      #debug
+                    </a></li>
+                    
+                    <li><a
+                      href="#Verbosity#debug"
+                      class="regular pre-open">
+                      #debug
+                    </a></li>
+                    
+                    <li><a
+                      href="#Verbosity#info"
+                      class="regular pre-open">
+                      #info
+                    </a></li>
+                    
+                    <li><a
+                      href="#Verbosity#log"
+                      class="regular pre-open">
+                      #log
+                    </a></li>
+                    
+                    <li><a
+                      href="#Verbosity#warn"
+                      class="regular pre-open">
+                      #warn
+                    </a></li>
+                    
+                    <li><a
+                      href="#Verbosity#error"
+                      class="regular pre-open">
+                      #error
+                    </a></li>
+                    
+                    <li><a
+                      href="#Verbosity#critical"
+                      class="regular pre-open">
+                      #critical
+                    </a></li>
+                    
+                    <li><a
+                      href="#Verbosity#panic"
+                      class="regular pre-open">
+                      #panic
+                    </a></li>
+                    
+                    <li><a
+                      href="#Verbosity#emergency"
+                      class="regular pre-open">
+                      #emergency
+                    </a></li>
+                    
+                    <li><a
+                      href="#Verbosity#dir"
+                      class="regular pre-open">
+                      #dir
+                    </a></li>
+                    
+                    <li><a
+                      href="#Verbosity#pretty"
+                      class="regular pre-open">
+                      #pretty
+                    </a></li>
+                    
+                    <li><a
+                      href="#Verbosity#yargs"
+                      class="regular pre-open">
+                      #yargs
+                    </a></li>
+                    
+                  </ul>
+                
+                
+              </div>
               
-            </a>
+              </li>
             
-            </li>
-          
-            
-            <li><a
-              href="#panic"
-              class="">
-              panic
-              
-            </a>
-            
-            </li>
-          
-            
-            <li><a
-              href="#emergency"
-              class="">
-              emergency
-              
-            </a>
-            
-            </li>
-          
-            
-            <li><a
-              href="#dir"
-              class="">
-              dir
-              
-            </a>
-            
-            </li>
-          
-            
-            <li><a
-              href="#pretty"
-              class="">
-              pretty
-              
-            </a>
-            
-            </li>
-          
-            
-            <li><a
-              href="#yargs"
-              class="">
-              yargs
-              
-            </a>
-            
-            </li>
-          
-            
-            <li><a
-              href="#createconsole"
-              class="">
-              createConsole
-              
-            </a>
-            
-            </li>
-          
-            
-            <li><a
-              href="#getversion"
-              class="">
-              getVersion
-              
-            </a>
-            
-            </li>
-          
-        </ul>
-      </div>
-      <div class="badges"><p><a href="https://github.com/MarkGriffiths/verbosity" title="Github"><img src="https://img.shields.io/badge/github-source-4E73B6.svg?style=flat" alt="Github"></a> <a href="https://travis-ci.org/MarkGriffiths/verbosity" title="Travis"><img src="https://img.shields.io/travis/MarkGriffiths/verbosity.svg?branch=master&#x26;style=flat" alt="Travis"></a> <br>
-</p>
- 
-<p><a href="https://codeclimate.com/github/MarkGriffiths/verbosity/maintainability" title="Code-climate"><img src="https://api.codeclimate.com/v1/badges/c92b0de0806e1fa6f65a/maintainability?style=flat" alt="Code-climate"></a> <br>
-</p>
- 
-<p><a href="https://codeclimate.com/github/MarkGriffiths/verbosity/test_coverage" title="Coverage"><img src="https://api.codeclimate.com/v1/badges/c92b0de0806e1fa6f65a/test_coverage?style=flat" alt="Coverage"></a> <br>
-</p>
- 
-<p><a href="https://david-dm.org/MarkGriffiths/verbosity/master" title="David"><img src="https://img.shields.io/david/MarkGriffiths/verbosity.svg?branch=master&#x26;style=flat" alt="David"></a> <br>
-</p>
- 
-<br>
-
-</div>
-      <div class="mt1 h6 quiet">
-        <a href="http://documentation.js.org/reading-documentation.html">Need help reading this?</a>
+          </ul>
+        </div>
+        <div class="badges"><p><p><a href="https://github.com/MarkGriffiths/verbosity" title="Github"><img src="https://img.shields.io/badge/github-source-4E73B6.svg?style=flat" alt="Github"></a> <a href="https://travis-ci.org/MarkGriffiths/verbosity" title="Travis"><img src="https://img.shields.io/travis/MarkGriffiths/verbosity.svg?branch=master&#x26;style=flat&#x26;logo=travis" alt="Travis"></a> <br>
+</p> <p><a href="https://codeclimate.com/github/MarkGriffiths/verbosity/maintainability" title="Code-climate"><img src="https://api.codeclimate.com/v1/badges/c92b0de0806e1fa6f65a/maintainability?style=flat" alt="Code-climate"></a> <br>
+</p> <p><a href="https://codeclimate.com/github/MarkGriffiths/verbosity/test_coverage" title="Coverage"><img src="https://api.codeclimate.com/v1/badges/c92b0de0806e1fa6f65a/test_coverage?style=flat" alt="Coverage"></a> <br>
+</p> <p><a href="https://david-dm.org/MarkGriffiths/verbosity/master" title="David"><img src="https://img.shields.io/david/MarkGriffiths/verbosity.svg?branch=master&#x26;style=flat" alt="David"></a> <br>
+</p> <br>
+</p></div>
+        <div class="mt1 h6 quiet">
+          <a href="http://documentation.js.org/reading-documentation.html">Need help reading this?</a>
+        </div>
       </div>
     </div>
-    <div class="flex-column px2 sidespace">
+    <!-- <div class="flex-column px2 sidespace">
       <h3 class="m0 no-anchor">verbosity</h3>
-    </div>
-    <div class="flex-auto px2 pt1">
+    </div> -->
+    <div id='split-right' class='relative overflow-auto height-viewport-100'>
       
         
-          <div class="keyline-top-not py1"><section class="py0 px2 clearfix note">
-	<h3 id="usage" class="m0">
+          <div class="keyline-top-not py1"><section class="py0 px3 clearfix note">
+	<h2 id="usage" class="m0">
 		Usage
-	</h3>
+	</h2>
 	
 		
 
 	
 	
-		<h4>Installation</h4>
+		<h4>About</h4>
+<p>I wanted to be able to have chattier daemons running in development, and more succinct logging in production but wanted to keep the simplicity of using <code>console.log()</code> etc.</p>
+<p>Normally I pass in a granular verboseness level via arguments to control the verbosity level for the running process. </p>
+<h4>Installation</h4>
 <pre class='hljs'>npm install --save verbosity</pre>
 <h4>Examples</h4>
 <p>Simply override the built in console object:</p>
-<pre class='hljs'><span class="hljs-keyword">const</span> <span class="hljs-built_in">console</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../../index.js'</span>).createConsole({
-	<span class="hljs-attr">outStream</span>: process.stdout,
-	<span class="hljs-attr">errorStream</span>: process.stderr,
-	<span class="hljs-attr">verbosity</span>: <span class="hljs-number">5</span>
-})</pre>
+<pre class='hljs'><span class="hljs-keyword">import</span> {createConsole} <span class="hljs-keyword">from</span> <span class="hljs-string">'verbosity'</span>
+
+<span class="hljs-keyword">const</span> <span class="hljs-built_in">console</span> = createConsole({
+  <span class="hljs-attr">outStream</span>: process.stdout,
+  <span class="hljs-attr">errorStream</span>: process.stderr,
+  <span class="hljs-attr">verbosity</span>: <span class="hljs-number">5</span>
+})
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Works like normal...'</span>)
+<span class="hljs-built_in">console</span>.debug(<span class="hljs-string">'...but now controllable.'</span>)
+
+<span class="hljs-built_in">console</span>.verbosity(<span class="hljs-number">3</span>)
+
+<span class="hljs-built_in">console</span>.debug(<span class="hljs-string">'...this isn’t printed now.'</span>)
+
+<span class="hljs-built_in">console</span>.canWrite(<span class="hljs-number">5</span>) &amp;&amp; <span class="hljs-built_in">console</span>.dir({<span class="hljs-attr">print</span>: <span class="hljs-string">'this won’t.'</span>})
+
+<span class="hljs-built_in">console</span>.verbosity(<span class="hljs-number">5</span>)
+
+<span class="hljs-built_in">console</span>.canWrite(<span class="hljs-number">5</span>) &amp;&amp; <span class="hljs-built_in">console</span>.dir({<span class="hljs-attr">print</span>: <span class="hljs-string">'this will now.'</span>})</pre>
 <p>This will direct all console output to stderr, but silence 'info' and 'debug' messages.</p>
-<pre class='hljs'><span class="hljs-keyword">const</span> <span class="hljs-built_in">console</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../../index.js'</span>).createConsole({
-	<span class="hljs-attr">outStream</span>: process.stderr,
-	<span class="hljs-attr">verbosity</span>: <span class="hljs-number">3</span>
+<pre class='hljs'><span class="hljs-keyword">import</span> {createConsole} <span class="hljs-keyword">from</span> <span class="hljs-string">'verbosity'</span>
+
+<span class="hljs-keyword">const</span> <span class="hljs-built_in">console</span> = createConsole({
+  <span class="hljs-attr">outStream</span>: process.stderr,
+  <span class="hljs-attr">verbosity</span>: <span class="hljs-number">3</span>
 })
 
 <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Picked brown jacket...'</span>) <span class="hljs-comment">// Printed</span>
 <span class="hljs-built_in">console</span>.debug(<span class="hljs-string">'Purple tie chosen...'</span>) <span class="hljs-comment">// Not printed</span>
 <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">"That tie doesn't go with that jacket."</span>) <span class="hljs-comment">// Printed</span></pre>
 <p>Or go mad with making up any number of custom console writers.</p>
-<pre class='hljs'><span class="hljs-keyword">const</span> myUberConsole = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../../index.js'</span>).createConsole({
-	<span class="hljs-attr">outStream</span>: myFancyWriteableStream,
-	<span class="hljs-attr">verbosity</span>: <span class="hljs-number">5</span>
+<pre class='hljs'><span class="hljs-keyword">import</span> {createConsole} <span class="hljs-keyword">from</span> <span class="hljs-string">'verbosity'</span>
+
+<span class="hljs-keyword">const</span> myUberConsole = createConsole({
+  <span class="hljs-attr">outStream</span>: myFancyWriteableStream,
+  <span class="hljs-attr">verbosity</span>: <span class="hljs-number">5</span>
 })
 
 myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</span>)</pre>
@@ -270,10 +251,10 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
         
       
         
-          <div class="keyline-top-not py1"><section class="py0 px2 clearfix note">
-	<h3 id="api" class="m0">
+          <div class="keyline-top-not py1"><section class="py0 px3 clearfix note">
+	<h2 id="api" class="m0">
 		API
-	</h3>
+	</h2>
 	
 		
 
@@ -284,19 +265,177 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
         
       
         
-          
-<section class='p2 mb2 clearfix bg-white minishadow'>
+          <section class='p2 pl3 mb2 ml2 mr2 clearfix bg-white rounded minishadow'>
 
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='consolefactory'>
-      consoleFactory
+    <h3 class='left m0 panel-title' id='createconsole'>
+      createConsole
+      
+      <span> → <a href="#verbosity">Verbosity</a></span>
+      
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/MarkGriffiths/verbosity/blob/2d64f1295011f1765ab97b8a7cefe1686181d847/src/index.js#L36-L363'>
+      <a class='pl3 pr1 right rounded github' href='https://github.com/MarkGriffiths/verbosity/blob/d696fc29c3dbed02cf6eaaab909dcc4bb0c5dc92/src/index.js#L15-L17'>
       <span>src/index.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Create a new Verbosity object.</p>
+
+
+  
+    <div class='pre p1 bg-darken-1 mt0 rounded signature'>createConsole(options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>) → <a href="#verbosity">Verbosity</a></div>
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+      Options to pass to the factory.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#verbosity">Verbosity</a></code>:
+        Verbosity's console object.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <section class='p2 pl3 mb2 ml2 mr2 clearfix bg-white rounded minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='left m0 panel-title' id='getversion'>
+      getVersion
+      
+      <span> → <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>
+      
+    </h3>
+    
+    
+      <a class='pl3 pr1 right rounded github' href='https://github.com/MarkGriffiths/verbosity/blob/d696fc29c3dbed02cf6eaaab909dcc4bb0c5dc92/src/index.js#L25-L25'>
+      <span>src/index.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Return the modules version metadata.</p>
+
+
+  
+    <div class='pre p1 bg-darken-1 mt0 rounded signature'>getVersion(level: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>) → <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></div>
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>level</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)</code>
+      Version format required.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
+        The version string.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <section class='p2 pl3 mb2 ml2 mr2 clearfix bg-white rounded minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='left m0 panel-title' id='verbosity'>
+      Verbosity
+      
+      <span> → <a href="#verbosity">Verbosity</a></span>
+      
+    </h3>
+    
+    
+      <a class='pl3 pr1 right rounded github' href='https://github.com/MarkGriffiths/verbosity/blob/d696fc29c3dbed02cf6eaaab909dcc4bb0c5dc92/src/lib/verbosity.class.js#L31-L296'>
+      <span>src/lib/verbosity.class.js</span>
       </a>
     
   </div>
@@ -305,8 +444,17 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <p>Generate a verbosity console</p>
 
 
-  <div class='pre p1 fill-light mt0'>consoleFactory</div>
   
+    <div class='pre p1 bg-darken-1 mt0 rounded signature'>new Verbosity(options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>) → <a href="#verbosity">Verbosity</a></div>
+  
+  
+  
+    <p>
+      Extends
+      
+        <a href="https://developer.mozilla.org/docs/Web/API/Console">Console</a>
+      
+    </p>
   
 
   
@@ -414,7 +562,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>VerbosityConsole</code>:
+      <code><a href="#verbosity">Verbosity</a></code>:
         Verbosity's console object.
 
       
@@ -428,26 +576,25 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   
 
   
-
+    <div class='py1 quiet mt1 prose-big'>Instance Members</div>
+    <div class="clearfix">
   
-</section>
-
-        
-      
-        
-          
-<section class='p2 mb2 clearfix bg-white minishadow'>
+    <div class='border-bottom' id='Verbosity#verbosity'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>verbosity(level)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 pl3 mb2 ml2 mr2 clearfix bg-white rounded minishadow'>
 
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='verbosity'>
-      verbosity
-    </h3>
     
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/MarkGriffiths/verbosity/blob/2d64f1295011f1765ab97b8a7cefe1686181d847/src/index.js#L180-L186'>
-      <span>src/index.js</span>
+      <a class='pl3 pr1 right rounded github' href='https://github.com/MarkGriffiths/verbosity/blob/d696fc29c3dbed02cf6eaaab909dcc4bb0c5dc92/src/lib/verbosity.class.js#L88-L95'>
+      <span>src/lib/verbosity.class.js</span>
       </a>
     
   </div>
@@ -456,7 +603,9 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <p>Set the current verbosity.</p>
 
 
-  <div class='pre p1 fill-light mt0'>verbosity(level: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>) → <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></div>
+  
+    <div class='pre p1 bg-darken-1 mt0 rounded signature'>verbosity(level: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>) → <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></div>
+  
   
   
 
@@ -506,22 +655,25 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   
 </section>
 
-        
-      
-        
-          
-<section class='p2 mb2 clearfix bg-white minishadow'>
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='Verbosity#canWrite'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>canWrite(level)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 pl3 mb2 ml2 mr2 clearfix bg-white rounded minishadow'>
 
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='canwrite'>
-      canWrite
-    </h3>
     
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/MarkGriffiths/verbosity/blob/2d64f1295011f1765ab97b8a7cefe1686181d847/src/index.js#L192-L195'>
-      <span>src/index.js</span>
+      <a class='pl3 pr1 right rounded github' href='https://github.com/MarkGriffiths/verbosity/blob/d696fc29c3dbed02cf6eaaab909dcc4bb0c5dc92/src/lib/verbosity.class.js#L102-L105'>
+      <span>src/lib/verbosity.class.js</span>
       </a>
     
   </div>
@@ -530,7 +682,9 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <p>Can the requested logging level be written at this time.</p>
 
 
-  <div class='pre p1 fill-light mt0'>canWrite(level: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>) → <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></div>
+  
+    <div class='pre p1 bg-darken-1 mt0 rounded signature'>canWrite(level: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>) → <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></div>
+  
   
   
 
@@ -581,22 +735,25 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   
 </section>
 
-        
-      
-        
-          
-<section class='p2 mb2 clearfix bg-white minishadow'>
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='Verbosity#debug'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>debug(msg, args)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 pl3 mb2 ml2 mr2 clearfix bg-white rounded minishadow'>
 
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='debug'>
-      debug
-    </h3>
     
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/MarkGriffiths/verbosity/blob/2d64f1295011f1765ab97b8a7cefe1686181d847/src/index.js#L218-L220'>
-      <span>src/index.js</span>
+      <a class='pl3 pr1 right rounded github' href='https://github.com/MarkGriffiths/verbosity/blob/d696fc29c3dbed02cf6eaaab909dcc4bb0c5dc92/src/lib/verbosity.class.js#L138-L140'>
+      <span>src/lib/verbosity.class.js</span>
       </a>
     
   </div>
@@ -605,7 +762,9 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <p>Log a debug message. (Level 5)</p>
 
 
-  <div class='pre p1 fill-light mt0'>debug(msg: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
+  
+    <div class='pre p1 bg-darken-1 mt0 rounded signature'>debug(msg: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
+  
   
   
 
@@ -656,22 +815,113 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   
 </section>
 
-        
-      
-        
-          
-<section class='p2 mb2 clearfix bg-white minishadow'>
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='Verbosity#debug'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>debug(msg, args)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 pl3 mb2 ml2 mr2 clearfix bg-white rounded minishadow'>
 
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='info'>
-      info
-    </h3>
+    
+      <a class='pl3 pr1 right rounded github' href='https://github.com/MarkGriffiths/verbosity/blob/d696fc29c3dbed02cf6eaaab909dcc4bb0c5dc92/src/lib/verbosity.class.js#L138-L140'>
+      <span>src/lib/verbosity.class.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>[debug description]</p>
+
+
+  
+    <div class='pre p1 bg-darken-1 mt0 rounded signature'>debug(msg: [type], args: ...[type]) → [type]</div>
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>msg</span> <code class='quiet'>([type])</code>
+      [description]
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>args</span> <code class='quiet'>(...[type])</code>
+      [description]
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>[type]</code>:
+        [description]
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='Verbosity#info'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>info(msg, args)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 pl3 mb2 ml2 mr2 clearfix bg-white rounded minishadow'>
+
+  
+  <div class='clearfix'>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/MarkGriffiths/verbosity/blob/2d64f1295011f1765ab97b8a7cefe1686181d847/src/index.js#L226-L228'>
-      <span>src/index.js</span>
+      <a class='pl3 pr1 right rounded github' href='https://github.com/MarkGriffiths/verbosity/blob/d696fc29c3dbed02cf6eaaab909dcc4bb0c5dc92/src/lib/verbosity.class.js#L147-L149'>
+      <span>src/lib/verbosity.class.js</span>
       </a>
     
   </div>
@@ -680,7 +930,9 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <p>Log an info message. (Level 4)</p>
 
 
-  <div class='pre p1 fill-light mt0'>info(msg: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
+  
+    <div class='pre p1 bg-darken-1 mt0 rounded signature'>info(msg: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
+  
   
   
 
@@ -731,22 +983,25 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   
 </section>
 
-        
-      
-        
-          
-<section class='p2 mb2 clearfix bg-white minishadow'>
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='Verbosity#log'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>log(msg, args)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 pl3 mb2 ml2 mr2 clearfix bg-white rounded minishadow'>
 
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='log'>
-      log
-    </h3>
     
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/MarkGriffiths/verbosity/blob/2d64f1295011f1765ab97b8a7cefe1686181d847/src/index.js#L234-L236'>
-      <span>src/index.js</span>
+      <a class='pl3 pr1 right rounded github' href='https://github.com/MarkGriffiths/verbosity/blob/d696fc29c3dbed02cf6eaaab909dcc4bb0c5dc92/src/lib/verbosity.class.js#L156-L158'>
+      <span>src/lib/verbosity.class.js</span>
       </a>
     
   </div>
@@ -755,7 +1010,9 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <p>Log a normal message. (Level 3)</p>
 
 
-  <div class='pre p1 fill-light mt0'>log(msg: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
+  
+    <div class='pre p1 bg-darken-1 mt0 rounded signature'>log(msg: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
+  
   
   
 
@@ -806,22 +1063,25 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   
 </section>
 
-        
-      
-        
-          
-<section class='p2 mb2 clearfix bg-white minishadow'>
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='Verbosity#warn'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>warn(msg, args)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 pl3 mb2 ml2 mr2 clearfix bg-white rounded minishadow'>
 
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='warn'>
-      warn
-    </h3>
     
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/MarkGriffiths/verbosity/blob/2d64f1295011f1765ab97b8a7cefe1686181d847/src/index.js#L242-L244'>
-      <span>src/index.js</span>
+      <a class='pl3 pr1 right rounded github' href='https://github.com/MarkGriffiths/verbosity/blob/d696fc29c3dbed02cf6eaaab909dcc4bb0c5dc92/src/lib/verbosity.class.js#L165-L167'>
+      <span>src/lib/verbosity.class.js</span>
       </a>
     
   </div>
@@ -830,7 +1090,9 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <p>Log a warning message. (Level 2)</p>
 
 
-  <div class='pre p1 fill-light mt0'>warn(msg: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
+  
+    <div class='pre p1 bg-darken-1 mt0 rounded signature'>warn(msg: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
+  
   
   
 
@@ -881,22 +1143,25 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   
 </section>
 
-        
-      
-        
-          
-<section class='p2 mb2 clearfix bg-white minishadow'>
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='Verbosity#error'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>error(msg, args)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 pl3 mb2 ml2 mr2 clearfix bg-white rounded minishadow'>
 
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='error'>
-      error
-    </h3>
     
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/MarkGriffiths/verbosity/blob/2d64f1295011f1765ab97b8a7cefe1686181d847/src/index.js#L250-L252'>
-      <span>src/index.js</span>
+      <a class='pl3 pr1 right rounded github' href='https://github.com/MarkGriffiths/verbosity/blob/d696fc29c3dbed02cf6eaaab909dcc4bb0c5dc92/src/lib/verbosity.class.js#L174-L176'>
+      <span>src/lib/verbosity.class.js</span>
       </a>
     
   </div>
@@ -905,7 +1170,9 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <p>Log an error message. (Level 1)</p>
 
 
-  <div class='pre p1 fill-light mt0'>error(msg: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
+  
+    <div class='pre p1 bg-darken-1 mt0 rounded signature'>error(msg: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
+  
   
   
 
@@ -956,22 +1223,25 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   
 </section>
 
-        
-      
-        
-          
-<section class='p2 mb2 clearfix bg-white minishadow'>
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='Verbosity#critical'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>critical(msg, args)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 pl3 mb2 ml2 mr2 clearfix bg-white rounded minishadow'>
 
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='critical'>
-      critical
-    </h3>
     
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/MarkGriffiths/verbosity/blob/2d64f1295011f1765ab97b8a7cefe1686181d847/src/index.js#L258-L260'>
-      <span>src/index.js</span>
+      <a class='pl3 pr1 right rounded github' href='https://github.com/MarkGriffiths/verbosity/blob/d696fc29c3dbed02cf6eaaab909dcc4bb0c5dc92/src/lib/verbosity.class.js#L183-L185'>
+      <span>src/lib/verbosity.class.js</span>
       </a>
     
   </div>
@@ -980,7 +1250,9 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <p>Log a critical error message, if something breaks. (Level 1)</p>
 
 
-  <div class='pre p1 fill-light mt0'>critical(msg: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
+  
+    <div class='pre p1 bg-darken-1 mt0 rounded signature'>critical(msg: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
+  
   
   
 
@@ -1031,22 +1303,25 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   
 </section>
 
-        
-      
-        
-          
-<section class='p2 mb2 clearfix bg-white minishadow'>
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='Verbosity#panic'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>panic(msg, args)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 pl3 mb2 ml2 mr2 clearfix bg-white rounded minishadow'>
 
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='panic'>
-      panic
-    </h3>
     
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/MarkGriffiths/verbosity/blob/2d64f1295011f1765ab97b8a7cefe1686181d847/src/index.js#L266-L268'>
-      <span>src/index.js</span>
+      <a class='pl3 pr1 right rounded github' href='https://github.com/MarkGriffiths/verbosity/blob/d696fc29c3dbed02cf6eaaab909dcc4bb0c5dc92/src/lib/verbosity.class.js#L192-L194'>
+      <span>src/lib/verbosity.class.js</span>
       </a>
     
   </div>
@@ -1055,7 +1330,9 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <p>Log a panic error message if something unexpected happens. (Level 1)</p>
 
 
-  <div class='pre p1 fill-light mt0'>panic(msg: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
+  
+    <div class='pre p1 bg-darken-1 mt0 rounded signature'>panic(msg: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
+  
   
   
 
@@ -1106,22 +1383,25 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   
 </section>
 
-        
-      
-        
-          
-<section class='p2 mb2 clearfix bg-white minishadow'>
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='Verbosity#emergency'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>emergency(msg, args)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 pl3 mb2 ml2 mr2 clearfix bg-white rounded minishadow'>
 
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='emergency'>
-      emergency
-    </h3>
     
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/MarkGriffiths/verbosity/blob/2d64f1295011f1765ab97b8a7cefe1686181d847/src/index.js#L274-L276'>
-      <span>src/index.js</span>
+      <a class='pl3 pr1 right rounded github' href='https://github.com/MarkGriffiths/verbosity/blob/d696fc29c3dbed02cf6eaaab909dcc4bb0c5dc92/src/lib/verbosity.class.js#L201-L203'>
+      <span>src/lib/verbosity.class.js</span>
       </a>
     
   </div>
@@ -1130,7 +1410,9 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <p>Log a emergency message, for when something needs emergency attention. (Level 1)</p>
 
 
-  <div class='pre p1 fill-light mt0'>emergency(msg: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
+  
+    <div class='pre p1 bg-darken-1 mt0 rounded signature'>emergency(msg: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
+  
   
   
 
@@ -1181,22 +1463,25 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   
 </section>
 
-        
-      
-        
-          
-<section class='p2 mb2 clearfix bg-white minishadow'>
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='Verbosity#dir'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>dir(obj, options)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 pl3 mb2 ml2 mr2 clearfix bg-white rounded minishadow'>
 
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='dir'>
-      dir
-    </h3>
     
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/MarkGriffiths/verbosity/blob/2d64f1295011f1765ab97b8a7cefe1686181d847/src/index.js#L282-L287'>
-      <span>src/index.js</span>
+      <a class='pl3 pr1 right rounded github' href='https://github.com/MarkGriffiths/verbosity/blob/d696fc29c3dbed02cf6eaaab909dcc4bb0c5dc92/src/lib/verbosity.class.js#L210-L215'>
+      <span>src/lib/verbosity.class.js</span>
       </a>
     
   </div>
@@ -1205,7 +1490,9 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <p>As console.dir, but defaults to colour (if appropriate) and zero depth.</p>
 
 
-  <div class='pre p1 fill-light mt0'>dir(obj: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
+  
+    <div class='pre p1 bg-darken-1 mt0 rounded signature'>dir(obj: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
+  
   
   
 
@@ -1257,22 +1544,25 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   
 </section>
 
-        
-      
-        
-          
-<section class='p2 mb2 clearfix bg-white minishadow'>
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='Verbosity#pretty'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>pretty(obj, depth, color)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 pl3 mb2 ml2 mr2 clearfix bg-white rounded minishadow'>
 
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='pretty'>
-      pretty
-    </h3>
     
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/MarkGriffiths/verbosity/blob/2d64f1295011f1765ab97b8a7cefe1686181d847/src/index.js#L306-L318'>
-      <span>src/index.js</span>
+      <a class='pl3 pr1 right rounded github' href='https://github.com/MarkGriffiths/verbosity/blob/d696fc29c3dbed02cf6eaaab909dcc4bb0c5dc92/src/lib/verbosity.class.js#L236-L248'>
+      <span>src/lib/verbosity.class.js</span>
       </a>
     
   </div>
@@ -1281,7 +1571,9 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <p>Pretty prints object, similar to OS X's plutil -p. Defaults to zero depth.</p>
 
 
-  <div class='pre p1 fill-light mt0'>pretty(obj: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, depth: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)</div>
+  
+    <div class='pre p1 bg-darken-1 mt0 rounded signature'>pretty(obj: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, depth: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>, color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>)</div>
+  
   
   
 
@@ -1315,6 +1607,16 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
           
         </div>
       
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>color</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>
+            = <code>true</code>)</code>
+      Print output in color, if supported.
+
+          </div>
+          
+        </div>
+      
     </div>
   
 
@@ -1328,7 +1630,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-built_in">console</span>.pretty(<span class="hljs-built_in">console</span>)
+      <pre class='p1 overflow-auto rounded bg-darken-1'><span class="hljs-built_in">console</span>.pretty(<span class="hljs-built_in">console</span>)
 
 <span class="hljs-comment">// Outputs:</span>
 <span class="hljs-built_in">Object</span>: VerbosityMatrix
@@ -1350,22 +1652,25 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   
 </section>
 
-        
-      
-        
-          
-<section class='p2 mb2 clearfix bg-white minishadow'>
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='Verbosity#yargs'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>yargs(obj, color)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 pl3 mb2 ml2 mr2 clearfix bg-white rounded minishadow'>
 
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='yargs'>
-      yargs
-    </h3>
     
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/MarkGriffiths/verbosity/blob/2d64f1295011f1765ab97b8a7cefe1686181d847/src/index.js#L336-L361'>
-      <span>src/index.js</span>
+      <a class='pl3 pr1 right rounded github' href='https://github.com/MarkGriffiths/verbosity/blob/d696fc29c3dbed02cf6eaaab909dcc4bb0c5dc92/src/lib/verbosity.class.js#L268-L295'>
+      <span>src/lib/verbosity.class.js</span>
       </a>
     
   </div>
@@ -1375,7 +1680,9 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
 <p>Only prints 'long options', <code>._</code> as 'arguments' and <code>$0</code> as 'self'.</p>
 
 
-  <div class='pre p1 fill-light mt0'>yargs(obj: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
+  
+    <div class='pre p1 bg-darken-1 mt0 rounded signature'>yargs(obj: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>)</div>
+  
   
   
 
@@ -1399,6 +1706,16 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
           
         </div>
       
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>color</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>
+            = <code>true</code>)</code>
+      Print output in color, if supported.
+
+          </div>
+          
+        </div>
+      
     </div>
   
 
@@ -1412,7 +1729,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-built_in">console</span>.yargs(yargs)
+      <pre class='p1 overflow-auto rounded bg-darken-1'><span class="hljs-built_in">console</span>.yargs(yargs)
 
 <span class="hljs-comment">// Outputs:</span>
 <span class="hljs-built_in">Object</span> (yargs):
@@ -1432,148 +1749,10 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   
 </section>
 
-        
-      
-        
-          
-<section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='createconsole'>
-      createConsole
-    </h3>
-    
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/MarkGriffiths/verbosity/blob/2d64f1295011f1765ab97b8a7cefe1686181d847/src/index.js#L381-L383'>
-      <span>src/index.js</span>
-      </a>
-    
-  </div>
-  
-
-  <p>Create a new VerbosityConsole object.</p>
-
-
-  <div class='pre p1 fill-light mt0'>createConsole(options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>) → VerbosityConsole</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
-      Options to pass to the factory.
-
-          </div>
-          
-        </div>
-      
+      </div>
     </div>
   
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>VerbosityConsole</code>:
-        Verbosity's console object.
-
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-        
-      
-        
-          
-<section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='getversion'>
-      getVersion
-    </h3>
-    
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/MarkGriffiths/verbosity/blob/2d64f1295011f1765ab97b8a7cefe1686181d847/src/index.js#L391-L391'>
-      <span>src/index.js</span>
-      </a>
-    
-  </div>
-  
-
-  <p>Return the modules version metadata.</p>
-
-
-  <div class='pre p1 fill-light mt0'>getVersion(level: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>) → <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>level</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)</code>
-      Version format required.
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
-        The version string.
-
-      
-    
-  
-
-  
-
-  
-
-  
+</div>
 
   
 
@@ -1585,6 +1764,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
     </div>
   </div>
   <script src="assets/js/anchor.min.js"></script>
+  <script src="assets/js/split.min.js"></script>
   <script src="assets/js/site.js"></script>
 </body>
 </html>
