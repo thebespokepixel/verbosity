@@ -95,10 +95,8 @@ runSuite(
 	createConsole({outStream: StreamProxy})
 )
 
-
 runSuite(
 	'Timestamp',
 	createConsole({outStream: StreamProxy, timestamp: 'XX:XX:XX'}),
 	`[${chalk.dim('XX:XX:XX')}] `
 )
-
