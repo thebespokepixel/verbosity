@@ -12,8 +12,7 @@ import sparkles from 'sparkles'
 import {bespokeTimeFormat} from '@thebespokepixel/time'
 import meta from '@thebespokepixel/meta'
 
-const {format} = util
-const {inspect} = util
+const {format, inspect} = util
 const metadata = meta(__dirname)
 
 /**

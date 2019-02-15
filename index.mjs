@@ -7,9 +7,7 @@ import { bespokeTimeFormat } from '@thebespokepixel/time';
 import meta from '@thebespokepixel/meta';
 
 const {
-  format
-} = util;
-const {
+  format,
   inspect
 } = util;
 const metadata = meta(__dirname);
@@ -51,54 +49,45 @@ const consoleFactory = function (options = {}) {
     _stderr: sErr,
     threshold: verbosity ? verbosity : 3,
     emitter: willEmit && sparkles(namespace),
-
     matrix: {
       debug: {
         level: 5,
         stream: sOut,
-
         format: (pfix, msg) => `${pfix}${chalk.dim(msg)}`
       },
       info: {
         level: 4,
         stream: sOut,
-
         format: (pfix, msg) => `${pfix}${msg}`
       },
       log: {
         level: 3,
         stream: sOut,
-
         format: (pfix, msg) => `${pfix}${msg}`
       },
       warn: {
         level: 2,
         stream: sErr,
-
         format: (pfix, msg) => `${pfix}${chalk.yellow(msg)}`
       },
       error: {
         level: 1,
         stream: sErr,
-
         format: (pfix, msg) => `${pfix}${chalk.red(`ERROR: ${msg}`)}`
       },
       critical: {
         level: 0,
         stream: sErr,
-
         format: (pfix, msg) => `${pfix}${chalk.bold.red(`CRITICAL: ${msg}`)}`
       },
       panic: {
         level: 0,
         stream: sErr,
-
         format: (pfix, msg) => `${pfix}${chalk.bold.red(`PANIC: ${msg}`)}`
       },
       emergency: {
         level: 0,
         stream: sErr,
-
         format: (pfix, msg) => `${pfix}${chalk.bold.red(`EMERGENCY: ${msg}`)}`
       }
     },
@@ -212,15 +201,12 @@ const consoleFactory = function (options = {}) {
   });
 };
 
-
 function console(options) {
   return consoleFactory(options);
 }
-
 function createConsole(options) {
   return consoleFactory(options);
 }
-
 const getVersion = level => metadata.version(level);
 
 export { console, createConsole, getVersion };

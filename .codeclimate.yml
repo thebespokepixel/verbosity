@@ -4,7 +4,7 @@ engines:
     enabled: true
     config:
       languages:
-      - javascript
+        - javascript
   eslint:
     enabled: true
     config:
@@ -13,10 +13,10 @@ engines:
     enabled: true
 ratings:
   paths:
-  - "src/**.js"
+    - "src/**.js"
 exclude_paths:
-- test/
-- docs/
-- index.js
-- index.mjs
-- gulpfile.js
+  - test/
+  - docs/
+  - index.js
+  - index.mjs
+  - gulpfile.js
