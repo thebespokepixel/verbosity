@@ -71,14 +71,14 @@ const levels = [{
 	critical: logbold('Damn you Chell, not again.', 'red', 'CRITICAL: ', true)
 }]
 
-function runSuite(console_, stamp_ = '') {
+function runSuite(title_, console_, stamp_ = '') {
 	let targetLevel = 5
 	levels.forEach(suite => {
 		console_.verbosity(targetLevel)
 		Object.keys(suite).forEach(level => {
 			console_[level](suite[level].src)
 			const result = StreamProxy.read()
-			test(`@ ${targetLevel}, Level: ${level}: ${['-', stamp_ + suite[level].raw][0 | suite[level].willRead]}`, t => {
+			test(`${title_} @ ${targetLevel}, Level: ${level}: ${['-', stamp_ + suite[level].raw][0 | suite[level].willRead]}`, t => {
 				if (suite[level].willRead) {
 					t.deepEqual(`${stamp_}${suite[level].dest}`, result)
 				} else {
@@ -90,9 +90,15 @@ function runSuite(console_, stamp_ = '') {
 	})
 }
 
-let testConsole = createConsole({outStream: StreamProxy})
-runSuite(testConsole)
+runSuite(
+	'Normal',
+	createConsole({outStream: StreamProxy})
+)
 
-testConsole = createConsole({outStream: StreamProxy, timestamp: 'XX:XX:XX'})
-runSuite(testConsole, `[${chalk.dim('XX:XX:XX')}] `)
+
+runSuite(
+	'Timestamp',
+	createConsole({outStream: StreamProxy, timestamp: 'XX:XX:XX'}),
+	`[${chalk.dim('XX:XX:XX')}] `
+)
 

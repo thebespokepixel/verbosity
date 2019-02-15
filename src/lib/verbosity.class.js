@@ -25,7 +25,7 @@ const {Console} = console
  * @param {String} options.timestamp            - Timestamp format.
  * @param {String} options.namespace            - Sparkles namespace to emit events to.
  * @param {String} options.prefix               - Logging message prefix.
- * @return {VerbosityConsole} Verbosity's console object.
+ * @return {Verbosity} Verbosity's console object.
  */
 export default class Verbosity extends Console {
 	constructor(options = {}) {
