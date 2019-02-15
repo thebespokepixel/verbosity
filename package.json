@@ -1,6 +1,6 @@
 {
   "name": "verbosity",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "description": "Verbose logging features for ttys or any writable stream.",
   "main": "index.js",
   "module": "index.mjs",
@@ -23,7 +23,7 @@
   ],
   "author": "Mark Griffiths <mark@thebespokepixel.com> (http://thebespokepixel.com/)",
   "copyright": {
-    "year": "2018",
+    "year": "2019",
     "owner": "Mark Griffiths @ The Bespoke Pixel"
   },
   "license": "MIT",
@@ -43,26 +43,28 @@
   },
   "homepage": "https://github.com/MarkGriffiths/verbosity#readme",
   "dependencies": {
-    "@thebespokepixel/meta": "^0.2.3",
+    "@thebespokepixel/meta": "^0.2.5",
     "@thebespokepixel/time": "^0.4.1",
-    "chalk": "^2.4.1",
+    "chalk": "^2.4.2",
     "sparkles": "^1.0.1",
-    "term-ng": "^0.8.1"
+    "term-ng": "^0.8.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.1.2",
-    "@babel/preset-env": "^7.1.0",
-    "acorn": "^6.0.4",
-    "ava": "^0.25.0",
-    "documentation": "^8.1.2",
-    "documentation-theme-bespoke": "^0.4.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "acorn": "^6.1.0",
+    "ava": "^1.2.1",
+    "documentation": "^9.1.1",
+    "documentation-theme-bespoke": "^0.4.10",
     "gulp": "^4.0.0",
     "gulp-better-rollup": "^3.4.0",
     "gulp-rename": "^1.4.0",
     "gulp-strip-comments": "^2.5.2",
-    "nyc": "^12.0.2",
-    "rollup-plugin-babel": "^4.0.3",
-    "xo": "^0.23.0"
+    "nyc": "^13.3.0",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "xo": "^0.24.0"
   },
   "xo": {
     "semicolon": false,
@@ -116,6 +118,7 @@
         ]
       ],
       "Developer": [
+        "greenkeeper",
         "david-dev",
         "rollup"
       ],
