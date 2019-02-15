@@ -27,7 +27,7 @@ const {Console} = console
  * @param {String} options.prefix               - Logging message prefix.
  * @return {VerbosityConsole} Verbosity's console object.
  */
-export default class verbosity extends Console {
+export default class Verbosity extends Console {
 	constructor(options = {}) {
 		const {
 			outStream, errorStream, verbosity, timestamp, namespace, prefix
