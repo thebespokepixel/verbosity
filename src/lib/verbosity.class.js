@@ -126,7 +126,6 @@ export default class Verbosity extends Console {
 	 * [debug description]
 	 * @param  {[type]}    msg  [description]
 	 * @param  {...[type]} args [description]
-	 * @return {[type]}         [description]
 	 */
 	debug(msg, ...args) {
 		this.route('debug', msg, ...args)

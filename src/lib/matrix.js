@@ -4,6 +4,9 @@ import chalk from 'chalk'
  * Message routing and formatting matrix.
  * @private
  * @type {Object}
+ * @param {Stream} sOut Output stream.
+ * @param {Stream} sErr Error stream.
+ * @returns {Object} Routing matrix object.
  */
 export default function matrix(sOut, sErr) {
 	return {

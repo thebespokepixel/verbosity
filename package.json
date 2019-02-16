@@ -1,6 +1,6 @@
 {
   "name": "verbosity",
-  "version": "0.10.1",
+  "version": "1.0.0",
   "description": "Verbose logging features for ttys or any writable stream.",
   "main": "index.js",
   "module": "index.mjs",
@@ -43,14 +43,14 @@
   },
   "homepage": "https://github.com/MarkGriffiths/verbosity#readme",
   "dependencies": {
-    "@thebespokepixel/meta": "^0.2.5",
-    "@thebespokepixel/time": "^0.4.1",
+    "@thebespokepixel/meta": "^1.0.0",
+    "@thebespokepixel/time": "^0.5.1",
     "chalk": "^2.4.2",
     "sparkles": "^1.0.1",
-    "term-ng": "^0.8.5"
+    "term-ng": "^1.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.2.2",
+    "@babel/core": "^7.3.3",
     "@babel/preset-env": "^7.3.1",
     "acorn": "^6.1.0",
     "ava": "^1.2.1",
@@ -77,22 +77,12 @@
       "test/coverage/**"
     ]
   },
-  "ava": {
-    "verbose": true,
-    "files": [
-      "test/*.js"
-    ]
-  },
   "badges": {
     "github": "MarkGriffiths",
     "npm": "thebespokepixel",
     "codeclimate": "c92b0de0806e1fa6f65a",
     "name": "verbosity",
     "providers": {
-      "status": {
-        "text": "beta",
-        "color": "blue"
-      },
       "aux1": {
         "title": "github",
         "text": "source",
@@ -100,13 +90,9 @@
         "link": "https://github.com/MarkGriffiths/verbosity"
       }
     },
-    "test-1": [
-      "status"
-    ],
     "readme": {
       "Status": [
         [
-          "status",
           "npm",
           "travis",
           "david"
