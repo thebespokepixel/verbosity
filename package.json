@@ -77,12 +77,6 @@
       "test/coverage/**"
     ]
   },
-  "ava": {
-    "verbose": true,
-    "files": [
-      "test/*.js"
-    ]
-  },
   "badges": {
     "github": "MarkGriffiths",
     "npm": "thebespokepixel",
