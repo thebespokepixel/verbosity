@@ -43,7 +43,7 @@
   },
   "homepage": "https://github.com/MarkGriffiths/verbosity#readme",
   "dependencies": {
-    "@thebespokepixel/meta": "^0.2.5",
+    "@thebespokepixel/meta": "^1.0.0",
     "@thebespokepixel/time": "^0.4.1",
     "chalk": "^2.4.2",
     "sparkles": "^1.0.1",
