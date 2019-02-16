@@ -1,6 +1,6 @@
 {
   "name": "verbosity",
-  "version": "0.10.1",
+  "version": "1.0.0",
   "description": "Verbose logging features for ttys or any writable stream.",
   "main": "index.js",
   "module": "index.mjs",
@@ -77,22 +77,12 @@
       "test/coverage/**"
     ]
   },
-  "ava": {
-    "verbose": true,
-    "files": [
-      "test/*.js"
-    ]
-  },
   "badges": {
     "github": "MarkGriffiths",
     "npm": "thebespokepixel",
     "codeclimate": "c92b0de0806e1fa6f65a",
     "name": "verbosity",
     "providers": {
-      "status": {
-        "text": "beta",
-        "color": "blue"
-      },
       "aux1": {
         "title": "github",
         "text": "source",
@@ -100,13 +90,9 @@
         "link": "https://github.com/MarkGriffiths/verbosity"
       }
     },
-    "test-1": [
-      "status"
-    ],
     "readme": {
       "Status": [
         [
-          "status",
           "npm",
           "travis",
           "david"
