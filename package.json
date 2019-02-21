@@ -1,6 +1,6 @@
 {
   "name": "verbosity",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Verbose logging features for ttys or any writable stream.",
   "main": "index.js",
   "module": "index.mjs",
@@ -43,11 +43,11 @@
   },
   "homepage": "https://github.com/MarkGriffiths/verbosity#readme",
   "dependencies": {
-    "@thebespokepixel/meta": "^1.0.0",
-    "@thebespokepixel/time": "^0.5.1",
+    "@thebespokepixel/meta": "^1.0.1",
+    "@thebespokepixel/time": "^0.5.2",
     "chalk": "^2.4.2",
     "sparkles": "^1.0.1",
-    "term-ng": "^1.0.0"
+    "term-ng": "^1.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.3.3",
@@ -55,7 +55,7 @@
     "acorn": "^6.1.0",
     "ava": "^1.2.1",
     "documentation": "^9.1.1",
-    "documentation-theme-bespoke": "^0.4.10",
+    "documentation-theme-bespoke": "^0.4.11",
     "gulp": "^4.0.0",
     "gulp-better-rollup": "^3.4.0",
     "gulp-rename": "^1.4.0",
