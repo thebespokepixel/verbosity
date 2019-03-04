@@ -55,7 +55,7 @@
     "ava": "^1.2.1",
     "documentation-theme-bespoke": "^0.5.2",
     "gulp": "^4.0.0",
-    "gulp-better-rollup": "^3.4.0",
+    "gulp-better-rollup": "^4.0.0",
     "gulp-rename": "^1.4.0",
     "gulp-strip-comments": "^2.5.2",
     "nyc": "^13.3.0",
