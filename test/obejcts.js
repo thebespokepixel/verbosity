@@ -1,6 +1,4 @@
 /* eslint quotes:0 */
-'use strict'
-
 import stream from 'stream'
 import test from 'ava'
 import {createConsole} from '..'

@@ -1,9 +1,9 @@
-import chalk from 'chalk';
+import meta from '@thebespokepixel/meta';
 import util from 'util';
 import termNG from 'term-ng';
+import chalk from 'chalk';
 import sparkles from 'sparkles';
 import { bespokeTimeFormat } from '@thebespokepixel/time';
-import meta from '@thebespokepixel/meta';
 
 function matrix(sOut, sErr) {
   return {
@@ -61,9 +61,10 @@ class Verbosity extends Console {
   constructor({
     outStream,
     errorStream,
-    verbosity,
+    verbosity = 3,
     timestamp,
     namespace,
+    global = true,
     prefix
   } = {}) {
     const sOut = (ws => {
@@ -84,6 +85,7 @@ class Verbosity extends Console {
 
     super(sOut, sErr);
     this.willEmit = Boolean(namespace);
+    this.globalControl = Boolean(global);
 
     this.timeFormatter = (ts => ts ? () => `[${chalk.dim(bespokeTimeFormat(ts))}] ` : () => '')(timestamp);
 
@@ -91,16 +93,30 @@ class Verbosity extends Console {
 
     this._stdout = sOut;
     this._stderr = sErr;
-    this.threshold = verbosity ? verbosity : 3;
+    this.threshold = verbosity;
+    this.globalVerbosityController = this.globalControl && sparkles('verbosityGlobal');
     this.emitter = this.willEmit && sparkles(namespace);
     this.matrix = matrix(sOut, sErr);
+    this.globalVerbosityController.on('level', ({
+      level
+    }) => {
+      this.threshold = level;
+    });
   }
 
   verbosity(level) {
-    level = typeof level === 'string' ? this.matrix[level] : level;
+    if (level) {
+      level = typeof level === 'string' ? this.matrix[level].level : level;
 
-    if (level < 6) {
-      this.threshold = level;
+      if (level < 6) {
+        this.threshold = level;
+      }
+
+      if (this.globalControl) {
+        this.globalVerbosityController.emit('level', {
+          level
+        });
+      }
     }
 
     return this.threshold;
