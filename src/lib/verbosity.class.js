@@ -25,6 +25,7 @@ const {Console} = console
  *                                              5: Debug
  * @param {String} options.timestamp            - Timestamp format.
  * @param {String} options.namespace            - Sparkles namespace to emit events to.
+ * @param {Boolean} options.global              - Should changes to verbosity be made globally?
  * @param {String} options.prefix               - Logging message prefix.
  * @return {Verbosity} Verbosity's console object.
  */
@@ -32,9 +33,10 @@ export default class Verbosity extends Console {
 	constructor({
 		outStream,
 		errorStream,
-		verbosity,
+		verbosity = 3,
 		timestamp,
 		namespace,
+		global = true,
 		prefix
 	} = {}) {
 		const sOut = (ws => {
@@ -55,6 +57,7 @@ export default class Verbosity extends Console {
 
 		super(sOut, sErr)
 		this.willEmit = Boolean(namespace)
+		this.globalControl = Boolean(global)
 
 		this.timeFormatter = (ts => ts ?
 			() => `[${chalk.dim(bespokeTimeFormat(ts))}] ` :
@@ -68,20 +71,32 @@ export default class Verbosity extends Console {
 
 		this._stdout = sOut
 		this._stderr = sErr
-		this.threshold = verbosity ? verbosity : 3
+		this.threshold = verbosity
+		this.globalVerbosityController = this.globalControl && sparkles('verbosityGlobal')
 		this.emitter = this.willEmit && sparkles(namespace)
 		this.matrix = matrix(sOut, sErr)
+
+		this.globalVerbosityController.on('level', ({level}) => {
+			this.threshold = level
+		})
 	}
 
 	/**
 	 * Set the current verbosity.
-	 * @param  {Number} level - The current level (0 to 5).
+	 * @param  {Number|String} level - The current level (0 to 5) or level name.
 	 * @return {Number} The current verboseness (0 to 5).
 	 */
 	verbosity(level) {
-		level = (typeof level === 'string') ? this.matrix[level] : level
-		if (level < 6) {
-			this.threshold = level
+		if (level) {
+			level = (typeof level === 'string') ? this.matrix[level].level : level
+
+			if (level < 6) {
+				this.threshold = level
+			}
+
+			if (this.globalControl) {
+				this.globalVerbosityController.emit('level', {level})
+			}
 		}
 
 		return this.threshold

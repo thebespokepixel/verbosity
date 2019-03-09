@@ -26,13 +26,13 @@ const console = createConsole({
 console.log('Works like normal...')
 console.debug('...but now controllable.')
 
-console.verbosity(3)
+console.verbosity(3) // Use numbered levels 5 (debug) to 1 (error)
 
 console.debug('...this isn’t printed now.')
 
 console.canWrite(5) && console.dir({print: 'this won’t.'})
 
-console.verbosity(5)
+console.verbosity('debug') // Use named levels [debug, info, log, warning, error]
 
 console.canWrite(5) && console.dir({print: 'this will now.'})
 ```
