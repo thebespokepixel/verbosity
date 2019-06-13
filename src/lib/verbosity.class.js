@@ -76,9 +76,11 @@ export default class Verbosity extends Console {
 		this.emitter = this.willEmit && sparkles(namespace)
 		this.matrix = matrix(sOut, sErr)
 
-		this.globalVerbosityController.on('level', ({level}) => {
-			this.threshold = level
-		})
+		if (this.globalControl) {
+			this.globalVerbosityController.on('level', ({level}) => {
+				this.threshold = level
+			})
+		}
 	}
 
 	/**
