@@ -97,11 +97,14 @@ class Verbosity extends Console {
     this.globalVerbosityController = this.globalControl && sparkles('verbosityGlobal');
     this.emitter = this.willEmit && sparkles(namespace);
     this.matrix = matrix(sOut, sErr);
-    this.globalVerbosityController.on('level', ({
-      level
-    }) => {
-      this.threshold = level;
-    });
+
+    if (this.globalControl) {
+      this.globalVerbosityController.on('level', ({
+        level
+      }) => {
+        this.threshold = level;
+      });
+    }
   }
 
   verbosity(level) {
@@ -228,4 +231,4 @@ function createConsole(options) {
 }
 const getVersion = level => metadata.version(level);
 
-export { createConsole, getVersion, Verbosity };
+export { Verbosity, createConsole, getVersion };
