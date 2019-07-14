@@ -10,7 +10,9 @@
     "doc-build": "documentation build --format html --output docs --theme node_modules/documentation-theme-bespoke --github --config src/docs/documentation.yml --project-name $npm_package_name  --project-version $npm_package_version src/index.js",
     "readme": "compile-readme -u src/docs/example.md src/docs/readme.md > readme.md",
     "coverage": "nyc ava && nyc report --reporter=lcov --report-dir test/coverage; open test/coverage/lcov-report/index.html",
-    "clean": "gulp clean"
+    "clean": "gulp clean",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "files": [
     "index.js",
@@ -47,7 +49,8 @@
     "@thebespokepixel/time": "^0.5.4",
     "chalk": "^2.4.2",
     "sparkles": "^1.0.1",
-    "term-ng": "^1.0.3"
+    "term-ng": "^1.0.3",
+    "snyk": "^1.193.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -127,5 +130,6 @@
         "david"
       ]
     ]
-  }
+  },
+  "snyk": true
 }
