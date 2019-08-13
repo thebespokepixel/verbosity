@@ -1,7 +1,7 @@
 import stream from 'stream'
 import test from 'ava'
-import {createConsole, getVersion, Verbosity} from '..'
 import pkg from '../package'
+import {createConsole, getVersion, Verbosity} from '..'
 
 const StreamProxy = new stream.PassThrough()
 StreamProxy.setEncoding('utf8')
