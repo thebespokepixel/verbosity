@@ -1,7 +1,7 @@
 import stream from 'stream'
 import test from 'ava'
-import {createConsole} from '..'
 import chalk from 'chalk'
+import {createConsole} from '..'
 
 const StreamProxy = new stream.PassThrough()
 StreamProxy.setEncoding('utf8')
