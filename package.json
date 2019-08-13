@@ -32,37 +32,37 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/MarkGriffiths/verbosity.git"
+    "url": "https://github.com/thebespokepixel/verbosity.git"
   },
   "engines": {
     "node": ">=8.0"
   },
   "bugs": {
-    "url": "https://github.com/MarkGriffiths/verbosity/issues",
+    "url": "https://github.com/thebespokepixel/verbosity/issues",
     "email": "mark@thebespokepixel.com"
   },
-  "homepage": "https://github.com/MarkGriffiths/verbosity#readme",
+  "homepage": "https://github.com/thebespokepixel/verbosity#readme",
   "dependencies": {
-    "@thebespokepixel/meta": "^1.0.3",
-    "@thebespokepixel/time": "^0.5.4",
+    "@thebespokepixel/meta": "^1.0.4",
+    "@thebespokepixel/time": "^0.5.5",
     "chalk": "^2.4.2",
     "sparkles": "^1.0.1",
-    "term-ng": "^1.0.3"
+    "term-ng": "^1.0.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
-    "ava": "^2.1.0",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "ava": "^2.2.0",
     "documentation-theme-bespoke": "^0.5.6",
     "gulp": "^4.0.2",
     "gulp-better-rollup": "^4.0.1",
     "gulp-rename": "^1.4.0",
     "gulp-strip-comments": "^2.5.2",
     "nyc": "^14.1.1",
-    "rollup": "^1.15.3",
-    "rollup-plugin-babel": "^4.3.2",
-    "rollup-plugin-commonjs": "^10.0.0",
-    "rollup-plugin-node-resolve": "^5.0.2",
+    "rollup": "^1.19.4",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.0.2",
+    "rollup-plugin-node-resolve": "^5.2.0",
     "xo": "^0.24.0"
   },
   "xo": {
@@ -77,16 +77,16 @@
     ]
   },
   "badges": {
-    "github": "MarkGriffiths",
+    "github": "thebespokepixel",
     "npm": "thebespokepixel",
-    "codeclimate": "c92b0de0806e1fa6f65a",
+    "codeclimate": "374a4343fca92868720c",
     "name": "verbosity",
     "providers": {
       "aux1": {
         "title": "github",
         "text": "source",
         "color": "4E73B6",
-        "link": "https://github.com/MarkGriffiths/verbosity"
+        "link": "https://github.com/thebespokepixel/verbosity"
       }
     },
     "readme": {
@@ -108,8 +108,7 @@
         "rollup"
       ],
       "Help": [
-        "inch",
-        "gitter"
+        "inch"
       ]
     },
     "docs": [
