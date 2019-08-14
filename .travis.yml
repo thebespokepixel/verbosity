@@ -1,32 +1,33 @@
----
 branches:
   only:
   - master
   - develop
-  - /^greenkeeper/.*$/
-  - /^feature/.*$/
+  - "/^greenkeeper/.*$/"
+  - "/^feature/.*$/"
 language: node_js
 node_js:
-  - stable
-  - 11
-  - 10
-  - 9
-  - 8
+- stable
+- 11
+- 10
+- 9
+- 8
 env:
   global:
-    - CC_TEST_REPORTER_ID=dd40883297d249d8283f121d8613705b46ecd75bdc0787a8fc5ca82048def316
+  - CC_TEST_REPORTER_ID=dd40883297d249d8283f121d8613705b46ecd75bdc0787a8fc5ca82048def316
 before_install:
-  - '[[ $(node -v) =~ ^v12.*$ ]] || npm install -g npm@latest'
-  - npm install -g greenkeeper-lockfile
+- "[[ $(node -v) =~ ^v12.*$ ]] || npm install -g npm@latest"
+- npm install -g greenkeeper-lockfile
 install: npm install
 before_script:
-  - greenkeeper-lockfile-update
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
+- greenkeeper-lockfile-update
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+  > ./cc-test-reporter
+- chmod +x ./cc-test-reporter
+- "./cc-test-reporter before-build"
 after_script:
-  - greenkeeper-lockfile-upload
-  - "[ $TRAVIS_NODE_VERSION = stable ]
-  && nyc report --reporter=lcov
-  && ./cc-test-reporter after-build --debug -t lcov --exit-code $TRAVIS_TEST_RESULT
-  || echo 'Coverage skipped'"
+- greenkeeper-lockfile-upload
+- "[ $TRAVIS_NODE_VERSION = stable ] && nyc report --reporter=lcov && ./cc-test-reporter
+  after-build --debug -t lcov --exit-code $TRAVIS_TEST_RESULT || echo 'Coverage skipped'"
+notifications:
+  slack:
+    secure: r1aFasI8BdVM8b5uDHcxlrhtC5Elex8qalotukkdXWxTPOzRxOKc8prjIQ2TUNJ/z0SjdfG5oyUhRrddheeb68ONQtdoptFAhW6RuigKYtddw3GBRZz/ZxXstLen4Sxc5csVojC7YFbXpiyf8NOxeYn2XmDRdDq/duAN8segsvl7DYlj+CIta9kB07eZrMKuXPBLbCJrHsk5UmaupcGs26XiXJey98QVaWpVziWhuHRMqua4A7Qqvfa0HHTtlc4V8hrDF0PIcCgK683uAWIljqjUg16nUWL3oQd+KJomVHHQJqmAsDq0Rz0aQ2r5FeNjozeH491eKVhk34m+B6Rle0KA61xBW0LGKKOLfyg0yaMwbeUMrPurR+uo771uFlOB6qOP73MHijpCXd0K/HYG2XDvybpQdZjIDXQ+ZBGdmgsyVogIlS334eC+z3j07zsUayYWzj1kMVK/5tAFu6ltaeDaVfClCbtvwWwBTfXhN0aRG0zi9la63iSYaXZyRYg3qQGiRVWQrC6f5q1kOlis5WPmrDluASfCFmnr4oOJoEe4JaU34DgbU8cXI4zdowBoYaEKmElgPTMg09OQMkvgAQ1ZD/RwJAXwDmd47MKwgGeAtVL4VfYYDramkkqSDTHogMygRLzAriXCIZIUJLD9xRSW4jAYlDjTms4D6m6JPoI=
