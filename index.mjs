@@ -64,7 +64,7 @@ class Verbosity extends Console {
     verbosity = 3,
     timestamp,
     namespace,
-    global = true,
+    global,
     prefix
   } = {}) {
     const sOut = (ws => {
