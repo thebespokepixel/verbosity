@@ -45,7 +45,7 @@
   "dependencies": {
     "@thebespokepixel/meta": "^1.0.5",
     "@thebespokepixel/time": "^0.5.6",
-    "chalk": "^2.4.2",
+    "chalk": "^3.0.0",
     "sparkles": "^1.0.1",
     "term-ng": "^1.0.5"
   },
