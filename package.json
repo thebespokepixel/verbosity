@@ -1,6 +1,6 @@
 {
   "name": "verbosity",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "Verbose logging features for ttys or any writable stream.",
   "main": "index.js",
   "module": "index.mjs",
@@ -23,7 +23,7 @@
   ],
   "author": "Mark Griffiths <mark@thebespokepixel.com> (http://thebespokepixel.com/)",
   "copyright": {
-    "year": "2019",
+    "year": "2020",
     "owner": "Mark Griffiths @ The Bespoke Pixel"
   },
   "license": "MIT",
@@ -35,7 +35,7 @@
     "url": "https://github.com/thebespokepixel/verbosity.git"
   },
   "engines": {
-    "node": ">=8.0"
+    "node": ">=10.0"
   },
   "bugs": {
     "url": "https://github.com/thebespokepixel/verbosity/issues",
@@ -43,27 +43,28 @@
   },
   "homepage": "https://github.com/thebespokepixel/verbosity#readme",
   "dependencies": {
-    "@thebespokepixel/meta": "^1.0.5",
-    "@thebespokepixel/time": "^0.5.6",
-    "chalk": "^2.4.2",
+    "@thebespokepixel/meta": "^2.0.1",
+    "@thebespokepixel/time": "^1.0.0",
+    "chalk": "^3.0.0",
     "sparkles": "^1.0.1",
-    "term-ng": "^1.0.5"
+    "term-ng": "^2.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.0",
-    "@babel/preset-env": "^7.6.0",
-    "ava": "^2.4.0",
-    "documentation-theme-bespoke": "^1.0.3",
+    "@ava/babel": "^1.0.1",
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "ava": "^3.3.0",
+    "documentation-theme-bespoke": "^1.1.2",
     "gulp": "^4.0.2",
     "gulp-better-rollup": "^4.0.1",
-    "gulp-rename": "^1.4.0",
+    "gulp-rename": "^2.0.0",
     "gulp-strip-comments": "^2.5.2",
-    "nyc": "^14.1.1",
-    "rollup": "^1.21.4",
+    "nyc": "^15.0.0",
+    "rollup": "^1.31.1",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "xo": "^0.24.0"
+    "xo": "^0.26.1"
   },
   "xo": {
     "semicolon": false,
@@ -74,6 +75,12 @@
       "docs/**",
       "src/docs/example.js",
       "test/coverage/**"
+    ]
+  },
+  "ava": {
+    "babel": true,
+    "files": [
+      "test/*.js"
     ]
   },
   "badges": {

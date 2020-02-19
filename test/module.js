@@ -1,6 +1,6 @@
 import stream from 'stream'
 import test from 'ava'
-import pkg from '../package'
+import pkg from '../package.json'
 import {createConsole, getVersion, Verbosity} from '..'
 
 const StreamProxy = new stream.PassThrough()

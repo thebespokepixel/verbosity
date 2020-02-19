@@ -82,7 +82,7 @@ function runSuite(
 			const result = StreamProxy.read()
 			test(`${title_} @ ${levels_[index]}, Level: ${level}: ${['-', stamp_ + suite[level].raw][0 | suite[level].willRead]}`, t => {
 				if (suite[level].willRead) {
-					t.deepEqual(`${stamp_}${suite[level].dest}`, result)
+					t.is(`${stamp_}${suite[level].dest}`, result)
 				} else {
 					t.is(result, null)
 				}
