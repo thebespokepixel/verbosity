@@ -43,7 +43,7 @@
   },
   "homepage": "https://github.com/thebespokepixel/verbosity#readme",
   "dependencies": {
-    "@thebespokepixel/meta": "^1.0.5",
+    "@thebespokepixel/meta": "^2.0.0",
     "@thebespokepixel/time": "^0.5.6",
     "chalk": "^2.4.2",
     "sparkles": "^1.0.1",
