@@ -3,7 +3,7 @@
  ╰───────────┴────────────────────────────────────────────────────────────────── */
 
 import meta from '@thebespokepixel/meta'
-import Verbosity from './lib/verbosity.class'
+import Verbosity from './lib/verbosity'
 
 const metadata = meta(__dirname)
 

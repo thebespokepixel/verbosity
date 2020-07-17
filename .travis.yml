@@ -3,28 +3,23 @@ branches:
   only:
     - master
     - develop
-    - /^greenkeeper/.*$/
     - /^feature/.*$/
 language: node_js
 node_js:
   - stable
   - 12
-  - 11
   - 10
 env:
   global:
     - CC_TEST_REPORTER_ID=dd40883297d249d8283f121d8613705b46ecd75bdc0787a8fc5ca82048def316
 before_install:
   - npm i -g npm
-  - npm install -g greenkeeper-lockfile
 install: npm ci --no-optional
 before_script:
-  - greenkeeper-lockfile-update
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 after_script:
-  - greenkeeper-lockfile-upload
   - "[ $TRAVIS_NODE_VERSION = stable ] && nyc report --reporter=lcov && ./cc-test-reporter
     after-build --debug -t lcov --exit-code $TRAVIS_TEST_RESULT || echo 'Coverage skipped'"
 notifications:
