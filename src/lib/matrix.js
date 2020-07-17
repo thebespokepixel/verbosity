@@ -17,10 +17,10 @@ export default function matrix(sOut, sErr) {
 			 * Format the debug message.
 			 * @private
 			 * @param  {String} pfix Message prefix.
-			 * @param  {String} msg  The message body.
+			 * @param  {String} message  The message body.
 			 * @return {Sring} The formatted mesage.
 			 */
-			format: (pfix, msg) => `${pfix}${chalk.dim(msg)}`
+			format: (pfix, message) => `${pfix}${chalk.dim(message)}`
 		},
 		info: {
 			level: 4,
@@ -29,10 +29,10 @@ export default function matrix(sOut, sErr) {
 			 * Format the info message.
 			 * @private
 			 * @param  {String} pfix Message prefix.
-			 * @param  {String} msg  The message body.
+			 * @param  {String} message  The message body.
 			 * @return {Sring} The formatted mesage.
 			 */
-			format: (pfix, msg) => `${pfix}${msg}`
+			format: (pfix, message) => `${pfix}${message}`
 		},
 		log: {
 			level: 3,
@@ -41,10 +41,10 @@ export default function matrix(sOut, sErr) {
 			 * Format the log message.
 			 * @private
 			 * @param  {String} pfix Message prefix.
-			 * @param  {String} msg  The message body.
+			 * @param  {String} message  The message body.
 			 * @return {Sring} The formatted mesage.
 			 */
-			format: (pfix, msg) => `${pfix}${msg}`
+			format: (pfix, message) => `${pfix}${message}`
 		},
 		warn: {
 			level: 2,
@@ -53,10 +53,10 @@ export default function matrix(sOut, sErr) {
 			 * Format the warn message.
 			 * @private
 			 * @param  {String} pfix Message prefix.
-			 * @param  {String} msg  The message body.
+			 * @param  {String} message  The message body.
 			 * @return {Sring} The formatted mesage.
 			 */
-			format: (pfix, msg) => `${pfix}${chalk.yellow(msg)}`
+			format: (pfix, message) => `${pfix}${chalk.yellow(message)}`
 		},
 		error: {
 			level: 1,
@@ -65,10 +65,10 @@ export default function matrix(sOut, sErr) {
 			 * Format the error message.
 			 * @private
 			 * @param  {String} pfix Message prefix.
-			 * @param  {String} msg  The message body.
+			 * @param  {String} message  The message body.
 			 * @return {Sring} The formatted mesage.
 			 */
-			format: (pfix, msg) => `${pfix}${chalk.red(`ERROR: ${msg}`)}`
+			format: (pfix, message) => `${pfix}${chalk.red(`ERROR: ${message}`)}`
 		},
 		critical: {
 			level: 0,
@@ -77,10 +77,10 @@ export default function matrix(sOut, sErr) {
 			 * Format the critical message.
 			 * @private
 			 * @param  {String} pfix Message prefix.
-			 * @param  {String} msg  The message body.
+			 * @param  {String} message  The message body.
 			 * @return {Sring} The formatted mesage.
 			 */
-			format: (pfix, msg) => `${pfix}${chalk.bold.red(`CRITICAL: ${msg}`)}`
+			format: (pfix, message) => `${pfix}${chalk.bold.red(`CRITICAL: ${message}`)}`
 		},
 		panic: {
 			level: 0,
@@ -89,10 +89,10 @@ export default function matrix(sOut, sErr) {
 			 * Format the panic message.
 			 * @private
 			 * @param  {String} pfix Message prefix.
-			 * @param  {String} msg  The message body.
+			 * @param  {String} message  The message body.
 			 * @return {Sring} The formatted mesage.
 			 */
-			format: (pfix, msg) => `${pfix}${chalk.bold.red(`PANIC: ${msg}`)}`
+			format: (pfix, message) => `${pfix}${chalk.bold.red(`PANIC: ${message}`)}`
 		},
 		emergency: {
 			level: 0,
@@ -101,10 +101,10 @@ export default function matrix(sOut, sErr) {
 			 * Format the emergency message.
 			 * @private
 			 * @param  {String} pfix Message prefix.
-			 * @param  {String} msg  The message body.
+			 * @param  {String} message  The message body.
 			 * @return {Sring} The formatted mesage.
 			 */
-			format: (pfix, msg) => `${pfix}${chalk.bold.red(`EMERGENCY: ${msg}`)}`
+			format: (pfix, message) => `${pfix}${chalk.bold.red(`EMERGENCY: ${message}`)}`
 		}
 	}
 }

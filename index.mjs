@@ -10,42 +10,42 @@ function matrix(sOut, sErr) {
     debug: {
       level: 5,
       stream: sOut,
-      format: (pfix, msg) => `${pfix}${chalk.dim(msg)}`
+      format: (pfix, message) => `${pfix}${chalk.dim(message)}`
     },
     info: {
       level: 4,
       stream: sOut,
-      format: (pfix, msg) => `${pfix}${msg}`
+      format: (pfix, message) => `${pfix}${message}`
     },
     log: {
       level: 3,
       stream: sOut,
-      format: (pfix, msg) => `${pfix}${msg}`
+      format: (pfix, message) => `${pfix}${message}`
     },
     warn: {
       level: 2,
       stream: sErr,
-      format: (pfix, msg) => `${pfix}${chalk.yellow(msg)}`
+      format: (pfix, message) => `${pfix}${chalk.yellow(message)}`
     },
     error: {
       level: 1,
       stream: sErr,
-      format: (pfix, msg) => `${pfix}${chalk.red(`ERROR: ${msg}`)}`
+      format: (pfix, message) => `${pfix}${chalk.red(`ERROR: ${message}`)}`
     },
     critical: {
       level: 0,
       stream: sErr,
-      format: (pfix, msg) => `${pfix}${chalk.bold.red(`CRITICAL: ${msg}`)}`
+      format: (pfix, message) => `${pfix}${chalk.bold.red(`CRITICAL: ${message}`)}`
     },
     panic: {
       level: 0,
       stream: sErr,
-      format: (pfix, msg) => `${pfix}${chalk.bold.red(`PANIC: ${msg}`)}`
+      format: (pfix, message) => `${pfix}${chalk.bold.red(`PANIC: ${message}`)}`
     },
     emergency: {
       level: 0,
       stream: sErr,
-      format: (pfix, msg) => `${pfix}${chalk.bold.red(`EMERGENCY: ${msg}`)}`
+      format: (pfix, message) => `${pfix}${chalk.bold.red(`EMERGENCY: ${message}`)}`
     }
   };
 }
@@ -130,52 +130,52 @@ class Verbosity extends Console {
     return this.threshold >= level;
   }
 
-  route(level, msg, ...a) {
-    msg = a.length > 0 ? format(msg, ...a) : msg;
+  route(level, message, ...a) {
+    message = a.length > 0 ? format(message, ...a) : message;
 
     if (this.willEmit) {
-      this.emitter.emit(level, msg);
+      this.emitter.emit(level, message);
     }
 
     if (this.threshold >= this.matrix[level].level) {
       const pfix = `${this.timeFormatter()}${this.prefixFormatter()}`;
-      this.matrix[level].stream.write(`${this.matrix[level].format(pfix, msg)}\n`);
+      this.matrix[level].stream.write(`${this.matrix[level].format(pfix, message)}\n`);
     }
   }
 
-  debug(msg, ...args) {
-    this.route('debug', msg, ...args);
+  debug(message, ...args) {
+    this.route('debug', message, ...args);
   }
 
-  info(msg, ...args) {
-    this.route('info', msg, ...args);
+  info(message, ...args) {
+    this.route('info', message, ...args);
   }
 
-  log(msg, ...args) {
-    this.route('log', msg, ...args);
+  log(message, ...args) {
+    this.route('log', message, ...args);
   }
 
-  warn(msg, ...args) {
-    this.route('warn', msg, ...args);
+  warn(message, ...args) {
+    this.route('warn', message, ...args);
   }
 
-  error(msg, ...args) {
-    this.route('error', msg, ...args);
+  error(message, ...args) {
+    this.route('error', message, ...args);
   }
 
-  critical(msg, ...args) {
-    this.route('critical', msg, ...args);
+  critical(message, ...args) {
+    this.route('critical', message, ...args);
   }
 
-  panic(msg, ...args) {
-    this.route('panic', msg, ...args);
+  panic(message, ...args) {
+    this.route('panic', message, ...args);
   }
 
-  emergency(msg, ...args) {
-    this.route('emergency', msg, ...args);
+  emergency(message, ...args) {
+    this.route('emergency', message, ...args);
   }
 
-  dir(obj, options = {}) {
+  dir(object, options = {}) {
     const {
       depth = 0,
       colors = termNG.color.basic
@@ -183,36 +183,36 @@ class Verbosity extends Console {
     options.depth = depth;
     options.colors = colors;
 
-    this._stdout.write(format(inspect(obj, options)));
+    this._stdout.write(format(inspect(object, options)));
   }
 
-  pretty(obj, depth = 0, color = true) {
-    this._stdout.write(format('Content: %s\n', inspect(obj, {
+  pretty(object, depth = 0, color = true) {
+    this._stdout.write(format('Content: %s\n', inspect(object, {
       depth,
       colors: color && termNG.color.basic
     }).slice(0, -1).replace(/^{/, 'Object\n ').replace(/^\[/, 'Array\n ').replace(/^(\w+) {/, '$1').replace(/(\w+):/g, '$1 ▸').replace(/,\n/g, '\n')));
   }
 
-  yargs(obj, color = true) {
+  yargs(object, color = true) {
     const parsed = {};
-    Object.keys(obj).forEach(key_ => {
-      const val = obj[key_];
+    Object.keys(object).forEach(key_ => {
+      const value = object[key_];
 
       switch (key_) {
         case '_':
-          if (val.length > 0) {
-            parsed.arguments = val.join(' ');
+          if (value.length > 0) {
+            parsed.arguments = value.join(' ');
           }
 
           break;
 
         case '$0':
-          parsed.self = val;
+          parsed.self = value;
           break;
 
         default:
           if (key_.length > 1) {
-            parsed[key_] = val;
+            parsed[key_] = value;
           }
 
       }
