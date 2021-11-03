@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>verbosity 2.0.2 | Documentation</title>
+  <title>verbosity 3.0.0 | Documentation</title>
   <meta name='description' content='Verbose logging features for ttys or any writable stream.'>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link href="assets/css/ace.min.css" rel="stylesheet">
@@ -15,7 +15,7 @@
     <div id='split-left' class='overflow-auto fs0 height-viewport-100 sidebar'>
       <div class='py1 px2'>
         <h3 class="m0 no-anchor">verbosity</h3>
-        <div class="mb1"><code>2.0.2</code></div>
+        <div class="mb1"><code>3.0.0</code></div>
         <input
           placeholder="Filter"
           id="filter-input"
@@ -97,12 +97,6 @@
                     </a></li>
                     
                     <li><a
-                      href="#Verbosity#debug"
-                      class="regular pre-open">
-                      #debug
-                    </a></li>
-                    
-                    <li><a
                       href="#Verbosity#info"
                       class="regular pre-open">
                       #info
@@ -171,11 +165,11 @@
             
           </ul>
         </div>
-        <div class="badges"><p><p><a href="https://github.com/thebespokepixel/verbosity" title="Github"><img src="https://img.shields.io/badge/github-source-4E73B6" alt="Github"></a> <a href="https://travis-ci.org/thebespokepixel/verbosity" title="Travis"><img src="https://img.shields.io/travis/thebespokepixel/verbosity/master?logo=travis" alt="Travis"></a> <br>
-</p> <p><a href="https://codeclimate.com/github/thebespokepixel/verbosity/maintainability" title="Code-climate"><img src="https://api.codeclimate.com/v1/badges/374a4343fca92868720c/maintainability" alt="Code-climate"></a> <a href="https://codeclimate.com/github/thebespokepixel/verbosity/test_coverage" title="Coverage"><img src="https://api.codeclimate.com/v1/badges/374a4343fca92868720c/test_coverage" alt="Coverage"></a> <br>
-</p> <p><a href="https://snyk.io/test/github/thebespokepixel/verbosity" title="Snyk"><img src="https://snyk.io/test/github/thebespokepixel/verbosity/badge.svg" alt="Snyk"></a> <a href="https://david-dm.org/thebespokepixel/verbosity/master" title="David"><img src="https://david-dm.org/thebespokepixel/verbosity/master/status.svg" alt="David"></a> <br>
-</p> <br>
-</p></div>
+        <div class="badges"><p><p><p><a href="https://github.com/thebespokepixel/verbosity" title="github"><img src="https://img.shields.io/badge/github-source-4E73B6" alt="github" title="github"></a> </p><p><a href="https://travis-ci.com/thebespokepixel/verbosity" title="Travis"><img src="https://img.shields.io/travis/com/thebespokepixel/verbosity/master?logo=travis" alt="Travis" title="Travis"></a> </p><br>
+</p><p><p><a href="https://codeclimate.com/github/thebespokepixel/verbosity/maintainability" title="Code-Climate"><img src="https://api.codeclimate.com/v1/badges/374a4343fca92868720c/maintainability" alt="Code-Climate" title="Code-Climate"></a> </p><p><a href="https://codeclimate.com/github/thebespokepixel/verbosity/test_coverage" title="Code-Climate Coverage"><img src="https://api.codeclimate.com/v1/badges/374a4343fca92868720c/test_coverage" alt="Code-Climate Coverage" title="Code-Climate Coverage"></a> </p><br>
+</p><p><p><a href="https://snyk.io/test/github/thebespokepixel/verbosity" title="Snyk"><img src="https://snyk.io/test/github/thebespokepixel/verbosity/badge.svg" alt="Snyk" title="Snyk"></a> </p><p><a href="https://libraries.io/github/thebespokepixel/verbosity" title="Libraries.io"><img src="https://img.shields.io/librariesio/release/npm/verbosity/latest?&#x26;logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8cGF0aCBmaWxsPSIjRkZGIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik01Ljk5OTMxNDIyLDE1LjI3NyBMNiwyMyBDNiwyMy41NTIyODQ3IDUuNTUyMjg0NzUsMjQgNSwyNCBMMiwyNCBDMS40NDc3MTUyNSwyNCAxLDIzLjU1MjI4NDcgMSwyMyBMMC45OTkzMTQyMjIsMTkuMTg0IEw1Ljk5OTMxNDIyLDE1LjI3NyBaIE0xNC40OTkzMTQyLDguNjM2IEwxNC41LDIzIEMxNC41LDIzLjU1MjI4NDcgMTQuMDUyMjg0NywyNCAxMy41LDI0IEwxMC41LDI0IEM5Ljk0NzcxNTI1LDI0IDkuNSwyMy41NTIyODQ3IDkuNSwyMyBMOS40OTkzMTQyMiwxMi41NDMgTDE0LjQ5OTMxNDIsOC42MzYgWiBNMTcuOTk5MzE0Miw4LjMzNCBMMjIuOTk5MzE0MiwxMi4xMDIgTDIzLDIzIEMyMywyMy41NTIyODQ3IDIyLjU1MjI4NDcsMjQgMjIsMjQgTDE5LDI0IEMxOC40NDc3MTUzLDI0IDE4LDIzLjU1MjI4NDcgMTgsMjMgTDE3Ljk5OTMxNDIsOC4zMzQgWiBNNSwwIEM1LjU1MjI4NDc1LDAgNiwwLjQ0NzcxNTI1IDYsMSBMNS45OTkzMTQyMiwxMS40NzEgTDAuOTk5MzE0MjIyLDE1LjM3OCBMMSwxIEMxLDAuNDQ3NzE1MjUgMS40NDc3MTUyNSwwIDIsMCBMNSwwIFogTTEzLjUsMCBDMTQuMDUyMjg0NywwIDE0LjUsMC40NDc3MTUyNSAxNC41LDEgTDE0LjQ5OTMxNDIsNC44MzEgTDkuNDk5MzE0MjIsOC43MzcgTDkuNSwxIEM5LjUsMC40NDc3MTUyNSA5Ljk0NzcxNTI1LDAgMTAuNSwwIEwxMy41LDAgWiBNMjIsMCBDMjIuNTUyMjg0NywwIDIzLDAuNDQ3NzE1MjUgMjMsMSBMMjIuOTk5MzE0Miw4LjM0NyBMMTcuOTk5MzE0Miw0LjU3OSBMMTgsMSBDMTgsMC40NDc3MTUyNSAxOC40NDc3MTUzLDAgMTksMCBMMjIsMCBaIi8%2BCjwvc3ZnPgo%3D" alt="Libraries.io" title="Libraries.io"></a> </p><br>
+</p></p>
+</div>
         <div class="mt1 h6 quiet">
           <a href="http://documentation.js.org/reading-documentation.html">Need help reading this?</a>
         </div>
@@ -193,56 +187,55 @@
 	</h2>
 	
 		
-
 	
 	
 		<h4>About</h4>
 <p>I wanted to be able to have chattier daemons running in development, and more succinct logging in production but wanted to keep the simplicity of using <code>console.log()</code> etc.</p>
-<p>Normally I pass in a granular verboseness level via arguments to control the verbosity level for the running process. </p>
+<p>Normally I pass in a granular verboseness level via arguments to control the verbosity level for the running process.</p>
 <h4>Installation</h4>
 <pre class='hljs'>npm install --save verbosity</pre>
 <h4>Examples</h4>
 <p>Simply override the built in console object:</p>
-<pre class='hljs'><span class="hljs-keyword">import</span> {createConsole} <span class="hljs-keyword">from</span> <span class="hljs-string">'verbosity'</span>
+<pre class='hljs'><span class="hljs-keyword">import</span> {createConsole} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;verbosity&#x27;</span>
 
-<span class="hljs-keyword">const</span> <span class="hljs-built_in">console</span> = createConsole({
-  <span class="hljs-attr">outStream</span>: process.stdout,
-  <span class="hljs-attr">errorStream</span>: process.stderr,
+<span class="hljs-keyword">const</span> <span class="hljs-variable language_">console</span> = <span class="hljs-title function_">createConsole</span>({
+  <span class="hljs-attr">outStream</span>: process.<span class="hljs-property">stdout</span>,
+  <span class="hljs-attr">errorStream</span>: process.<span class="hljs-property">stderr</span>,
   <span class="hljs-attr">verbosity</span>: <span class="hljs-number">5</span>
 })
 
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Works like normal...'</span>)
-<span class="hljs-built_in">console</span>.debug(<span class="hljs-string">'...but now controllable.'</span>)
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Works like normal...&#x27;</span>)
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">debug</span>(<span class="hljs-string">&#x27;...but now controllable.&#x27;</span>)
 
-<span class="hljs-built_in">console</span>.verbosity(<span class="hljs-number">3</span>) <span class="hljs-comment">// Use numbered levels 5 (debug) to 1 (error)</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">verbosity</span>(<span class="hljs-number">3</span>) <span class="hljs-comment">// Use numbered levels 5 (debug) to 1 (error)</span>
 
-<span class="hljs-built_in">console</span>.debug(<span class="hljs-string">'...this isn’t printed now.'</span>)
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">debug</span>(<span class="hljs-string">&#x27;...this isn’t printed now.&#x27;</span>)
 
-<span class="hljs-built_in">console</span>.canWrite(<span class="hljs-number">5</span>) &amp;&amp; <span class="hljs-built_in">console</span>.dir({<span class="hljs-attr">print</span>: <span class="hljs-string">'this won’t.'</span>})
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">canWrite</span>(<span class="hljs-number">5</span>) &amp;&amp; <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">dir</span>({<span class="hljs-attr">print</span>: <span class="hljs-string">&#x27;this won’t.&#x27;</span>})
 
-<span class="hljs-built_in">console</span>.verbosity(<span class="hljs-string">'debug'</span>) <span class="hljs-comment">// Use named levels [debug, info, log, warning, error]</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">verbosity</span>(<span class="hljs-string">&#x27;debug&#x27;</span>) <span class="hljs-comment">// Use named levels [debug, info, log, warning, error]</span>
 
-<span class="hljs-built_in">console</span>.canWrite(<span class="hljs-number">5</span>) &amp;&amp; <span class="hljs-built_in">console</span>.dir({<span class="hljs-attr">print</span>: <span class="hljs-string">'this will now.'</span>})</pre>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">canWrite</span>(<span class="hljs-number">5</span>) &amp;&amp; <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">dir</span>({<span class="hljs-attr">print</span>: <span class="hljs-string">&#x27;this will now.&#x27;</span>})</pre>
 <p>This will direct all console output to stderr, but silence 'info' and 'debug' messages.</p>
-<pre class='hljs'><span class="hljs-keyword">import</span> {createConsole} <span class="hljs-keyword">from</span> <span class="hljs-string">'verbosity'</span>
+<pre class='hljs'><span class="hljs-keyword">import</span> {createConsole} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;verbosity&#x27;</span>
 
-<span class="hljs-keyword">const</span> <span class="hljs-built_in">console</span> = createConsole({
-  <span class="hljs-attr">outStream</span>: process.stderr,
+<span class="hljs-keyword">const</span> <span class="hljs-variable language_">console</span> = <span class="hljs-title function_">createConsole</span>({
+  <span class="hljs-attr">outStream</span>: process.<span class="hljs-property">stderr</span>,
   <span class="hljs-attr">verbosity</span>: <span class="hljs-number">3</span>
 })
 
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Picked brown jacket...'</span>) <span class="hljs-comment">// Printed</span>
-<span class="hljs-built_in">console</span>.debug(<span class="hljs-string">'Purple tie chosen...'</span>) <span class="hljs-comment">// Not printed</span>
-<span class="hljs-built_in">console</span>.warn(<span class="hljs-string">"That tie doesn't go with that jacket."</span>) <span class="hljs-comment">// Printed</span></pre>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Picked brown jacket...&#x27;</span>) <span class="hljs-comment">// Printed</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">debug</span>(<span class="hljs-string">&#x27;Purple tie chosen...&#x27;</span>) <span class="hljs-comment">// Not printed</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">warn</span>(<span class="hljs-string">&quot;That tie doesn&#x27;t go with that jacket.&quot;</span>) <span class="hljs-comment">// Printed</span></pre>
 <p>Or go mad with making up any number of custom console writers.</p>
-<pre class='hljs'><span class="hljs-keyword">import</span> {createConsole} <span class="hljs-keyword">from</span> <span class="hljs-string">'verbosity'</span>
+<pre class='hljs'><span class="hljs-keyword">import</span> {createConsole} <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;verbosity&#x27;</span>
 
-<span class="hljs-keyword">const</span> myUberConsole = createConsole({
+<span class="hljs-keyword">const</span> myUberConsole = <span class="hljs-title function_">createConsole</span>({
   <span class="hljs-attr">outStream</span>: myFancyWriteableStream,
   <span class="hljs-attr">verbosity</span>: <span class="hljs-number">5</span>
 })
 
-myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</span>)</pre>
+myUberConsole.<span class="hljs-title function_">panic</span>(<span class="hljs-string">&#x27;Core Flux Capacitor Meltdown!&#x27;</span>)</pre>
 
 	
 </section>
@@ -256,7 +249,6 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
 	</h2>
 	
 		
-
 	
 	
 </section>
@@ -277,7 +269,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
     </h3>
     
     
-      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/28544b41a095d60400a3b259d89950dd4c3ec8ad/src/index.js#L15-L17'>
+      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/553f9735dff7b19cac7ed995bb39b177d0281377/src/index.js#L17-L19'>
       <span>src/index.js</span>
       </a>
     
@@ -287,7 +279,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <p>Create a new Verbosity object.</p>
 
 
-  <div class='pre p1 bg-darken-1 mt0 rounded signature'>createConsole(options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>) → <a href="#verbosity">Verbosity</a></div>
+  <div class='pre p1 bg-darken-1 mt0 rounded signature'>createConsole(options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>) → <a href="#verbosity">Verbosity</a></div>
   
   
 
@@ -304,7 +296,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
       Options to pass to the factory.
 
           </div>
@@ -348,12 +340,12 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
     <h3 class='left m0 panel-title' id='getversion'>
       getVersion
       
-      <span> → <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>
+      <span> → <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>
       
     </h3>
     
     
-      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/28544b41a095d60400a3b259d89950dd4c3ec8ad/src/index.js#L25-L25'>
+      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/553f9735dff7b19cac7ed995bb39b177d0281377/src/index.js#L27-L27'>
       <span>src/index.js</span>
       </a>
     
@@ -363,7 +355,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <p>Return the modules version metadata.</p>
 
 
-  <div class='pre p1 bg-darken-1 mt0 rounded signature'>getVersion(level: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>) → <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></div>
+  <div class='pre p1 bg-darken-1 mt0 rounded signature'>getVersion(level: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>) → <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
   
   
 
@@ -380,7 +372,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>level</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)</code>
+            <span class='code bold'>level</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
       Version format required.
 
           </div>
@@ -395,7 +387,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
         The version string.
 
       
@@ -429,7 +421,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
     </h3>
     
     
-      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/28544b41a095d60400a3b259d89950dd4c3ec8ad/src/lib/verbosity.js#L32-L305'>
+      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/553f9735dff7b19cac7ed995bb39b177d0281377/src/lib/verbosity.js#L33-L301'>
       <span>src/lib/verbosity.js</span>
       </a>
     
@@ -439,7 +431,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <p>Generate a verbosity console</p>
 
 
-  <div class='pre p1 bg-darken-1 mt0 rounded signature'>new Verbosity(options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>) → <a href="#verbosity">Verbosity</a></div>
+  <div class='pre p1 bg-darken-1 mt0 rounded signature'>new Verbosity(options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>) → <a href="#verbosity">Verbosity</a></div>
   
   
     <p>
@@ -463,7 +455,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>
             = <code>{}</code>)</code>
       Configuration options.
 
@@ -501,7 +493,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>options.verbosity</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>
+  <td class='break-word'><span class='code bold'>options.verbosity</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>
   
     (default <code>3</code>)
   </td>
@@ -518,7 +510,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>options.timestamp</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>
+  <td class='break-word'><span class='code bold'>options.timestamp</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
   </td>
   <td class='break-word'><span>Timestamp format.
 </span></td>
@@ -527,7 +519,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>options.namespace</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>
+  <td class='break-word'><span class='code bold'>options.namespace</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
   </td>
   <td class='break-word'><span>Sparkles namespace to emit events to.
 </span></td>
@@ -536,7 +528,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>options.global</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>
+  <td class='break-word'><span class='code bold'>options.global</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
   </td>
   <td class='break-word'><span>Should changes to verbosity be made globally?
 </span></td>
@@ -545,7 +537,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>options.prefix</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>
+  <td class='break-word'><span class='code bold'>options.prefix</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
   </td>
   <td class='break-word'><span>Logging message prefix.
 </span></td>
@@ -597,7 +589,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <div class='clearfix'>
     
     
-      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/28544b41a095d60400a3b259d89950dd4c3ec8ad/src/lib/verbosity.js#L91-L105'>
+      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/553f9735dff7b19cac7ed995bb39b177d0281377/src/lib/verbosity.js#L92-L106'>
       <span>src/lib/verbosity.js</span>
       </a>
     
@@ -607,7 +599,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <p>Set the current verbosity.</p>
 
 
-  <div class='pre p1 bg-darken-1 mt0 rounded signature'>verbosity(level: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)) → <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></div>
+  <div class='pre p1 bg-darken-1 mt0 rounded signature'>verbosity(level: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)) → <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
   
   
 
@@ -624,7 +616,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>level</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>))</code>
+            <span class='code bold'>level</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>))</code>
       The current level (0 to 5) or level name.
 
           </div>
@@ -639,7 +631,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
         The current verboseness (0 to 5).
 
       
@@ -674,7 +666,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <div class='clearfix'>
     
     
-      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/28544b41a095d60400a3b259d89950dd4c3ec8ad/src/lib/verbosity.js#L112-L115'>
+      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/553f9735dff7b19cac7ed995bb39b177d0281377/src/lib/verbosity.js#L113-L116'>
       <span>src/lib/verbosity.js</span>
       </a>
     
@@ -684,7 +676,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <p>Can the requested logging level be written at this time.</p>
 
 
-  <div class='pre p1 bg-darken-1 mt0 rounded signature'>canWrite(level: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>) → <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></div>
+  <div class='pre p1 bg-darken-1 mt0 rounded signature'>canWrite(level: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>) → <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
   
   
 
@@ -701,7 +693,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>level</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)</code>
+            <span class='code bold'>level</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
       The requested level (0 to 5).
 
           </div>
@@ -716,7 +708,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
         <code>true</code>
  if ok to write.
 
@@ -752,7 +744,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <div class='clearfix'>
     
     
-      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/28544b41a095d60400a3b259d89950dd4c3ec8ad/src/lib/verbosity.js#L147-L149'>
+      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/553f9735dff7b19cac7ed995bb39b177d0281377/src/lib/verbosity.js#L142-L144'>
       <span>src/lib/verbosity.js</span>
       </a>
     
@@ -762,7 +754,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <p>Log a debug message. (Level 5)</p>
 
 
-  <div class='pre p1 bg-darken-1 mt0 rounded signature'>debug(message: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
+  <div class='pre p1 bg-darken-1 mt0 rounded signature'>debug(message: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
   
   
 
@@ -779,7 +771,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>message</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+            <span class='code bold'>message</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
       The debug message to log.
 
           </div>
@@ -788,86 +780,8 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>args</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+            <span class='code bold'>args</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
       Additional arguments to log.
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-      </div>
-    </div>
-  
-    <div class='border-bottom' id='Verbosity#debug'>
-      <div class="clearfix small pointer toggle-sibling">
-        <div class="py1 contain">
-            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>debug(message, args)</span>
-        </div>
-      </div>
-      <div class="clearfix display-none toggle-target">
-        <section class='p2 pl3 mb2 ml2 mr2 clearfix bg-white rounded minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    
-      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/28544b41a095d60400a3b259d89950dd4c3ec8ad/src/lib/verbosity.js#L147-L149'>
-      <span>src/lib/verbosity.js</span>
-      </a>
-    
-  </div>
-  
-
-  <p>[debug description]</p>
-
-
-  <div class='pre p1 bg-darken-1 mt0 rounded signature'>debug(message: [type], args: ...[type])</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>message</span> <code class='quiet'>([type])</code>
-      [description]
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>args</span> <code class='quiet'>(...[type])</code>
-      [description]
 
           </div>
           
@@ -908,7 +822,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <div class='clearfix'>
     
     
-      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/28544b41a095d60400a3b259d89950dd4c3ec8ad/src/lib/verbosity.js#L156-L158'>
+      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/553f9735dff7b19cac7ed995bb39b177d0281377/src/lib/verbosity.js#L151-L153'>
       <span>src/lib/verbosity.js</span>
       </a>
     
@@ -918,7 +832,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <p>Log an info message. (Level 4)</p>
 
 
-  <div class='pre p1 bg-darken-1 mt0 rounded signature'>info(message: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
+  <div class='pre p1 bg-darken-1 mt0 rounded signature'>info(message: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
   
   
 
@@ -935,7 +849,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>message</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+            <span class='code bold'>message</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
       The info message to log.
 
           </div>
@@ -944,7 +858,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>args</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+            <span class='code bold'>args</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
       Additional arguments to log.
 
           </div>
@@ -986,7 +900,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <div class='clearfix'>
     
     
-      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/28544b41a095d60400a3b259d89950dd4c3ec8ad/src/lib/verbosity.js#L165-L167'>
+      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/553f9735dff7b19cac7ed995bb39b177d0281377/src/lib/verbosity.js#L160-L162'>
       <span>src/lib/verbosity.js</span>
       </a>
     
@@ -996,7 +910,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <p>Log a normal message. (Level 3)</p>
 
 
-  <div class='pre p1 bg-darken-1 mt0 rounded signature'>log(message: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
+  <div class='pre p1 bg-darken-1 mt0 rounded signature'>log(message: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
   
   
 
@@ -1013,7 +927,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>message</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+            <span class='code bold'>message</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
       The normal message to log.
 
           </div>
@@ -1022,7 +936,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>args</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+            <span class='code bold'>args</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
       Additional arguments to log.
 
           </div>
@@ -1064,7 +978,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <div class='clearfix'>
     
     
-      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/28544b41a095d60400a3b259d89950dd4c3ec8ad/src/lib/verbosity.js#L174-L176'>
+      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/553f9735dff7b19cac7ed995bb39b177d0281377/src/lib/verbosity.js#L169-L171'>
       <span>src/lib/verbosity.js</span>
       </a>
     
@@ -1074,7 +988,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <p>Log a warning message. (Level 2)</p>
 
 
-  <div class='pre p1 bg-darken-1 mt0 rounded signature'>warn(message: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
+  <div class='pre p1 bg-darken-1 mt0 rounded signature'>warn(message: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
   
   
 
@@ -1091,7 +1005,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>message</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+            <span class='code bold'>message</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
       The warning message to log.
 
           </div>
@@ -1100,7 +1014,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>args</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+            <span class='code bold'>args</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
       Additional arguments to log.
 
           </div>
@@ -1142,7 +1056,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <div class='clearfix'>
     
     
-      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/28544b41a095d60400a3b259d89950dd4c3ec8ad/src/lib/verbosity.js#L183-L185'>
+      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/553f9735dff7b19cac7ed995bb39b177d0281377/src/lib/verbosity.js#L178-L180'>
       <span>src/lib/verbosity.js</span>
       </a>
     
@@ -1152,7 +1066,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <p>Log an error message. (Level 1)</p>
 
 
-  <div class='pre p1 bg-darken-1 mt0 rounded signature'>error(message: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
+  <div class='pre p1 bg-darken-1 mt0 rounded signature'>error(message: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
   
   
 
@@ -1169,7 +1083,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>message</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+            <span class='code bold'>message</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
       The error message to log.
 
           </div>
@@ -1178,7 +1092,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>args</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+            <span class='code bold'>args</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
       Additional arguments to log.
 
           </div>
@@ -1220,7 +1134,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <div class='clearfix'>
     
     
-      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/28544b41a095d60400a3b259d89950dd4c3ec8ad/src/lib/verbosity.js#L192-L194'>
+      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/553f9735dff7b19cac7ed995bb39b177d0281377/src/lib/verbosity.js#L187-L189'>
       <span>src/lib/verbosity.js</span>
       </a>
     
@@ -1230,7 +1144,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <p>Log a critical error message, if something breaks. (Level 1)</p>
 
 
-  <div class='pre p1 bg-darken-1 mt0 rounded signature'>critical(message: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
+  <div class='pre p1 bg-darken-1 mt0 rounded signature'>critical(message: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
   
   
 
@@ -1247,7 +1161,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>message</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+            <span class='code bold'>message</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
       The critical error message to log.
 
           </div>
@@ -1256,7 +1170,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>args</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+            <span class='code bold'>args</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
       Additional arguments to log.
 
           </div>
@@ -1298,7 +1212,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <div class='clearfix'>
     
     
-      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/28544b41a095d60400a3b259d89950dd4c3ec8ad/src/lib/verbosity.js#L201-L203'>
+      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/553f9735dff7b19cac7ed995bb39b177d0281377/src/lib/verbosity.js#L196-L198'>
       <span>src/lib/verbosity.js</span>
       </a>
     
@@ -1308,7 +1222,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <p>Log a panic error message if something unexpected happens. (Level 1)</p>
 
 
-  <div class='pre p1 bg-darken-1 mt0 rounded signature'>panic(message: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
+  <div class='pre p1 bg-darken-1 mt0 rounded signature'>panic(message: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
   
   
 
@@ -1325,7 +1239,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>message</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+            <span class='code bold'>message</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
       The panic message to log.
 
           </div>
@@ -1334,7 +1248,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>args</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+            <span class='code bold'>args</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
       Additional arguments to log.
 
           </div>
@@ -1376,7 +1290,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <div class='clearfix'>
     
     
-      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/28544b41a095d60400a3b259d89950dd4c3ec8ad/src/lib/verbosity.js#L210-L212'>
+      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/553f9735dff7b19cac7ed995bb39b177d0281377/src/lib/verbosity.js#L205-L207'>
       <span>src/lib/verbosity.js</span>
       </a>
     
@@ -1386,7 +1300,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <p>Log a emergency message, for when something needs emergency attention. (Level 1)</p>
 
 
-  <div class='pre p1 bg-darken-1 mt0 rounded signature'>emergency(message: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
+  <div class='pre p1 bg-darken-1 mt0 rounded signature'>emergency(message: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, args: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
   
   
 
@@ -1403,7 +1317,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>message</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+            <span class='code bold'>message</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
       The debug message to log.
 
           </div>
@@ -1412,7 +1326,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>args</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+            <span class='code bold'>args</span> <code class='quiet'>(...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
       Additional arguments to log.
 
           </div>
@@ -1454,7 +1368,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <div class='clearfix'>
     
     
-      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/28544b41a095d60400a3b259d89950dd4c3ec8ad/src/lib/verbosity.js#L219-L224'>
+      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/553f9735dff7b19cac7ed995bb39b177d0281377/src/lib/verbosity.js#L214-L219'>
       <span>src/lib/verbosity.js</span>
       </a>
     
@@ -1464,7 +1378,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <p>As console.dir, but defaults to colour (if appropriate) and zero depth.</p>
 
 
-  <div class='pre p1 bg-darken-1 mt0 rounded signature'>dir(object: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
+  <div class='pre p1 bg-darken-1 mt0 rounded signature'>dir(object: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>, options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</div>
   
   
 
@@ -1481,7 +1395,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>object</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+            <span class='code bold'>object</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
       The Object to print.
 
           </div>
@@ -1490,7 +1404,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>
             = <code>{}</code>)</code>
       As console.dir options object.
 
@@ -1533,7 +1447,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <div class='clearfix'>
     
     
-      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/28544b41a095d60400a3b259d89950dd4c3ec8ad/src/lib/verbosity.js#L245-L257'>
+      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/553f9735dff7b19cac7ed995bb39b177d0281377/src/lib/verbosity.js#L240-L252'>
       <span>src/lib/verbosity.js</span>
       </a>
     
@@ -1543,7 +1457,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <p>Pretty prints object, similar to OS X's plutil -p. Defaults to zero depth.</p>
 
 
-  <div class='pre p1 bg-darken-1 mt0 rounded signature'>pretty(object: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, depth: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>, color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>)</div>
+  <div class='pre p1 bg-darken-1 mt0 rounded signature'>pretty(object: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>, depth: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>)</div>
   
   
 
@@ -1560,7 +1474,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>object</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+            <span class='code bold'>object</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
       The Object to print.
 
           </div>
@@ -1569,7 +1483,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>depth</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>
+            <span class='code bold'>depth</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>
             = <code>0</code>)</code>
       How many object levels to print.
 
@@ -1579,7 +1493,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>color</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>
+            <span class='code bold'>color</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>
             = <code>true</code>)</code>
       Print output in color, if supported.
 
@@ -1600,17 +1514,17 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto rounded bg-darken-1'><span class="hljs-built_in">console</span>.pretty(<span class="hljs-built_in">console</span>)
+      <pre class='p1 overflow-auto rounded bg-darken-1'><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">pretty</span>(<span class="hljs-variable language_">console</span>)
 
 <span class="hljs-comment">// Outputs:</span>
-<span class="hljs-attr">Object</span>: VerbosityMatrix
-  critical ▸ [<span class="hljs-built_in">Function</span>]
-  error ▸ [<span class="hljs-built_in">Function</span> ▸ bound ]
-  warn ▸ [<span class="hljs-built_in">Function</span> ▸ bound ]
-  log ▸ [<span class="hljs-built_in">Function</span> ▸ bound ]
-  info ▸ [<span class="hljs-built_in">Function</span> ▸ bound ]
-  debug ▸ [<span class="hljs-built_in">Function</span>]
-  canWrite ▸ [<span class="hljs-built_in">Function</span>]
+<span class="hljs-title class_">Object</span>: <span class="hljs-title class_">VerbosityMatrix</span>
+  critical ▸ [<span class="hljs-title class_">Function</span>]
+  error ▸ [<span class="hljs-title class_">Function</span> ▸ bound ]
+  warn ▸ [<span class="hljs-title class_">Function</span> ▸ bound ]
+  log ▸ [<span class="hljs-title class_">Function</span> ▸ bound ]
+  info ▸ [<span class="hljs-title class_">Function</span> ▸ bound ]
+  debug ▸ [<span class="hljs-title class_">Function</span>]
+  canWrite ▸ [<span class="hljs-title class_">Function</span>]
   ...</pre>
     
   
@@ -1639,7 +1553,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
   <div class='clearfix'>
     
     
-      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/28544b41a095d60400a3b259d89950dd4c3ec8ad/src/lib/verbosity.js#L277-L304'>
+      <a class='pl3 pr1 right rounded github' href='https://github.com/thebespokepixel/verbosity/blob/553f9735dff7b19cac7ed995bb39b177d0281377/src/lib/verbosity.js#L272-L300'>
       <span>src/lib/verbosity.js</span>
       </a>
     
@@ -1650,7 +1564,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
 <p>Only prints 'long options', <code>._</code> as 'arguments' and <code>$0</code> as 'self'.</p>
 
 
-  <div class='pre p1 bg-darken-1 mt0 rounded signature'>yargs(object: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>)</div>
+  <div class='pre p1 bg-darken-1 mt0 rounded signature'>yargs(object: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>, color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>)</div>
   
   
 
@@ -1667,7 +1581,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>object</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+            <span class='code bold'>object</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
       The Yargs argv object to print.
 
           </div>
@@ -1676,7 +1590,7 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>color</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>
+            <span class='code bold'>color</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>
             = <code>true</code>)</code>
       Print output in color, if supported.
 
@@ -1697,10 +1611,10 @@ myUberConsole.panic(<span class="hljs-string">'Core Flux Capacitor Meltdown!'</s
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto rounded bg-darken-1'><span class="hljs-built_in">console</span>.yargs(yargs)
+      <pre class='p1 overflow-auto rounded bg-darken-1'><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">yargs</span>(yargs)
 
 <span class="hljs-comment">// Outputs:</span>
-<span class="hljs-built_in">Object</span> (yargs):
+<span class="hljs-title class_">Object</span> (yargs):
   left ▸ <span class="hljs-number">2</span>
   right ▸ <span class="hljs-number">2</span>
   mode ▸ <span class="hljs-string">&#x27;hard&#x27;</span>

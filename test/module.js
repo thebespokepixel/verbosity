@@ -1,7 +1,9 @@
-import stream from 'stream'
+import stream from 'node:stream'
 import test from 'ava'
-import pkg from '../package.json'
-import {createConsole, getVersion, Verbosity} from '..'
+import {readPackageSync} from 'read-pkg'
+import {createConsole, getVersion, Verbosity} from '../index.js'
+
+const pkg = readPackageSync()
 
 const StreamProxy = new stream.PassThrough()
 StreamProxy.setEncoding('utf8')
