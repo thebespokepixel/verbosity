@@ -1,242 +1,397 @@
-'use strict';
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import meta from '@thebespokepixel/meta';
+import util from 'node:util';
+import termNG from 'term-ng';
+import chalk from 'chalk';
+import sparkles from 'sparkles';
+import { bespokeTimeFormat } from '@thebespokepixel/time';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
-var meta = _interopDefault(require('@thebespokepixel/meta'));
-var util = _interopDefault(require('util'));
-var termNG = _interopDefault(require('term-ng'));
-var chalk = _interopDefault(require('chalk'));
-var sparkles = _interopDefault(require('sparkles'));
-var time = require('@thebespokepixel/time');
-
-function matrix(sOut, sErr) {
-  return {
-    debug: {
-      level: 5,
-      stream: sOut,
-      format: (pfix, message) => `${pfix}${chalk.dim(message)}`
-    },
-    info: {
-      level: 4,
-      stream: sOut,
-      format: (pfix, message) => `${pfix}${message}`
-    },
-    log: {
-      level: 3,
-      stream: sOut,
-      format: (pfix, message) => `${pfix}${message}`
-    },
-    warn: {
-      level: 2,
-      stream: sErr,
-      format: (pfix, message) => `${pfix}${chalk.yellow(message)}`
-    },
-    error: {
-      level: 1,
-      stream: sErr,
-      format: (pfix, message) => `${pfix}${chalk.red(`ERROR: ${message}`)}`
-    },
-    critical: {
-      level: 0,
-      stream: sErr,
-      format: (pfix, message) => `${pfix}${chalk.bold.red(`CRITICAL: ${message}`)}`
-    },
-    panic: {
-      level: 0,
-      stream: sErr,
-      format: (pfix, message) => `${pfix}${chalk.bold.red(`PANIC: ${message}`)}`
-    },
-    emergency: {
-      level: 0,
-      stream: sErr,
-      format: (pfix, message) => `${pfix}${chalk.bold.red(`EMERGENCY: ${message}`)}`
-    }
-  };
+/**
+ * Message routing and formatting matrix.
+ * @private
+ * @type {object}
+ * @param {Stream} sOut Output stream.
+ * @param {Stream} sErr Error stream.
+ * @returns {object} Routing matrix object.
+ */
+function matrix(sOut, sError) {
+	return {
+		debug: {
+			level: 5,
+			stream: sOut,
+			/**
+			 * Format the debug message.
+			 * @private
+			 * @param  {string} pfix Message prefix.
+			 * @param  {string} message  The message body.
+			 * @return {string} The formatted mesage.
+			 */
+			format: (pfix, message) => `${pfix}${chalk.dim(message)}`,
+		},
+		info: {
+			level: 4,
+			stream: sOut,
+			/**
+			 * Format the info message.
+			 * @private
+			 * @param  {string} pfix Message prefix.
+			 * @param  {string} message  The message body.
+			 * @return {string} The formatted mesage.
+			 */
+			format: (pfix, message) => `${pfix}${message}`,
+		},
+		log: {
+			level: 3,
+			stream: sOut,
+			/**
+			 * Format the log message.
+			 * @private
+			 * @param  {string} pfix Message prefix.
+			 * @param  {string} message  The message body.
+			 * @return {string} The formatted mesage.
+			 */
+			format: (pfix, message) => `${pfix}${message}`,
+		},
+		warn: {
+			level: 2,
+			stream: sError,
+			/**
+			 * Format the warn message.
+			 * @private
+			 * @param  {string} pfix Message prefix.
+			 * @param  {string} message  The message body.
+			 * @return {string} The formatted mesage.
+			 */
+			format: (pfix, message) => `${pfix}${chalk.yellow(message)}`,
+		},
+		error: {
+			level: 1,
+			stream: sError,
+			/**
+			 * Format the error message.
+			 * @private
+			 * @param  {string} pfix Message prefix.
+			 * @param  {string} message  The message body.
+			 * @return {string} The formatted mesage.
+			 */
+			format: (pfix, message) => `${pfix}${chalk.red(`ERROR: ${message}`)}`,
+		},
+		critical: {
+			level: 0,
+			stream: sError,
+			/**
+			 * Format the critical message.
+			 * @private
+			 * @param  {string} pfix Message prefix.
+			 * @param  {string} message  The message body.
+			 * @return {string} The formatted mesage.
+			 */
+			format: (pfix, message) => `${pfix}${chalk.bold.red(`CRITICAL: ${message}`)}`,
+		},
+		panic: {
+			level: 0,
+			stream: sError,
+			/**
+			 * Format the panic message.
+			 * @private
+			 * @param  {string} pfix Message prefix.
+			 * @param  {string} message  The message body.
+			 * @return {string} The formatted mesage.
+			 */
+			format: (pfix, message) => `${pfix}${chalk.bold.red(`PANIC: ${message}`)}`,
+		},
+		emergency: {
+			level: 0,
+			stream: sError,
+			/**
+			 * Format the emergency message.
+			 * @private
+			 * @param  {string} pfix Message prefix.
+			 * @param  {string} message  The message body.
+			 * @return {string} The formatted mesage.
+			 */
+			format: (pfix, message) => `${pfix}${chalk.bold.red(`EMERGENCY: ${message}`)}`,
+		},
+	}
 }
 
-const {
-  format,
-  inspect
-} = util;
-const {
-  Console
-} = console;
+const {format, inspect} = util;
+const {Console} = console;
+/**
+ * Generate a verbosity console
+ * @param {object} options                      - Configuration options.
+ * @param {stream.writable} options.outStream   - Stream to write normal output
+ * @param {stream.writable} options.errorStream - Stream to write error output
+ * @param {number} options.verbosity            - The verboseness of output:
+ *                                              0: Mute
+ *                                              1: Errors
+ *                                              2: Notice
+ *                                              3: Log
+ *                                              4: Info
+ *                                              5: Debug
+ * @param {string} options.timestamp            - Timestamp format.
+ * @param {string} options.namespace            - Sparkles namespace to emit events to.
+ * @param {boolean} options.global              - Should changes to verbosity be made globally?
+ * @param {string} options.prefix               - Logging message prefix.
+ * @return {Verbosity} Verbosity's console object.
+ */
 class Verbosity extends Console {
-  constructor({
-    outStream,
-    errorStream,
-    verbosity = 3,
-    timestamp,
-    namespace,
-    global,
-    prefix
-  } = {}) {
-    const sOut = (ws => {
-      if (!ws.writable) {
-        throw new Error('Provided output stream must be writable');
-      }
-
-      return ws;
-    })(outStream ? outStream : process.stdout);
-
-    const sErr = (ws => {
-      if (!ws.writable) {
-        throw new Error('Provided error stream must be writable');
-      }
-
-      return ws;
-    })(errorStream ? errorStream : sOut);
-
-    super(sOut, sErr);
-    this.willEmit = Boolean(namespace);
-    this.globalControl = Boolean(global);
-
-    this.timeFormatter = (ts => ts ? () => `[${chalk.dim(time.bespokeTimeFormat(ts))}] ` : () => '')(timestamp);
-
-    this.prefixFormatter = (pfix => pfix ? () => `[${pfix}] ` : () => '')(prefix);
-
-    this._stdout = sOut;
-    this._stderr = sErr;
-    this.threshold = verbosity;
-    this.globalVerbosityController = this.globalControl && sparkles('verbosityGlobal');
-    this.emitter = this.willEmit && sparkles(namespace);
-    this.matrix = matrix(sOut, sErr);
-
-    if (this.globalControl) {
-      this.globalVerbosityController.on('level', ({
-        level
-      }) => {
-        this.threshold = level;
-      });
-    }
-  }
-
-  verbosity(level) {
-    if (level) {
-      level = typeof level === 'string' ? this.matrix[level].level : level;
-
-      if (level < 6) {
-        this.threshold = level;
-      }
-
-      if (this.globalControl) {
-        this.globalVerbosityController.emit('level', {
-          level
-        });
-      }
-    }
-
-    return this.threshold;
-  }
-
-  canWrite(level) {
-    level = typeof level === 'string' ? this.matrix[level] : level;
-    return this.threshold >= level;
-  }
-
-  route(level, message, ...a) {
-    message = a.length > 0 ? format(message, ...a) : message;
-
-    if (this.willEmit) {
-      this.emitter.emit(level, message);
-    }
-
-    if (this.threshold >= this.matrix[level].level) {
-      const pfix = `${this.timeFormatter()}${this.prefixFormatter()}`;
-      this.matrix[level].stream.write(`${this.matrix[level].format(pfix, message)}\n`);
-    }
-  }
-
-  debug(message, ...args) {
-    this.route('debug', message, ...args);
-  }
-
-  info(message, ...args) {
-    this.route('info', message, ...args);
-  }
-
-  log(message, ...args) {
-    this.route('log', message, ...args);
-  }
-
-  warn(message, ...args) {
-    this.route('warn', message, ...args);
-  }
-
-  error(message, ...args) {
-    this.route('error', message, ...args);
-  }
-
-  critical(message, ...args) {
-    this.route('critical', message, ...args);
-  }
-
-  panic(message, ...args) {
-    this.route('panic', message, ...args);
-  }
-
-  emergency(message, ...args) {
-    this.route('emergency', message, ...args);
-  }
-
-  dir(object, options = {}) {
-    const {
-      depth = 0,
-      colors = termNG.color.basic
-    } = options;
-    options.depth = depth;
-    options.colors = colors;
-
-    this._stdout.write(format(inspect(object, options)));
-  }
-
-  pretty(object, depth = 0, color = true) {
-    this._stdout.write(format('Content: %s\n', inspect(object, {
-      depth,
-      colors: color && termNG.color.basic
-    }).slice(0, -1).replace(/^{/, 'Object\n ').replace(/^\[/, 'Array\n ').replace(/^(\w+) {/, '$1').replace(/(\w+):/g, '$1 ▸').replace(/,\n/g, '\n')));
-  }
-
-  yargs(object, color = true) {
-    const parsed = {};
-    Object.keys(object).forEach(key_ => {
-      const value = object[key_];
-
-      switch (key_) {
-        case '_':
-          if (value.length > 0) {
-            parsed.arguments = value.join(' ');
-          }
-
-          break;
-
-        case '$0':
-          parsed.self = value;
-          break;
-
-        default:
-          if (key_.length > 1) {
-            parsed[key_] = value;
-          }
-
-      }
-    });
-
-    this._stdout.write(format('Options (yargs):\n  %s\n', inspect(parsed, {
-      colors: color && termNG.color.basic
-    }).slice(2, -1).replace(/(\w+):/g, '$1 ▸').replace(/,\n/g, '\n')));
-  }
-
+	constructor({
+		outStream,
+		errorStream,
+		verbosity = 3,
+		timestamp,
+		namespace,
+		global,
+		prefix,
+	} = {}) {
+		const sOut = (ws => {
+			if (!ws.writable) {
+				throw new Error('Provided output stream must be writable')
+			}
+			return ws
+		})(outStream ? outStream : process.stdout);
+		const sError = (ws => {
+			if (!ws.writable) {
+				throw new Error('Provided error stream must be writable')
+			}
+			return ws
+		})(errorStream ? errorStream : sOut);
+		super(sOut, sError);
+		this.willEmit = Boolean(namespace);
+		this.globalControl = Boolean(global);
+		this.timeFormatter = (ts => ts
+			? () => `[${chalk.dim(bespokeTimeFormat(ts))}] `
+			: () => ''
+		)(timestamp);
+		this.prefixFormatter = (pfix => pfix
+			? () => `[${pfix}] `
+			: () => ''
+		)(prefix);
+		this._stdout = sOut;
+		this._stderr = sError;
+		this.threshold = verbosity;
+		this.globalVerbosityController = this.globalControl && sparkles('verbosityGlobal');
+		this.emitter = this.willEmit && sparkles(namespace);
+		this.matrix = matrix(sOut, sError);
+		if (this.globalControl) {
+			this.globalVerbosityController.on('level', ({level}) => {
+				this.threshold = level;
+			});
+		}
+	}
+	/**
+	 * Set the current verbosity.
+	 * @param  {number|string} level - The current level (0 to 5) or level name.
+	 * @return {number} The current verboseness (0 to 5).
+	 */
+	verbosity(level) {
+		if (level) {
+			level = (typeof level === 'string') ? this.matrix[level].level : level;
+			if (level < 6) {
+				this.threshold = level;
+			}
+			if (this.globalControl) {
+				this.globalVerbosityController.emit('level', {level});
+			}
+		}
+		return this.threshold
+	}
+	/**
+	 * Can the requested logging level be written at this time.
+	 * @param  {number} level - The requested level (0 to 5).
+	 * @return {boolean} `true` if ok to write.
+	 */
+	canWrite(level) {
+		level = (typeof level === 'string') ? this.matrix[level] : level;
+		return this.threshold >= level
+	}
+	/**
+	 * Route message and emit if required.
+	 * @private
+	 * @param  {number}    level Source logging level
+	 * @param  {string}    message   Message to log
+	 * @param  {...string} a     Additional arguments to log
+	 */
+	route(level, message, ...a) {
+		message = (a.length > 0) ? format(message, ...a) : message;
+		if (this.willEmit) {
+			this.emitter.emit(level, message);
+		}
+		if (this.threshold >= this.matrix[level].level) {
+			const pfix = `${this.timeFormatter()}${this.prefixFormatter()}`;
+			this.matrix[level].stream.write(`${this.matrix[level].format(pfix, message)}\n`);
+		}
+	}
+	/**
+	 * Log a debug message. (Level 5)
+	 * @param  {string}    message  The debug message to log.
+	 * @param  {...string} args Additional arguments to log.
+	 */
+	debug(message, ...args) {
+		this.route('debug', message, ...args);
+	}
+	/**
+	 * Log an info message. (Level 4)
+	 * @param  {string}    message  The info message to log.
+	 * @param  {...string} args Additional arguments to log.
+	 */
+	info(message, ...args) {
+		this.route('info', message, ...args);
+	}
+	/**
+	 * Log a normal message. (Level 3)
+	 * @param  {string}    message  The normal message to log.
+	 * @param  {...string} args Additional arguments to log.
+	 */
+	log(message, ...args) {
+		this.route('log', message, ...args);
+	}
+	/**
+	 * Log a warning message. (Level 2)
+	 * @param  {string}    message  The warning message to log.
+	 * @param  {...string} args Additional arguments to log.
+	 */
+	warn(message, ...args) {
+		this.route('warn', message, ...args);
+	}
+	/**
+	 * Log an error message. (Level 1)
+	 * @param  {string}    message  The error message to log.
+	 * @param  {...string} args Additional arguments to log.
+	 */
+	error(message, ...args) {
+		this.route('error', message, ...args);
+	}
+	/**
+	 * Log a critical error message, if something breaks. (Level 1)
+	 * @param  {string}    message  The critical error message to log.
+	 * @param  {...string} args Additional arguments to log.
+	 */
+	critical(message, ...args) {
+		this.route('critical', message, ...args);
+	}
+	/**
+	 * Log a panic error message if something unexpected happens. (Level 1)
+	 * @param  {string}    message  The panic message to log.
+	 * @param  {...string} args Additional arguments to log.
+	 */
+	panic(message, ...args) {
+		this.route('panic', message, ...args);
+	}
+	/**
+	 * Log a emergency message, for when something needs emergency attention. (Level 1)
+	 * @param  {string}    message  The debug message to log.
+	 * @param  {...string} args Additional arguments to log.
+	 */
+	emergency(message, ...args) {
+		this.route('emergency', message, ...args);
+	}
+	/**
+	 * As console.dir, but defaults to colour (if appropriate) and zero depth.
+	 * @param  {object} object     The Object to print.
+	 * @param  {object} options As console.dir options object.
+	 */
+	dir(object, options = {}) {
+		const {depth = 0, colors = termNG.color.basic} = options;
+		options.depth = depth;
+		options.colors = colors;
+		this._stdout.write(format(inspect(object, options)));
+	}
+	/**
+	 * Pretty prints object, similar to OS X's plutil -p. Defaults to zero depth.
+	 * @param  {object} object   The Object to print.
+	 * @param  {number} depth How many object levels to print.
+	 * @param  {boolean} color Print output in color, if supported.
+	 * @example
+	 * console.pretty(console)
+	 *
+	 * // Outputs:
+	 *	Object: VerbosityMatrix
+	 *	  critical ▸ [Function]
+	 *	  error ▸ [Function ▸ bound ]
+	 *	  warn ▸ [Function ▸ bound ]
+	 *	  log ▸ [Function ▸ bound ]
+	 *	  info ▸ [Function ▸ bound ]
+	 *	  debug ▸ [Function]
+	 *	  canWrite ▸ [Function]
+	 *	  ...
+	 */
+	pretty(object, depth = 0, color = true) {
+		this._stdout.write(format('Content: %s\n', inspect(object, {
+			depth,
+			colors: color && termNG.color.basic,
+		})
+			.slice(0, -1)
+			.replace(/^{/, 'Object\n ')
+			.replace(/^\[/, 'Array\n ')
+			.replace(/^(\w+) {/, '$1')
+			.replace(/(\w+):/g, '$1 ▸')
+			.replace(/,\n/g, '\n'),
+		));
+	}
+	/**
+	 * Helper function for pretty printing a summary of the current 'yargs' options.
+	 *
+	 * Only prints 'long options', `._` as 'arguments' and `$0` as 'self'.
+	 * @param  {object} object The Yargs argv object to print.
+	 * @param  {boolean} color Print output in color, if supported.
+	 * @example
+	 * console.yargs(yargs)
+	 *
+	 * // Outputs:
+	 * Object (yargs):
+	 *   left ▸ 2
+	 *   right ▸ 2
+	 *   mode ▸ 'hard'
+	 *   encoding ▸ 'utf8'
+	 *   ...
+	 *   self ▸ '/usr/local/bin/truwrap'
+	 */
+	yargs(object, color = true) {
+		const parsed = {};
+		for (const key_ of Object.keys(object)) {
+			const value = object[key_];
+			switch (key_) {
+				case '_':
+					if (value.length > 0) {
+						parsed.arguments = value.join(' ');
+					}
+					break
+				case '$0':
+					parsed.self = value;
+					break
+				default:
+					if (key_.length > 1) {
+						parsed[key_] = value;
+					}
+			}
+		}
+		this._stdout.write(format('Options (yargs):\n  %s\n', inspect(parsed, {
+			colors: color && termNG.color.basic,
+		})
+			.slice(2, -1)
+			.replace(/(\w+):/g, '$1 ▸')
+			.replace(/,\n/g, '\n')));
+	}
 }
 
-const metadata = meta(__dirname);
+const metadata = meta(dirname(fileURLToPath(import.meta.url)));
+/**
+ * Create a new Verbosity object.
+ * @param  {object} options Options to pass to the factory.
+ * @return {Verbosity} Verbosity's console object.
+ */
 function createConsole(options) {
-  return new Verbosity(options);
+	return new Verbosity(options)
 }
+/**
+ * Return the modules version metadata.
+ * @function
+ * @param  {number} level Version format required.
+ * @return {string} The version string.
+ */
 const getVersion = level => metadata.version(level);
 
-exports.Verbosity = Verbosity;
-exports.createConsole = createConsole;
-exports.getVersion = getVersion;
+export { Verbosity, createConsole, getVersion };

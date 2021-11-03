@@ -3,12 +3,12 @@ import chalk from 'chalk'
 /**
  * Message routing and formatting matrix.
  * @private
- * @type {Object}
+ * @type {object}
  * @param {Stream} sOut Output stream.
  * @param {Stream} sErr Error stream.
- * @returns {Object} Routing matrix object.
+ * @returns {object} Routing matrix object.
  */
-export default function matrix(sOut, sErr) {
+export default function matrix(sOut, sError) {
 	return {
 		debug: {
 			level: 5,
@@ -16,11 +16,11 @@ export default function matrix(sOut, sErr) {
 			/**
 			 * Format the debug message.
 			 * @private
-			 * @param  {String} pfix Message prefix.
-			 * @param  {String} message  The message body.
-			 * @return {Sring} The formatted mesage.
+			 * @param  {string} pfix Message prefix.
+			 * @param  {string} message  The message body.
+			 * @return {string} The formatted mesage.
 			 */
-			format: (pfix, message) => `${pfix}${chalk.dim(message)}`
+			format: (pfix, message) => `${pfix}${chalk.dim(message)}`,
 		},
 		info: {
 			level: 4,
@@ -28,11 +28,11 @@ export default function matrix(sOut, sErr) {
 			/**
 			 * Format the info message.
 			 * @private
-			 * @param  {String} pfix Message prefix.
-			 * @param  {String} message  The message body.
-			 * @return {Sring} The formatted mesage.
+			 * @param  {string} pfix Message prefix.
+			 * @param  {string} message  The message body.
+			 * @return {string} The formatted mesage.
 			 */
-			format: (pfix, message) => `${pfix}${message}`
+			format: (pfix, message) => `${pfix}${message}`,
 		},
 		log: {
 			level: 3,
@@ -40,71 +40,71 @@ export default function matrix(sOut, sErr) {
 			/**
 			 * Format the log message.
 			 * @private
-			 * @param  {String} pfix Message prefix.
-			 * @param  {String} message  The message body.
-			 * @return {Sring} The formatted mesage.
+			 * @param  {string} pfix Message prefix.
+			 * @param  {string} message  The message body.
+			 * @return {string} The formatted mesage.
 			 */
-			format: (pfix, message) => `${pfix}${message}`
+			format: (pfix, message) => `${pfix}${message}`,
 		},
 		warn: {
 			level: 2,
-			stream: sErr,
+			stream: sError,
 			/**
 			 * Format the warn message.
 			 * @private
-			 * @param  {String} pfix Message prefix.
-			 * @param  {String} message  The message body.
-			 * @return {Sring} The formatted mesage.
+			 * @param  {string} pfix Message prefix.
+			 * @param  {string} message  The message body.
+			 * @return {string} The formatted mesage.
 			 */
-			format: (pfix, message) => `${pfix}${chalk.yellow(message)}`
+			format: (pfix, message) => `${pfix}${chalk.yellow(message)}`,
 		},
 		error: {
 			level: 1,
-			stream: sErr,
+			stream: sError,
 			/**
 			 * Format the error message.
 			 * @private
-			 * @param  {String} pfix Message prefix.
-			 * @param  {String} message  The message body.
-			 * @return {Sring} The formatted mesage.
+			 * @param  {string} pfix Message prefix.
+			 * @param  {string} message  The message body.
+			 * @return {string} The formatted mesage.
 			 */
-			format: (pfix, message) => `${pfix}${chalk.red(`ERROR: ${message}`)}`
+			format: (pfix, message) => `${pfix}${chalk.red(`ERROR: ${message}`)}`,
 		},
 		critical: {
 			level: 0,
-			stream: sErr,
+			stream: sError,
 			/**
 			 * Format the critical message.
 			 * @private
-			 * @param  {String} pfix Message prefix.
-			 * @param  {String} message  The message body.
-			 * @return {Sring} The formatted mesage.
+			 * @param  {string} pfix Message prefix.
+			 * @param  {string} message  The message body.
+			 * @return {string} The formatted mesage.
 			 */
-			format: (pfix, message) => `${pfix}${chalk.bold.red(`CRITICAL: ${message}`)}`
+			format: (pfix, message) => `${pfix}${chalk.bold.red(`CRITICAL: ${message}`)}`,
 		},
 		panic: {
 			level: 0,
-			stream: sErr,
+			stream: sError,
 			/**
 			 * Format the panic message.
 			 * @private
-			 * @param  {String} pfix Message prefix.
-			 * @param  {String} message  The message body.
-			 * @return {Sring} The formatted mesage.
+			 * @param  {string} pfix Message prefix.
+			 * @param  {string} message  The message body.
+			 * @return {string} The formatted mesage.
 			 */
-			format: (pfix, message) => `${pfix}${chalk.bold.red(`PANIC: ${message}`)}`
+			format: (pfix, message) => `${pfix}${chalk.bold.red(`PANIC: ${message}`)}`,
 		},
 		emergency: {
 			level: 0,
-			stream: sErr,
+			stream: sError,
 			/**
 			 * Format the emergency message.
 			 * @private
-			 * @param  {String} pfix Message prefix.
-			 * @param  {String} message  The message body.
-			 * @return {Sring} The formatted mesage.
+			 * @param  {string} pfix Message prefix.
+			 * @param  {string} message  The message body.
+			 * @return {string} The formatted mesage.
 			 */
-			format: (pfix, message) => `${pfix}${chalk.bold.red(`EMERGENCY: ${message}`)}`
-		}
+			format: (pfix, message) => `${pfix}${chalk.bold.red(`EMERGENCY: ${message}`)}`,
+		},
 	}
 }

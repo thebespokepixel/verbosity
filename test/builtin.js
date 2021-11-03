@@ -1,6 +1,6 @@
-import stream from 'stream'
+import stream from 'node:stream'
 import test from 'ava'
-import {createConsole} from '..'
+import {createConsole} from '../index.js'
 
 const StreamProxy = new stream.PassThrough()
 StreamProxy.setEncoding('utf8')
