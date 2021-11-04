@@ -3,15 +3,14 @@
  ╰───────────┴────────────────────────────────────────────────────────────────── */
 /* eslint node/prefer-global/process: [error] */
 
-import util from 'node:util'
+import {format, inspect} from 'node:util'
+import {Console} from 'node:console'
 import termNG from 'term-ng'
 import chalk from 'chalk'
 import sparkles from 'sparkles'
 import {bespokeTimeFormat} from '@thebespokepixel/time'
 import matrix from './matrix.js'
 
-const {format, inspect} = util
-const {Console} = console
 /**
  * Generate a verbosity console
  * @param {object} options                      - Configuration options.

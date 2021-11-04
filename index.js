@@ -1,7 +1,8 @@
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import meta from '@thebespokepixel/meta';
-import util from 'node:util';
+import { format, inspect } from 'node:util';
+import { Console } from 'node:console';
 import termNG from 'term-ng';
 import chalk from 'chalk';
 import sparkles from 'sparkles';
@@ -116,8 +117,6 @@ function matrix(sOut, sError) {
 	}
 }
 
-const {format, inspect} = util;
-const {Console} = console;
 /**
  * Generate a verbosity console
  * @param {object} options                      - Configuration options.
