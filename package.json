@@ -1,6 +1,6 @@
 {
   "name": "verbosity",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Verbose logging features for ttys or any writable stream.",
   "main": "index.js",
   "type": "module",
