@@ -1,6 +1,6 @@
 {
   "name": "verbosity",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Verbose logging features for ttys or any writable stream.",
   "main": "index.js",
   "type": "module",
@@ -39,18 +39,18 @@
   },
   "homepage": "https://github.com/thebespokepixel/verbosity#readme",
   "dependencies": {
-    "@thebespokepixel/meta": "^3.0.4",
-    "@thebespokepixel/time": "^2.0.2",
+    "@thebespokepixel/meta": "^3.0.5",
+    "@thebespokepixel/time": "^2.0.3",
     "chalk": "^4.1.2",
     "sparkles": "^1.0.1",
-    "term-ng": "^3.0.3"
+    "term-ng": "^3.0.4"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
     "ava": "^4.0.0-rc.1",
     "c8": "^7.10.0",
-    "documentation-theme-bespoke": "^2.0.12",
+    "documentation-theme-bespoke": "^2.0.14",
     "read-pkg": "^7.0.0",
     "rollup": "^2.59.0",
     "rollup-plugin-cleanup": "^3.2.1",
